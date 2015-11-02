@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Created by DaoSui on 2015/11/2.
+-->
+<s:VGroup xmlns:fx="http://ns.adobe.com/mxml/2009" xmlns:s="library://ns.adobe.com/flex/spark">
+
+  <fx:Script><![CDATA[
+    import mx.controls.Alert;
+
+    import random.events.DemoDataUrlChangeEvent;
+    import random.valueObject.BuildingVo;
+
+    import spark.events.IndexChangeEvent;
+
+    [Bindable]
+    public var buidingData:BuildingVo;
+
+    private function dropDownList1_changeHandler(event:IndexChangeEvent):void {
+      var jsonFileName:String = demoDataList.getItemAt(event.newIndex).name;
+      var demoDataChangedEvent:DemoDataUrlChangeEvent = new DemoDataUrlChangeEvent("demoDataChange", jsonFileName);
+      dispatchEvent(demoDataChangedEvent);
+    }
+
+    ]]></fx:Script>
+
+  <fx:Metadata>
+    [Event(name="demoDataChange", type="random.events.DemoDataUrlChangeEvent")]
+  </fx:Metadata>
+
+  <fx:Declarations>
+    <s:ArrayList id="demoDataList">
+      <fx:Object name="1_2_2"/>
+      <fx:Object name="5_2_7"/>
+      <fx:Object name="2_L"/>
+    </s:ArrayList>
+  </fx:Declarations>
+
+  <s:HGroup verticalAlign="middle">
+    <s:Label text="Demo"/>
+    <s:DropDownList dataProvider="{demoDataList}" labelField="name" change="dropDownList1_changeHandler(event)"/>
+  </s:HGroup>
+  <s:HGroup verticalAlign="middle">
+    <s:Label text="Unit Number"/>
+    <s:TextInput text="{buidingData.unitNum}" width="30"/>
+  </s:HGroup>
+  <s:HGroup verticalAlign="middle">
+    <s:Label text="Rooms Number Per Unit"/>
+    <s:TextInput text="{buidingData.roomNumPerUnit}" width="30"/>
+  </s:HGroup>
+  <s:HGroup verticalAlign="middle">
+    <s:Label text="Up Floors Number"/>
+    <s:TextInput text="{buidingData.uFloorsNum}" width="30"/>
+  </s:HGroup>
+  <s:HGroup verticalAlign="middle">
+    <s:Label text="Down Floors Number"/>
+    <s:TextInput text="{buidingData.bFloorsNum}" width="30"/>
+  </s:HGroup>
+</s:VGroup>

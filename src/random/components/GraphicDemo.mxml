@@ -1,0 +1,228 @@
+<?xml version="1.0"?>
+<!--
+  Created by DaoSui on 2015/11/2.
+-->
+<s:Group xmlns:fx="http://ns.adobe.com/mxml/2009" xmlns:s="library://ns.adobe.com/flex/spark">
+  <!--1、矩形-->
+  <s:Graphic x="0" y="0">
+    <s:Path data="M 0 0
+                        L 20 0
+                        L 20 100
+                        L 0 100
+                        Z">
+
+      <!-- Define the border color. -->
+      <s:stroke>
+        <s:SolidColorStroke color="0x888888"/>
+      </s:stroke>
+      <s:fill>
+        <s:LinearGradient rotation="90">
+          <s:GradientEntry color="0x000000" alpha="0.8"/>
+          <s:GradientEntry color="0xFFFFFF" alpha="0.8"/>
+        </s:LinearGradient>
+      </s:fill>
+    </s:Path>
+  </s:Graphic>
+
+  <!--2、十字架-->
+  <s:Graphic x="40" y="0">
+    <s:Path data="M 40 0
+                        L 60 0
+                        L 60 100
+                        L 40 100
+                        Z">
+
+      <!-- Define the border color of the arrow. -->
+      <s:stroke>
+        <s:SolidColorStroke color="0x888888"/>
+      </s:stroke>
+
+      <!-- Define the fill for the arrow. -->
+      <s:fill>
+        <s:LinearGradient rotation="90">
+          <s:GradientEntry color="0x000000" alpha="0.8"/>
+          <s:GradientEntry color="0xFFFFFF" alpha="0.8"/>
+        </s:LinearGradient>
+      </s:fill>
+    </s:Path>
+
+    <s:Path data="M 0 40
+                        L 100 40
+                        L 100 60
+                        L 0 60
+                        Z">
+
+      <!-- Define the border color of the arrow. -->
+      <s:stroke>
+        <s:SolidColorStroke color="0x888888"/>
+      </s:stroke>
+
+      <!-- Define the fill for the arrow. -->
+      <s:fill>
+        <s:LinearGradient rotation="90">
+          <s:GradientEntry color="0x000000" alpha="0.8"/>
+          <s:GradientEntry color="0xFFFFFF" alpha="0.8"/>
+        </s:LinearGradient>
+      </s:fill>
+    </s:Path>
+  </s:Graphic>
+
+  <!--3、X形-->
+  <s:Graphic x="160" y="0">
+    <s:Path data="M 4 0
+                            L 30 26
+                            L 26 30
+                            L 0 4
+                            Z">
+      <s:stroke>
+        <s:SolidColorStroke color="black"/>
+      </s:stroke>
+      <s:fill>
+        <s:LinearGradient rotation="90">
+          <s:GradientEntry color="black"/>
+        </s:LinearGradient>
+      </s:fill>
+    </s:Path>
+
+    <s:Path data="M 26 0
+                        L 30 4
+                        L 4 30
+                        L 0 26
+                        Z">
+      <s:stroke>
+        <s:SolidColorStroke color="black"/>
+      </s:stroke>
+      <s:fill>
+        <s:LinearGradient rotation="90">
+          <s:GradientEntry color="black"/>
+        </s:LinearGradient>
+      </s:fill>
+    </s:Path>
+  </s:Graphic>
+
+  <!--4、X形-->
+  <s:Graphic x="200" y="0">
+    <s:Path data="M 4 0
+                        L 15 11
+                        L 26 0
+                        L 30 4
+                        L 19 15
+                        L 30 26
+                        L 26 30
+                        L 15 19
+                        L 4 30
+                        L 0 24
+                        L 11 15
+                        L 0 4
+                        Z">
+      <!-- Define the border color. -->
+      <s:stroke>
+        <s:SolidColorStroke color="black"/>
+      </s:stroke>
+      <s:fill>
+        <s:LinearGradient rotation="90">
+          <s:GradientEntry color="0x000000" alpha="0.8"/>
+          <s:GradientEntry color="0xFFFFFF" alpha="0.8"/>
+        </s:LinearGradient>
+      </s:fill>
+    </s:Path>
+  </s:Graphic>
+
+  <!--5、箭头-->
+  <s:Graphic x="240" y="0">
+    <s:Path data="M 15 0
+                        L 30 15
+                        L 20 15
+                        L 20 30
+                        L 10 30
+                        L 10 15
+                        L 0 15
+                        Z">
+      <!-- Define the border color. -->
+      <s:stroke>
+        <s:SolidColorStroke color="black"/>
+      </s:stroke>
+      <s:fill>
+        <s:LinearGradient rotation="90">
+          <s:GradientEntry color="0x000000" alpha="0.8"/>
+          <s:GradientEntry color="0xFFFFFF" alpha="0.8"/>
+        </s:LinearGradient>
+      </s:fill>
+    </s:Path>
+  </s:Graphic>
+
+  <!--6、X小型-->
+  <s:Graphic x="280" y="0">
+    <s:Path left="4.5" top="5.5" right="4.5" bottom="5.5" data="M 0 0
+                        L 10 10
+                        M 10 0
+                        L 0 10">
+      <s:stroke>
+        <s:SolidColorStroke color="black" weight="2"/>
+      </s:stroke>
+      <s:fill>
+        <s:LinearGradient rotation="90">
+          <s:GradientEntry color="0x000000" alpha="0.8"/>
+          <s:GradientEntry color="0xFFFFFF" alpha="0.8"/>
+        </s:LinearGradient>
+      </s:fill>
+    </s:Path>
+  </s:Graphic>
+
+  <!--7、箭头小型-->
+  <s:Graphic x="310" y="0">
+    <s:Path left="4.5" top="5.5" right="4.5" bottom="5.5" data="M 5 0
+                        L 10 5
+                        L 7 5
+                        L 7 10
+                        L 3 10
+                        L 3 5
+                        L 0 5
+                        Z">
+      <s:stroke>
+        <s:SolidColorStroke color="black"/>
+      </s:stroke>
+      <s:fill>
+        <s:LinearGradient rotation="90">
+          <s:GradientEntry color="0x000000" alpha="0.8"/>
+          <s:GradientEntry color="0xFFFFFF" alpha="0.8"/>
+        </s:LinearGradient>
+      </s:fill>
+    </s:Path>
+  </s:Graphic>
+
+  <!--8、弯曲图形-->
+  <s:Graphic x="0" y="120">
+    <s:Path data="M 0 100
+                        Q 100 0 200 100">
+      <s:stroke>
+        <s:SolidColorStroke color="0x888888"/>
+      </s:stroke>
+      <s:fill>
+        <s:LinearGradient rotation="90">
+          <s:GradientEntry color="0x000000" alpha="0.8"/>
+          <s:GradientEntry color="0xFFFFFF" alpha="0.8"/>
+        </s:LinearGradient>
+      </s:fill>
+    </s:Path>
+  </s:Graphic>
+
+  <!--9、弯曲图形-->
+  <s:Graphic x="250" y="120">
+    <s:Path data="M 0 100
+                        C 50 50 150 50 200 100
+                        L 180 100
+                        C 130 50 70 50 20 100
+                        L 0 100">
+      <s:stroke>
+        <s:SolidColorStroke color="0x888888"/>
+      </s:stroke>
+      <s:fill>
+        <s:LinearGradient rotation="90">
+          <s:GradientEntry color="0x000000" alpha="0.8"/>
+          <s:GradientEntry color="0xFFFFFF" alpha="0.8"/>
+        </s:LinearGradient>
+      </s:fill>
+    </s:Path>
+  </s:Graphic>
+</s:Group>

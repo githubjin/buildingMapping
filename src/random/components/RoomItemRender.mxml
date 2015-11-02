@@ -1,0 +1,54 @@
+<?xml version="1.0"?>
+<!--
+  Created by DaoSui on 2015/11/2.
+-->
+<s:ItemRenderer xmlns:fx="http://ns.adobe.com/mxml/2009" xmlns:s="library://ns.adobe.com/flex/spark"
+        autoDrawBackground="false" autoLayout="true" render="draw()">
+
+  <fx:Script><![CDATA[
+      import mx.collections.ArrayList;
+      import mx.controls.Alert;
+
+      import random.valueObject.CoordinateVo;
+
+    private function clickHandler(e:Event):void{
+        var g:HGroup = e.target as HGroup;
+        Alert.show(data.id);
+    }
+
+      private function draw():void{
+          var coordinates:ArrayList = data.coordinates as ArrayList;
+          var s:HGroup  = this.getChildByName("vd") as HGroup;
+          s.graphics.clear();
+          s.graphics.lineStyle(3, 0Xff0000);
+          s.graphics.beginFill(0X0000ff, 1);
+          for(var i:uint=0;i<coordinates.length;i++){
+              var c:CoordinateVo = coordinates.getItemAt(i) as CoordinateVo;
+              if(i == 0){
+                  s.graphics.moveTo(c.x,c.y)
+              }else{
+                  s.graphics.lineTo(c.x,c.y);
+              }
+          }
+          s.graphics.endFill();
+      }
+
+    ]]></fx:Script>
+ <!-- <s:Graphic click="clickHandler(event)" name="g_room">
+    <s:Path data="{data.pathData}">
+      &lt;!&ndash; Define the border color. &ndash;&gt;
+      <s:stroke>
+        <s:SolidColorStroke color="0x888888"/>
+      </s:stroke>
+      <s:fill>
+        <s:LinearGradient rotation="90">
+          <s:GradientEntry color="0x000000" alpha="0.8"/>
+          <s:GradientEntry color="0xFFFFFF" alpha="0.8"/>
+        </s:LinearGradient>
+      </s:fill>
+    </s:Path>
+  </s:Graphic>-->
+    <s:HGroup name="vd" width="100%" height="100%" click="clickHandler(event)">
+
+    </s:HGroup>
+</s:ItemRenderer>
