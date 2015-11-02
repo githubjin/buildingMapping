@@ -3,22 +3,24 @@
   Created by DaoSui on 2015/11/2.
 -->
 <s:ItemRenderer xmlns:fx="http://ns.adobe.com/mxml/2009" xmlns:s="library://ns.adobe.com/flex/spark"
-        autoDrawBackground="false" autoLayout="true" render="draw()">
+        autoDrawBackground="true" render="draw()">
 
   <fx:Script><![CDATA[
       import mx.collections.ArrayList;
       import mx.controls.Alert;
 
+      import random.utils.Constants;
+
       import random.valueObject.CoordinateVo;
 
     private function clickHandler(e:Event):void{
-        var g:HGroup = e.target as HGroup;
-        Alert.show(data.id);
+        var g:Group = e.target as Group;
+        Alert.show(data.id + "-"+data.x + "-"+data.y);
     }
 
       private function draw():void{
           var coordinates:ArrayList = data.coordinates as ArrayList;
-          var s:HGroup  = this.getChildByName("vd") as HGroup;
+          var s:Group  = this.getChildByName("vd") as Group;
           s.graphics.clear();
           s.graphics.lineStyle(3, 0Xff0000);
           s.graphics.beginFill(0X0000ff, 1);
@@ -48,7 +50,9 @@
       </s:fill>
     </s:Path>
   </s:Graphic>-->
-    <s:HGroup name="vd" width="100%" height="100%" click="clickHandler(event)">
-
-    </s:HGroup>
+    <s:Group name="vd" width="100%" height="100%" click="clickHandler(event)">
+        <s:Label text="{data.name}-{data.x}-{data.y}" x="{data.x + 5}" y="{data.y + Constants.UNIT_LENGTH/2}"/>
+        <s:Image cachePolicy="on" source="http://download.easyicon.net/png/1185174/16/" x="{data.x + 3}" y="{data.y + Constants.UNIT_LENGTH/4*3}" toolTip="军人"/>
+        <s:Image cachePolicy="on" source="http://download.easyicon.net/png/1151818/16/" x="{data.x + 3 + 20}" y="{data.y + Constants.UNIT_LENGTH/4*3}" toolTip="老师"/>
+    </s:Group>
 </s:ItemRenderer>

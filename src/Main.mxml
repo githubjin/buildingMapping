@@ -10,6 +10,7 @@
 
         import random.events.DemoDataUrlChangeEvent;
         import random.events.GenerateStartEvent;
+        import random.utils.Constants;
         import random.utils.GeneratorUtil;
         import random.utils.vo.Building;
 
@@ -53,23 +54,25 @@
         <s:HTTPService id="dataService" url="{jsonPath}" showBusyCursor="true" method="GET" result="onLoaderComplete(event)" fault="onLoaderFault(event)"/>
         <!--<s:ArrayList id="roomList" source="{buidingData.rooms.toArray()}"/>-->
     </fx:Declarations>
-
-    <s:HGroup width="100%" height="100%" verticalAlign="middle" horizontalAlign="center" paddingBottom="3" paddingLeft="3" paddingRight="3">
-        <s:Panel title="Building Info" height="100%" width="15%">
-            <mx:Accordion width="100%" height="100%">
-                <s:NavigatorContent label="Generate">
-                    <mm:GeneratorComponent width="100%" height="100%" padding="5" generateStartEvent="generatorComponent1_generateStartEventHandler(event)"/>
-                </s:NavigatorContent>
-                <s:NavigatorContent label="Load Data From Services">
-                    <mm:LoadDataConponents width="100%" height="100%" padding="5" buidingData="{buidingData}"
-                                           demoDataChange="loadDataConponents1_demoDataChangeHandler(event)"/>
-                </s:NavigatorContent>
-            </mx:Accordion>
-        </s:Panel>
-        <s:Panel id="buildingPanel" minHeight="600" minWidth="955" height="100%" width="85%" title="Building Id: {buidingData.id} -- Name: {buidingData.name}">
-            <s:Scroller left="10" top="10" right="10" bottom="10" >
-                <s:DataGroup dataProvider="{buidingData.rooms}" id="buildingGroup" itemRenderer="random.components.RoomItemRender" width="100%" height="100%"/>
-            </s:Scroller>
-        </s:Panel>
-    </s:HGroup>
+    <s:Scroller width="100%" height="100%">
+        <s:HGroup width="100%" height="100%" verticalAlign="middle" horizontalAlign="center" paddingBottom="3" paddingLeft="3" paddingRight="3">
+            <s:Panel title="Building Info" width="15%" top="3">
+                <mx:Accordion width="100%" height="100%">
+                    <s:NavigatorContent label="Generate">
+                        <mm:GeneratorComponent width="100%" height="100%" padding="5" generateStartEvent="generatorComponent1_generateStartEventHandler(event)"/>
+                    </s:NavigatorContent>
+                    <s:NavigatorContent label="Load Data From Services">
+                        <mm:LoadDataConponents width="100%" height="100%" padding="5" buidingData="{buidingData}"
+                                               demoDataChange="loadDataConponents1_demoDataChangeHandler(event)"/>
+                    </s:NavigatorContent>
+                </mx:Accordion>
+            </s:Panel>
+            <s:Panel id="buildingPanel" minHeight="600" minWidth="955" height="{(buidingData.bFloorsNum + buidingData.uFloorsNum) * Constants.UNIT_LENGTH + 100}"
+                     width="85%" title="Building Id: {buidingData.id} -- Name: {buidingData.name}">
+                <s:Scroller left="10" top="10" right="10" bottom="10">
+                    <s:DataGroup dataProvider="{buidingData.rooms}" id="buildingGroup" itemRenderer="random.components.RoomItemRender" width="100%" height="100%"/>
+                </s:Scroller>
+            </s:Panel>
+        </s:HGroup>
+    </s:Scroller>
 </s:Application>
