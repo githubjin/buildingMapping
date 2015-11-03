@@ -54,6 +54,10 @@
             Alert.show(JSON.stringify(building));
         }
 
+        /**
+         *  鼠标按下开始记录选中房间
+         * @param event
+         */
         private function buildingGroup_customMouseDownEventTypeHandler(event:CustomMouseDownEvent):void {
 
         }

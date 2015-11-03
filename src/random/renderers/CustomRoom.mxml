@@ -19,8 +19,6 @@
 
     import spark.components.Group;
 
-    import spark.components.Group;
-
     private function clickHandler(e:Event):void {
       var g:Group = e.target as Group;
       Alert.show(data.id + "-" + data.x + "-" + data.y);

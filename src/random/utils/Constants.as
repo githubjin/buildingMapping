@@ -13,9 +13,9 @@ public class Constants {
     public static var TAG_IMAGES_URL:String = SERVER_URL + "resources/images/";
     public static var TAG_IMAGE_SUFFIX:String = ".png";
 
-    public static var CUSTOM_MOUSE_DOWM_EVENT_TYPE = "customMouseDownEventType";
-    public static var CUSTOM_MOUSE_MOVE_EVENT_TYPE = "customMouseMoveEventType";
-    public static var CUSTOM_MOUSE_UP_EVENT_TYPE = "customMouseUpEventType";
+    public static var CUSTOM_MOUSE_DOWM_EVENT_TYPE: String = "customMouseDownEventType";
+    public static var CUSTOM_MOUSE_MOVE_EVENT_TYPE: String = "customMouseMoveEventType";
+    public static var CUSTOM_MOUSE_UP_EVENT_TYPE: String = "customMouseUpEventType";
 
 }
 }
