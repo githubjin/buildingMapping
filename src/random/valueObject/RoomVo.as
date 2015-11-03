@@ -26,6 +26,8 @@ public class RoomVo {
     private var _y:uint;
     private var _pathData:String;
 
+    private var _tagImgs:ArrayList = new ArrayList();
+
 
     public function RoomVo(id:String, name:String, description:String) {
         this._id = id;
@@ -80,5 +82,12 @@ public class RoomVo {
     }
 
 
+    public function get tagImgs():ArrayList {
+        return _tagImgs;
+    }
+
+    public function set tagImgs(value:ArrayList):void {
+        _tagImgs = value;
+    }
 }
 }

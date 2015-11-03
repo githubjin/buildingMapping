@@ -1,0 +1,98 @@
+<?xml version="1.0"?>
+<!--
+  Created by Yo on 2015/11/3.
+-->
+<renderers:RoomDetailRenderer xmlns:fx="http://ns.adobe.com/mxml/2009" xmlns:renderers="random.renderers.*"
+                              xmlns:s="library://ns.adobe.com/flex/spark"
+                              autoDrawBackground="false" render="draw(event)" creationComplete="creationCompleteHandler(event)">
+
+  <fx:Script><![CDATA[
+    import mx.collections.ArrayList;
+    import mx.controls.Alert;
+    import mx.events.FlexEvent;
+
+    import random.events.CustomMouseDownEvent;
+
+    import random.utils.Constants;
+
+    import random.valueObject.CoordinateVo;
+
+    import spark.components.Group;
+
+    import spark.components.Group;
+
+    private function clickHandler(e:Event):void {
+      var g:Group = e.target as Group;
+      Alert.show(data.id + "-" + data.x + "-" + data.y);
+    }
+
+    private function draw(event:Event):void {
+      var coordinates:ArrayList = data.coordinates as ArrayList;
+      var s:Group = this.getChildByName("vd") as Group;
+      s.graphics.clear();
+      s.graphics.lineStyle(1, 0x000000);
+      s.graphics.beginFill(0xffffff, 3);
+      for (var i:uint = 0; i < coordinates.length; i++) {
+        var c:CoordinateVo = coordinates.getItemAt(i) as CoordinateVo;
+        if (i == 0) {
+          s.graphics.moveTo(c.x, c.y)
+        } else {
+          s.graphics.lineTo(c.x, c.y);
+        }
+      }
+      s.graphics.endFill();
+    }
+
+    private function group1_mouseMoveHandler(event:MouseEvent):void {
+      var g:Group = event.currentTarget as Group;
+      Alert.show(g.id);
+    }
+
+    private function group1_mouseDownHandler(event:MouseEvent):void {
+      var customeMouseDownEvent: CustomMouseDownEvent = new CustomMouseDownEvent(Constants.CUSTOM_MOUSE_DOWM_EVENT_TYPE,true,true,
+              (event.currentTarget as Group), data);
+      dispatchEvent(customeMouseDownEvent);
+    }
+
+    private function creationCompleteHandler(event:FlexEvent):void {
+      var gr:Group = this.getChildByName("vd") as Group;
+      gr.id = data.id;
+    }
+    ]]></fx:Script>
+<!--   <s:Graphic click="clickHandler(event)" name="g_room">
+     <s:Path data="{data.pathData}">
+       &lt;!&ndash; Define the border color. &ndash;&gt;
+       <s:stroke>
+         <s:SolidColorStroke color="0x888888"/>
+       </s:stroke>
+       <s:fill>
+         <s:LinearGradient rotation="90">
+           <s:GradientEntry color="0x6bd8ff" alpha="0.8"/>
+           <s:GradientEntry color="0x1f72ff" alpha="0.8"/>
+         </s:LinearGradient>
+       </s:fill>
+     </s:Path>
+   </s:Graphic>-->
+
+  <s:Group name="vd" width="100%" height="100%" click="clickHandler(event)" mouseMove="group1_mouseMoveHandler(event)" mouseDown="group1_mouseDownHandler(event)">
+    <s:layout>
+      <s:ConstraintLayout/>
+    </s:layout>
+    <s:VGroup x="{data.x + 5}" y="{data.y + Constants.UNIT_LENGTH/2}">
+      <s:Label text="{data.name}-{data.x}-{data.y}"/>
+      <s:DataGroup id="tagsGroup" dataProvider="{data.tagImgs}">
+        <s:layout>
+          <s:TileLayout/>
+        </s:layout>
+        <s:itemRenderer>
+          <fx:Component>
+            <s:ItemRenderer dataChange="_tagImg.source = data.src">
+              <s:Image id="_tagImg" contentLoaderGrouping="gr1" contentLoader="{data.cache}"/>
+            </s:ItemRenderer>
+          </fx:Component>
+        </s:itemRenderer>
+      </s:DataGroup>
+    </s:VGroup>
+  </s:Group>
+
+</renderers:RoomDetailRenderer>

@@ -30,7 +30,8 @@
         "y": 6
       }],
     "description": "101",
-    "unitId": ""
+    "unitId": "",
+    "tags":["soldier","teacher"]
   },
     {
       "name": "102",
@@ -57,7 +58,8 @@
           "y": 6
         }],
       "description": "102",
-      "unitId": ""
+      "unitId": "",
+      "tags":["soldier","teacher"]
     },
     {
       "name": "101",
@@ -84,7 +86,8 @@
           "y": 6
         }],
       "description": "101",
-      "unitId": ""
+      "unitId": "",
+      "tags":["soldier","teacher"]
     },
     {
       "name": "102",
@@ -111,7 +114,8 @@
           "y": 6
         }],
       "description": "102",
-      "unitId": ""
+      "unitId": "",
+      "tags":["soldier","teacher"]
     },
     {
       "name": "101",
@@ -138,7 +142,8 @@
           "y": 6
         }],
       "description": "101",
-      "unitId": ""
+      "unitId": "",
+      "tags":["soldier","teacher"]
     },
     {
       "name": "102",
@@ -165,7 +170,8 @@
           "y": 6
         }],
       "description": "102",
-      "unitId": ""
+      "unitId": "",
+      "tags":["soldier","teacher"]
     },
     {
       "name": "101",
@@ -192,7 +198,8 @@
           "y": 6
         }],
       "description": "101",
-      "unitId": ""
+      "unitId": "",
+      "tags":["soldier","teacher"]
     },
     {
       "name": "102",
@@ -219,7 +226,8 @@
           "y": 6
         }],
       "description": "102",
-      "unitId": ""
+      "unitId": "",
+      "tags":["soldier","teacher"]
     },
     {
       "name": "101",
@@ -246,7 +254,8 @@
           "y": 6
         }],
       "description": "101",
-      "unitId": ""
+      "unitId": "",
+      "tags":["soldier","teacher"]
     },
     {
       "name": "102",
@@ -273,7 +282,8 @@
           "y": 6
         }],
       "description": "102",
-      "unitId": ""
+      "unitId": "",
+      "tags":["soldier","teacher"]
     },
     {
       "name": "201",
@@ -300,7 +310,8 @@
           "y": 5
         }],
       "description": "201",
-      "unitId": ""
+      "unitId": "",
+      "tags":["soldier","teacher"]
     },
     {
       "name": "202",
@@ -327,7 +338,8 @@
           "y": 5
         }],
       "description": "202",
-      "unitId": ""
+      "unitId": "",
+      "tags":["soldier","teacher"]
     },
     {
       "name": "201",
@@ -354,7 +366,8 @@
           "y": 5
         }],
       "description": "201",
-      "unitId": ""
+      "unitId": "",
+      "tags":["soldier","teacher"]
     },
     {
       "name": "202",
@@ -381,7 +394,8 @@
           "y": 5
         }],
       "description": "202",
-      "unitId": ""
+      "unitId": "",
+      "tags":["soldier","teacher"]
     },
     {
       "name": "201",
@@ -408,7 +422,8 @@
           "y": 5
         }],
       "description": "201",
-      "unitId": ""
+      "unitId": "",
+      "tags":["soldier","teacher"]
     },
     {
       "name": "202",
@@ -435,7 +450,8 @@
           "y": 5
         }],
       "description": "202",
-      "unitId": ""
+      "unitId": "",
+      "tags":["soldier","teacher"]
     },
     {
       "name": "201",
@@ -462,7 +478,8 @@
           "y": 5
         }],
       "description": "201",
-      "unitId": ""
+      "unitId": "",
+      "tags":["soldier","teacher"]
     },
     {
       "name": "202",
@@ -489,7 +506,8 @@
           "y": 5
         }],
       "description": "202",
-      "unitId": ""
+      "unitId": "",
+      "tags":["soldier","teacher"]
     },
     {
       "name": "201",
@@ -516,7 +534,8 @@
           "y": 5
         }],
       "description": "201",
-      "unitId": ""
+      "unitId": "",
+      "tags":["soldier","teacher"]
     },
     {
       "name": "202",
@@ -543,7 +562,8 @@
           "y": 5
         }],
       "description": "202",
-      "unitId": ""
+      "unitId": "",
+      "tags":["soldier","teacher"]
     },
     {
       "name": "301",
@@ -570,7 +590,8 @@
           "y": 4
         }],
       "description": "301",
-      "unitId": ""
+      "unitId": "",
+      "tags":["soldier","teacher"]
     },
     {
       "name": "302",
@@ -597,7 +618,8 @@
           "y": 4
         }],
       "description": "302",
-      "unitId": ""
+      "unitId": "",
+      "tags":["soldier","teacher"]
     },
     {
       "name": "301",
@@ -624,7 +646,8 @@
           "y": 4
         }],
       "description": "301",
-      "unitId": ""
+      "unitId": "",
+      "tags":["soldier","teacher"]
     },
     {
       "name": "302",
@@ -651,7 +674,8 @@
           "y": 4
         }],
       "description": "302",
-      "unitId": ""
+      "unitId": "",
+      "tags":["soldier","teacher"]
     },
     {
       "name": "301",
@@ -678,7 +702,8 @@
           "y": 4
         }],
       "description": "301",
-      "unitId": ""
+      "unitId": "",
+      "tags":["soldier","teacher"]
     },
     {
       "name": "302",
@@ -705,7 +730,8 @@
           "y": 4
         }],
       "description": "302",
-      "unitId": ""
+      "unitId": "",
+      "tags":["soldier","teacher"]
     },
     {
       "name": "301",
@@ -732,7 +758,8 @@
           "y": 4
         }],
       "description": "301",
-      "unitId": ""
+      "unitId": "",
+      "tags":["soldier","teacher"]
     },
     {
       "name": "302",
@@ -759,7 +786,8 @@
           "y": 4
         }],
       "description": "302",
-      "unitId": ""
+      "unitId": "",
+      "tags":["soldier","teacher"]
     },
     {
       "name": "301",
@@ -786,7 +814,8 @@
           "y": 4
         }],
       "description": "301",
-      "unitId": ""
+      "unitId": "",
+      "tags":["soldier","teacher"]
     },
     {
       "name": "302",
@@ -813,7 +842,8 @@
           "y": 4
         }],
       "description": "302",
-      "unitId": ""
+      "unitId": "",
+      "tags":["soldier","teacher"]
     },
     {
       "name": "401",
@@ -840,7 +870,8 @@
           "y": 3
         }],
       "description": "401",
-      "unitId": ""
+      "unitId": "",
+      "tags":["soldier","teacher"]
     },
     {
       "name": "402",
@@ -867,7 +898,8 @@
           "y": 3
         }],
       "description": "402",
-      "unitId": ""
+      "unitId": "",
+      "tags":["soldier","teacher"]
     },
     {
       "name": "401",
@@ -894,7 +926,8 @@
           "y": 3
         }],
       "description": "401",
-      "unitId": ""
+      "unitId": "",
+      "tags":["soldier","teacher"]
     },
     {
       "name": "402",
@@ -921,7 +954,8 @@
           "y": 3
         }],
       "description": "402",
-      "unitId": ""
+      "unitId": "",
+      "tags":["soldier","teacher"]
     },
     {
       "name": "401",
@@ -948,7 +982,8 @@
           "y": 3
         }],
       "description": "401",
-      "unitId": ""
+      "unitId": "",
+      "tags":["soldier","teacher"]
     },
     {
       "name": "402",
@@ -975,7 +1010,8 @@
           "y": 3
         }],
       "description": "402",
-      "unitId": ""
+      "unitId": "",
+      "tags":["soldier","teacher"]
     },
     {
       "name": "401",
@@ -1002,7 +1038,8 @@
           "y": 3
         }],
       "description": "401",
-      "unitId": ""
+      "unitId": "",
+      "tags":["soldier","teacher"]
     },
     {
       "name": "402",
@@ -1029,7 +1066,8 @@
           "y": 3
         }],
       "description": "402",
-      "unitId": ""
+      "unitId": "",
+      "tags":["soldier","teacher"]
     },
     {
       "name": "401",
@@ -1056,7 +1094,8 @@
           "y": 3
         }],
       "description": "401",
-      "unitId": ""
+      "unitId": "",
+      "tags":["soldier","teacher"]
     },
     {
       "name": "402",
@@ -1083,7 +1122,8 @@
           "y": 3
         }],
       "description": "402",
-      "unitId": ""
+      "unitId": "",
+      "tags":["soldier","teacher"]
     },
     {
       "name": "501",
@@ -1110,7 +1150,8 @@
           "y": 2
         }],
       "description": "501",
-      "unitId": ""
+      "unitId": "",
+      "tags":["soldier","teacher"]
     },
     {
       "name": "502",
@@ -1137,7 +1178,8 @@
           "y": 2
         }],
       "description": "502",
-      "unitId": ""
+      "unitId": "",
+      "tags":["soldier","teacher"]
     },
     {
       "name": "501",
@@ -1164,7 +1206,8 @@
           "y": 2
         }],
       "description": "501",
-      "unitId": ""
+      "unitId": "",
+      "tags":["soldier","teacher"]
     },
     {
       "name": "502",
@@ -1191,7 +1234,8 @@
           "y": 2
         }],
       "description": "502",
-      "unitId": ""
+      "unitId": "",
+      "tags":["soldier","teacher"]
     },
     {
       "name": "501",
@@ -1218,7 +1262,8 @@
           "y": 2
         }],
       "description": "501",
-      "unitId": ""
+      "unitId": "",
+      "tags":["soldier","teacher"]
     },
     {
       "name": "502",
@@ -1245,7 +1290,8 @@
           "y": 2
         }],
       "description": "502",
-      "unitId": ""
+      "unitId": "",
+      "tags":["soldier","teacher"]
     },
     {
       "name": "501",
@@ -1272,7 +1318,8 @@
           "y": 2
         }],
       "description": "501",
-      "unitId": ""
+      "unitId": "",
+      "tags":["soldier","teacher"]
     },
     {
       "name": "502",
@@ -1299,7 +1346,8 @@
           "y": 2
         }],
       "description": "502",
-      "unitId": ""
+      "unitId": "",
+      "tags":["soldier","teacher"]
     },
     {
       "name": "501",
@@ -1326,7 +1374,8 @@
           "y": 2
         }],
       "description": "501",
-      "unitId": ""
+      "unitId": "",
+      "tags":["soldier","teacher"]
     },
     {
       "name": "502",
@@ -1353,7 +1402,8 @@
           "y": 2
         }],
       "description": "502",
-      "unitId": ""
+      "unitId": "",
+      "tags":["soldier","teacher"]
     },
     {
       "name": "601",
@@ -1380,7 +1430,8 @@
           "y": 1
         }],
       "description": "601",
-      "unitId": ""
+      "unitId": "",
+      "tags":["soldier","teacher"]
     },
     {
       "name": "602",
@@ -1407,7 +1458,8 @@
           "y": 1
         }],
       "description": "602",
-      "unitId": ""
+      "unitId": "",
+      "tags":["soldier","teacher"]
     },
     {
       "name": "601",
@@ -1434,7 +1486,8 @@
           "y": 1
         }],
       "description": "601",
-      "unitId": ""
+      "unitId": "",
+      "tags":["soldier","teacher"]
     },
     {
       "name": "602",
@@ -1461,7 +1514,8 @@
           "y": 1
         }],
       "description": "602",
-      "unitId": ""
+      "unitId": "",
+      "tags":["soldier","teacher"]
     },
     {
       "name": "601",
@@ -1488,7 +1542,8 @@
           "y": 1
         }],
       "description": "601",
-      "unitId": ""
+      "unitId": "",
+      "tags":["soldier","teacher"]
     },
     {
       "name": "602",
@@ -1515,7 +1570,8 @@
           "y": 1
         }],
       "description": "602",
-      "unitId": ""
+      "unitId": "",
+      "tags":["soldier","teacher"]
     },
     {
       "name": "601",
@@ -1542,7 +1598,8 @@
           "y": 1
         }],
       "description": "601",
-      "unitId": ""
+      "unitId": "",
+      "tags":["soldier","teacher"]
     },
     {
       "name": "602",
@@ -1569,7 +1626,8 @@
           "y": 1
         }],
       "description": "602",
-      "unitId": ""
+      "unitId": "",
+      "tags":["soldier","teacher"]
     },
     {
       "name": "601",
@@ -1596,7 +1654,8 @@
           "y": 1
         }],
       "description": "601",
-      "unitId": ""
+      "unitId": "",
+      "tags":["soldier","teacher"]
     },
     {
       "name": "602",
@@ -1623,7 +1682,8 @@
           "y": 1
         }],
       "description": "602",
-      "unitId": ""
+      "unitId": "",
+      "tags":["soldier","teacher"]
     },
     {
       "name": "701",
@@ -1650,7 +1710,8 @@
           "y": 0
         }],
       "description": "701",
-      "unitId": ""
+      "unitId": "",
+      "tags":["soldier","teacher"]
     },
     {
       "name": "702",
@@ -1677,7 +1738,8 @@
           "y": 0
         }],
       "description": "702",
-      "unitId": ""
+      "unitId": "",
+      "tags":["soldier","teacher"]
     },
     {
       "name": "701",
@@ -1704,7 +1766,8 @@
           "y": 0
         }],
       "description": "701",
-      "unitId": ""
+      "unitId": "",
+      "tags":["soldier","teacher"]
     },
     {
       "name": "702",
@@ -1731,7 +1794,8 @@
           "y": 0
         }],
       "description": "702",
-      "unitId": ""
+      "unitId": "",
+      "tags":["soldier","teacher"]
     },
     {
       "name": "701",
@@ -1758,7 +1822,8 @@
           "y": 0
         }],
       "description": "701",
-      "unitId": ""
+      "unitId": "",
+      "tags":["soldier","teacher"]
     },
     {
       "name": "702",
@@ -1785,7 +1850,8 @@
           "y": 0
         }],
       "description": "702",
-      "unitId": ""
+      "unitId": "",
+      "tags":["soldier","teacher"]
     },
     {
       "name": "701",
@@ -1812,7 +1878,8 @@
           "y": 0
         }],
       "description": "701",
-      "unitId": ""
+      "unitId": "",
+      "tags":["soldier","teacher"]
     },
     {
       "name": "702",
@@ -1839,7 +1906,8 @@
           "y": 0
         }],
       "description": "702",
-      "unitId": ""
+      "unitId": "",
+      "tags":["soldier","teacher"]
     },
     {
       "name": "701",
@@ -1866,7 +1934,8 @@
           "y": 0
         }],
       "description": "701",
-      "unitId": ""
+      "unitId": "",
+      "tags":["soldier","teacher"]
     },
     {
       "name": "702",
@@ -1893,6 +1962,7 @@
           "y": 0
         }],
       "description": "702",
-      "unitId": ""
+      "unitId": "",
+      "tags":["soldier","teacher"]
     }]
 }

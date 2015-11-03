@@ -4,9 +4,13 @@
     <fx:Script><![CDATA[
         import flash.display.DisplayObject;
 
+        import mx.collections.ArrayList;
+
         import mx.controls.Alert;
         import mx.rpc.events.FaultEvent;
         import mx.rpc.events.ResultEvent;
+
+        import random.events.CustomMouseDownEvent;
 
         import random.events.DemoDataUrlChangeEvent;
         import random.events.GenerateStartEvent;
@@ -27,12 +31,13 @@
             if (jsonPath) {
                 dataService.send();
             }
+            buildingGroup.addEventListener(Constants.CUSTOM_MOUSE_DOWM_EVENT_TYPE, buildingGroup_customMouseDownEventTypeHandler);
         }
 
         private function onLoaderComplete(e:ResultEvent):void {
             var jsonData:Object = JSON.parse(e.result.toString());
 //            Alert.show(JSON.stringify(jsonData));
-            buidingData = new BuildingVo(jsonData);
+            buidingData = new BuildingVo(jsonData, imgCache);
         }
 
         private function onLoaderFault(e:FaultEvent):void {
@@ -40,7 +45,7 @@
         }
 
         private function loadDataConponents1_demoDataChangeHandler(event:DemoDataUrlChangeEvent):void {
-            jsonPath = "http://localhost:8080/bm/resources/" + event.dataName + ".json";
+            jsonPath = Constants.SERVER_URL + "resources/" + event.dataName + ".json?r=" + Math.random();
             dataService.send();
         }
 
@@ -48,11 +53,16 @@
             var building:Building = GeneratorUtil.generateBuilding(event);
             Alert.show(JSON.stringify(building));
         }
+
+        private function buildingGroup_customMouseDownEventTypeHandler(event:CustomMouseDownEvent):void {
+
+        }
         ]]></fx:Script>
 
     <fx:Declarations>
         <s:HTTPService id="dataService" url="{jsonPath}" showBusyCursor="true" method="GET" result="onLoaderComplete(event)" fault="onLoaderFault(event)"/>
         <!--<s:ArrayList id="roomList" source="{buidingData.rooms.toArray()}"/>-->
+        <s:ContentCache id="imgCache" enableQueueing="true" maxActiveRequests="1" maxCacheEntries="10"/>
     </fx:Declarations>
     <s:Scroller width="100%" height="100%">
         <s:HGroup width="100%" height="100%" verticalAlign="middle" horizontalAlign="center" paddingBottom="3" paddingLeft="3" paddingRight="3">
@@ -62,7 +72,7 @@
                         <mm:GeneratorComponent width="100%" height="100%" padding="5" generateStartEvent="generatorComponent1_generateStartEventHandler(event)"/>
                     </s:NavigatorContent>
                     <s:NavigatorContent label="Load Data From Services">
-                        <mm:LoadDataConponents width="100%" height="100%" padding="5" buidingData="{buidingData}"
+                        <mm:LoadDataConponents width="100%" height="100%"  padding="5" buidingData="{buidingData}"
                                                demoDataChange="loadDataConponents1_demoDataChangeHandler(event)"/>
                     </s:NavigatorContent>
                 </mx:Accordion>
@@ -70,7 +80,8 @@
             <s:Panel id="buildingPanel" minHeight="600" minWidth="955" height="{(buidingData.bFloorsNum + buidingData.uFloorsNum) * Constants.UNIT_LENGTH + 100}"
                      width="85%" title="Building Id: {buidingData.id} -- Name: {buidingData.name}">
                 <s:Scroller left="10" top="10" right="10" bottom="10">
-                    <s:DataGroup dataProvider="{buidingData.rooms}" id="buildingGroup" itemRenderer="random.components.RoomItemRender" width="100%" height="100%"/>
+                    <!--<s:DataGroup dataProvider="{buidingData.rooms}" id="buildingGroup" itemRenderer="random.renderers.RoomItemRender" width="100%" height="100%"/>-->
+                    <s:DataGroup dataProvider="{buidingData.rooms}" id="buildingGroup" itemRenderer="random.renderers.CustomRoom" width="100%" height="100%"/>
                 </s:Scroller>
             </s:Panel>
         </s:HGroup>

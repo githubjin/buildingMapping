@@ -3,7 +3,7 @@
   Created by DaoSui on 2015/11/2.
 -->
 <s:ItemRenderer xmlns:fx="http://ns.adobe.com/mxml/2009" xmlns:s="library://ns.adobe.com/flex/spark"
-        autoDrawBackground="true" render="draw()">
+        autoDrawBackground="false" render="draw()">
 
   <fx:Script><![CDATA[
       import mx.collections.ArrayList;
@@ -51,8 +51,13 @@
     </s:Path>
   </s:Graphic>-->
     <s:Group name="vd" width="100%" height="100%" click="clickHandler(event)">
-        <s:Label text="{data.name}-{data.x}-{data.y}" x="{data.x + 5}" y="{data.y + Constants.UNIT_LENGTH/2}"/>
-        <s:Image cachePolicy="on" source="http://download.easyicon.net/png/1185174/16/" x="{data.x + 3}" y="{data.y + Constants.UNIT_LENGTH/4*3}" toolTip="军人"/>
-        <s:Image cachePolicy="on" source="http://download.easyicon.net/png/1151818/16/" x="{data.x + 3 + 20}" y="{data.y + Constants.UNIT_LENGTH/4*3}" toolTip="老师"/>
+        <s:layout>
+            <s:ConstraintLayout/>
+        </s:layout>
+        <s:VGroup x="{data.x + 5}" y="{data.y + Constants.UNIT_LENGTH/2}">
+            <s:Label text="{data.name}-{data.x}-{data.y}"/>
+            <!--<s:Image cachePolicy="on" source="http://download.easyicon.net/png/1185174/16/" x="{data.x + 3}" y="{data.y + Constants.UNIT_LENGTH/4*3}" toolTip="军人"/>-->
+            <!--<s:Image cachePolicy="on" source="http://download.easyicon.net/png/1151818/16/" x="{data.x + 3 + 20}" y="{data.y + Constants.UNIT_LENGTH/4*3}" toolTip="老师"/>-->
+        </s:VGroup>
     </s:Group>
 </s:ItemRenderer>

@@ -4,6 +4,11 @@
 package random.valueObject {
 import mx.collections.ArrayCollection;
 import mx.collections.ArrayList;
+import mx.controls.Alert;
+
+import random.utils.Constants;
+
+import spark.core.ContentCache;
 
 [Bindable]
 public class BuildingVo {
@@ -16,8 +21,11 @@ public class BuildingVo {
     private var  _name:String;
     private var _rooms:ArrayList = new ArrayList();
 
+    //image cache
+    private var imgCache:ContentCache;
 
-    public function BuildingVo(jsonData:Object) {
+
+    public function BuildingVo(jsonData:Object, imgCache: ContentCache) {
         this._unitNum = jsonData.unitNum;
         this._roomNumPerUnit = jsonData.roomNumPerUnit;
         this._uFloorsNum = jsonData.uFloorsNum;
@@ -25,12 +33,18 @@ public class BuildingVo {
         this._id = jsonData.id;
         this._name = jsonData.name;
         this.addRooms(jsonData.rooms);
+        this.imgCache = imgCache;
     }
 
     public function addRooms(rooms: Array):void {
        for each(var r: Object in rooms){
            var roomVo:RoomVo = new RoomVo(r.id, r.name, r.description);
            roomVo.addCoordinates(r.coordinates);
+           if(r.tags){
+               for each (var tag:String in r.tags){
+                   roomVo.tagImgs.addItem({src: Constants.TAG_IMAGES_URL + tag + Constants.TAG_IMAGE_SUFFIX, cache: this.imgCache});
+               }
+           }
            this._rooms.addItem(roomVo);
        }
     }
