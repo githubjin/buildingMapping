@@ -3,8 +3,9 @@
   Created by Yo on 2015/11/3.
 -->
 <renderers:RoomDetailRenderer xmlns:fx="http://ns.adobe.com/mxml/2009" xmlns:renderers="random.renderers.*"
-                              xmlns:s="library://ns.adobe.com/flex/spark"
-                              autoDrawBackground="false" render="draw(event)" creationComplete="creationCompleteHandler(event)">
+                              xmlns:s="library://ns.adobe.com/flex/spark" xmlns:mx="library://ns.adobe.com/flex/mx"
+                              autoDrawBackground="false" render="draw(event)"
+                              creationComplete="creationCompleteHandler(event)">
 
   <fx:Script><![CDATA[
     import mx.collections.ArrayList;
@@ -102,7 +103,8 @@
       <s:ConstraintLayout/>
     </s:layout>
     <s:VGroup x="{data.x + 5}" y="{data.y + Constants.UNIT_LENGTH/2}">
-      <s:Label text="{data.name}-{data.x}-{data.y}"/>
+        <mx:LinkButton label="{data.name}-{data.x}-{data.y}" color="0xFFFFFF" click="{Alert.show('Pressed');}"
+                       textDecoration="underline" fontWeight="normal"/>
       <s:DataGroup id="tagsGroup" dataProvider="{data.tagImgs}" itemRenderer="random.renderers.TagItemRenderer">
         <s:layout>
           <s:TileLayout/>

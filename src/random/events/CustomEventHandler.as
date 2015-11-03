@@ -5,6 +5,8 @@ package random.events {
 import mx.collections.ArrayList;
 import mx.controls.Alert;
 
+import random.utils.AddressingCalculationUtils;
+
 import random.valueObject.RoomVo;
 
 import spark.components.Group;
@@ -15,6 +17,8 @@ public class CustomEventHandler {
     private var dataList:ArrayList;
     private var groupList:ArrayList;
 
+    private var _operationType:String = OperationTypeEvent.OP_MERGE;
+
     public function CustomEventHandler() {
         roomIdList = new ArrayList();
         dataList = new ArrayList();
@@ -22,8 +26,12 @@ public class CustomEventHandler {
     }
 
     public function append(customEvent: ICustom):void{
-        var itemIndex:int = this.roomIdList.getItemIndex(this.getRoomIdentity(customEvent));
-        if(itemIndex > 0){
+        var id:String = this.getRoomIdentity(customEvent);
+        trace("-------------------------------"+id+"-------------------------------------")
+        var itemIndex:int = this.roomIdList.getItemIndex(id);
+        trace("-------------------------------"+JSON.stringify(this.roomIdList)+"-------------------------------------")
+        trace("-------------------------------"+itemIndex+"-------------------------------------")
+        if(itemIndex > -1){
             return;
         }
         this.roomIdList.addItem(this.getRoomIdentity(customEvent));
@@ -80,5 +88,21 @@ public class CustomEventHandler {
         return customEvent.itemRendererData.id + "_" + customEvent.itemRendererData.x + "_" + customEvent.itemRendererData.y;
     }
 
+
+    public function get operationType():String {
+        return _operationType;
+    }
+
+    public function set operationType(value:String):void {
+        _operationType = value;
+    }
+
+    /**
+     *  合并操作 确定新的边界
+     */
+    public function createNewRoom():void{
+        var util:AddressingCalculationUtils = new AddressingCalculationUtils();
+        util.calculation(this.dataList);
+    }
 }
 }

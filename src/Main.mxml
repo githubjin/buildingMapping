@@ -18,6 +18,8 @@
 
         import random.events.DemoDataUrlChangeEvent;
         import random.events.GenerateStartEvent;
+        import random.events.OperationTypeEvent;
+        import random.utils.AddressingCalculationUtils;
         import random.utils.Constants;
         import random.utils.GeneratorUtil;
         import random.utils.vo.Building;
@@ -82,7 +84,7 @@
          * @param event
          */
         private function buildingGroup_customMouseMoveEventTypeHandler(event:CustomMouseMoveEvent):void {
-            if(this.isMouseDown){
+            if (this.isMouseDown) {
                 this.customEventHandler.removeBebind(event);
             }
         }
@@ -94,6 +96,7 @@
         private function buildingGroup_customMouseUpEventTypeHandler(event:CustomMouseUpEvent):void {
             this.isMouseDown = false;
             this.customEventHandler.removeBebind(event);
+            this.customEventHandler.createNewRoom();
         }
 
         /**
@@ -103,6 +106,14 @@
         private function stage_mouseOutHandler(event:MouseEvent):void {
             this.isMouseInSWF = false;
             Alert.show("out swf");
+        }
+
+        /**
+         *  切换操作类型
+         * @param event
+         */
+        private function mergeAndSplitComponent1_operationTypeChangedHandler(event:OperationTypeEvent):void {
+            this.customEventHandler.operationType = event.operationType;
         }
         ]]></fx:Script>
 
@@ -122,8 +133,8 @@
                         <mm:LoadDataConponents width="100%" height="100%"  padding="5" buidingData="{buidingData}"
                                                demoDataChange="loadDataConponents1_demoDataChangeHandler(event)"/>
                     </s:NavigatorContent>
-                    <s:NavigatorContent label="拆分与合并">
-
+                    <s:NavigatorContent label="合并与拆分">
+                        <mm:MergeAndSplitComponent width="100%" height="100%" padding="5" operationTypeChanged="mergeAndSplitComponent1_operationTypeChangedHandler(event)"/>
                     </s:NavigatorContent>
                 </mx:Accordion>
             </s:Panel>
