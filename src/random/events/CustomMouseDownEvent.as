@@ -4,15 +4,17 @@
 package random.events {
 import flash.events.Event;
 
+import random.valueObject.RoomVo;
+
 import spark.components.Group;
 
-public class CustomMouseDownEvent extends Event {
+public class CustomMouseDownEvent extends Event implements ICustom{
 
     private var _group:Group;
-    private var _itemRendererData:Object;
+    private var _itemRendererData:RoomVo;
 
 
-    public function CustomMouseDownEvent(type:String, bubbles:Boolean, cancelable:Boolean, group:Group, itemRendererData:Object) {
+    public function CustomMouseDownEvent(type:String, bubbles:Boolean, cancelable:Boolean, group:Group, itemRendererData:RoomVo) {
         super(type, bubbles, cancelable);
         _group = group;
         _itemRendererData = itemRendererData;
@@ -22,8 +24,12 @@ public class CustomMouseDownEvent extends Event {
         return _group;
     }
 
-    public function get itemRendererData():Object {
+    public function get itemRendererData():RoomVo {
         return _itemRendererData;
+    }
+
+    public function display():void{
+        this.group.visible = false;
     }
 
 

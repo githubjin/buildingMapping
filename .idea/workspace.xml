@@ -29,21 +29,28 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="Main.mxml" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Main.mxml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Main.mxml">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.62788016">
-              <caret line="57" column="24" selection-start-line="57" selection-start-column="24" selection-end-line="57" selection-end-column="24" />
+            <state vertical-scroll-proportion="-1.5178572">
+              <caret line="109" column="0" selection-start-line="109" selection-start-column="0" selection-end-line="109" selection-end-column="0" />
               <folding>
-                <marker date="1446545762957" expanded="false" signature="298:858" placeholder="..." />
-                <marker date="1446545762957" expanded="true" signature="1020:1240" placeholder="{...}" />
-                <marker date="1446545762957" expanded="true" signature="1048:1099" placeholder="{...}" />
-                <marker date="1446545762957" expanded="true" signature="1304:1496" placeholder="{...}" />
-                <marker date="1446545762957" expanded="true" signature="1556:1633" placeholder="{...}" />
-                <marker date="1446545762957" expanded="true" signature="1737:1886" placeholder="{...}" />
-                <marker date="1446545762957" expanded="true" signature="1990:2126" placeholder="{...}" />
-                <marker date="1446545762957" expanded="true" signature="2136:2200" placeholder="/** ...*/" />
-                <marker date="1446545762957" expanded="true" signature="2305:2317" placeholder="{...}" />
+                <marker date="1446563216200" expanded="false" signature="301:1011" placeholder="..." />
+                <marker date="1446563216200" expanded="true" signature="1407:1968" placeholder="{...}" />
+                <marker date="1446563216200" expanded="true" signature="1435:1486" placeholder="{...}" />
+                <marker date="1446563216200" expanded="true" signature="2032:2224" placeholder="{...}" />
+                <marker date="1446563216200" expanded="true" signature="2284:2361" placeholder="{...}" />
+                <marker date="1446563216200" expanded="true" signature="2465:2614" placeholder="{...}" />
+                <marker date="1446563216200" expanded="true" signature="2718:2854" placeholder="{...}" />
+                <marker date="1446563216200" expanded="true" signature="2864:2928" placeholder="/**  鼠标按下开始记录选中房间 ...*/" />
+                <marker date="1446563216200" expanded="true" signature="3033:3177" placeholder="{...}" />
+                <marker date="1446563216200" expanded="true" signature="3187:3246" placeholder="/**  鼠标 ...*/" />
+                <marker date="1446563216200" expanded="true" signature="3351:3471" placeholder="{...}" />
+                <marker date="1446563216200" expanded="true" signature="3385:3461" placeholder="{...}" />
+                <marker date="1446563216200" expanded="true" signature="3481:3540" placeholder="/** ...*/" />
+                <marker date="1446563216200" expanded="true" signature="3641:3747" placeholder="{...}" />
+                <marker date="1446563216200" expanded="true" signature="3757:3817" placeholder="/**  鼠标离开 SWF ...*/" />
+                <marker date="1446563216200" expanded="true" signature="3888:3973" placeholder="{...}" />
               </folding>
             </state>
           </provider>
@@ -52,85 +59,36 @@
       <file leaf-file-name="CustomEventHandler.as" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/random/events/CustomEventHandler.as">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="4" column="26" selection-start-line="4" selection-start-column="26" selection-end-line="4" selection-end-column="26" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="CustomRoom.mxml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/random/renderers/CustomRoom.mxml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-3.490909">
-              <caret line="53" column="0" selection-start-line="53" selection-start-column="0" selection-end-line="53" selection-end-column="0" />
+            <state vertical-scroll-proportion="-50.214287">
+              <caret line="74" column="35" selection-start-line="74" selection-start-column="35" selection-end-line="74" selection-end-column="35" />
               <folding>
-                <marker date="1446545613673" expanded="true" signature="407:623" placeholder="..." />
-                <marker date="1446545613673" expanded="true" signature="407:659" placeholder="..." />
-                <marker date="1446545613673" expanded="true" signature="709:812" placeholder="{...}" />
-                <marker date="1446545613673" expanded="true" signature="858:1385" placeholder="{...}" />
-                <marker date="1446545613673" expanded="true" signature="1145:1351" placeholder="{...}" />
-                <marker date="1446545613673" expanded="true" signature="1238:1287" placeholder="{...}" />
-                <marker date="1446545613673" expanded="true" signature="1293:1343" placeholder="{...}" />
-                <marker date="1446545613673" expanded="true" signature="1455:1536" placeholder="{...}" />
-                <marker date="1446545613673" expanded="true" signature="1606:1841" placeholder="{...}" />
-                <marker date="1446545613673" expanded="true" signature="1606:1997" placeholder="{...}" />
-                <marker date="1446545613673" expanded="true" signature="1910:1997" placeholder="{...}" />
+                <element signature="n#!!doc" expanded="true" />
+                <element signature="e#63#95#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="CustomMouseDownEvent.as" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/random/events/CustomMouseDownEvent.as">
+      <file leaf-file-name="TagItemRenderer.mxml" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/random/renderers/TagItemRenderer.mxml">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="19" column="0" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.47584972">
+              <caret line="14" column="40" selection-start-line="14" selection-start-column="40" selection-end-line="14" selection-end-column="40" />
               <folding>
-                <element signature="e#63#89#0" expanded="true" />
+                <marker date="1446564290275" expanded="true" signature="331:381" placeholder="..." />
+                <marker date="1446564290275" expanded="true" signature="444:583" placeholder="{...}" />
+                <marker date="1446564290275" expanded="true" signature="534:577" placeholder="{...}" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Constants.as" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/random/utils/Constants.as">
+      <file leaf-file-name="BuildingVo.as" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/random/valueObject/BuildingVo.as">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="17" column="56" selection-start-line="17" selection-start-column="56" selection-end-line="17" selection-end-column="56" />
+              <caret line="43" column="134" selection-start-line="43" selection-start-column="134" selection-end-line="43" selection-end-column="134" />
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="CustomMouseMoveEvent.as" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/random/events/CustomMouseMoveEvent.as">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="CustomMouseUpEvent.as" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/random/events/CustomMouseUpEvent.as">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="RoomDetailRenderer.as" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/random/renderers/RoomDetailRenderer.as">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="31" column="46" selection-start-line="31" selection-start-column="46" selection-end-line="31" selection-end-column="46" />
-              <folding>
-                <element signature="e#66#100#0" expanded="true" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -141,10 +99,11 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="package-info" />
-        <option value="Class" />
         <option value="CSS File" />
-        <option value="Flex 4 Component" />
         <option value="ActionScript Class with Supers" />
+        <option value="Flex 4 Component" />
+        <option value="ActionScript Interface" />
+        <option value="Class" />
         <option value="ActionScript Class" />
       </list>
     </option>
@@ -195,16 +154,20 @@
         <option value="$PROJECT_DIR$/src/resources/1_2_2.json" />
         <option value="$PROJECT_DIR$/src/resources/tags.json" />
         <option value="$PROJECT_DIR$/src/resources/5_2_7.json" />
-        <option value="$PROJECT_DIR$/src/random/valueObject/BuildingVo.as" />
         <option value="$PROJECT_DIR$/src/random/renderers/RoomDetailRenderer.as" />
+        <option value="$PROJECT_DIR$/src/random/events/EventHandler.as" />
+        <option value="$PROJECT_DIR$/src/random/utils/Constants.as" />
+        <option value="$PROJECT_DIR$/src/random/events/CustomMouseDownEvent.as" />
         <option value="$PROJECT_DIR$/src/random/events/CustomMouseMoveEvent.as" />
         <option value="$PROJECT_DIR$/src/random/events/CustomMouseUpEvent.as" />
-        <option value="$PROJECT_DIR$/src/random/events/CustomMouseDownEvent.as" />
-        <option value="$PROJECT_DIR$/src/random/utils/Constants.as" />
+        <option value="$PROJECT_DIR$/src/random/events/ICustom.as" />
         <option value="$PROJECT_DIR$/src/random/renderers/CustomRoom.mxml" />
-        <option value="$PROJECT_DIR$/src/random/events/EventHandler.as" />
         <option value="$PROJECT_DIR$/src/random/events/CustomEventHandler.as" />
         <option value="$PROJECT_DIR$/src/Main.mxml" />
+        <option value="$PROJECT_DIR$/src/random/valueObject/ImageCacheVo.java" />
+        <option value="$PROJECT_DIR$/src/random/valueObject/ImageCacheVo.as" />
+        <option value="$PROJECT_DIR$/src/random/valueObject/BuildingVo.as" />
+        <option value="$PROJECT_DIR$/src/random/renderers/TagItemRenderer.mxml" />
       </list>
     </option>
   </component>
@@ -228,8 +191,8 @@
   <component name="ProjectFrameBounds">
     <option name="x" value="-8" />
     <option name="y" value="-8" />
-    <option name="width" value="1936" />
-    <option name="height" value="1056" />
+    <option name="width" value="1382" />
+    <option name="height" value="744" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -276,7 +239,6 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
@@ -292,7 +254,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="buildingMapping_git" />
+              <option name="myItemId" value="buildingMapping" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -302,7 +264,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="buildingMapping_git" />
+              <option name="myItemId" value="buildingMapping" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -316,7 +278,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="buildingMapping_git" />
+              <option name="myItemId" value="buildingMapping" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -324,7 +286,11 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="resources" />
+              <option name="myItemId" value="random" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="valueObject" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -334,29 +300,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="buildingMapping_git" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="resources" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="images" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
               <option name="myItemId" value="buildingMapping" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="buildingMapping_git" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -374,7 +318,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="buildingMapping_git" />
+              <option name="myItemId" value="buildingMapping" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -386,12 +330,13 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="events" />
+              <option name="myItemId" value="renderers" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
       <pane id="PackagesPane" />
     </panes>
   </component>
@@ -422,11 +367,11 @@
       <recent name="F:\git_workspace\buildingMapping" />
     </key>
     <key name="CreateActionScriptClassDialog.DESTINATION_PACKAGE_RECENT_KEY">
+      <recent name="random.valueObject" />
       <recent name="random.events" />
       <recent name="random.renderers" />
       <recent name="random.utils.vo" />
       <recent name="random.utils" />
-      <recent name="random.components" />
     </key>
   </component>
   <component name="RunManager" selected="Flash App.buildingMapping">
@@ -680,7 +625,7 @@
       <option name="screenDpi" value="0" />
       <option name="screenHeight" value="0" />
       <option name="screenWidth" value="0" />
-      <option name="url" value="http://202.194.67.108:8888/bm/Main.html" />
+      <option name="url" value="http://localhost:8080/bm/Main.html" />
       <option name="usbDebugPort" value="7936" />
       <method />
     </configuration>
@@ -702,11 +647,12 @@
       <workItem from="1446301824560" duration="607000" />
       <workItem from="1446350948736" duration="54422000" />
       <workItem from="1446512641519" duration="22029000" />
+      <workItem from="1446548928076" duration="12897000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="82476000" />
+    <option name="totallyTimeSpent" value="95373000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -718,14 +664,12 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32899022" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="DB Browser" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32792208" sideWeight="0.4946695" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32736155" sideWeight="0.4946695" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="DB Execution Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3116883" sideWeight="0.5079957" order="12" side_tool="true" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32995737" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -733,19 +677,47 @@
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.26298702" sideWeight="0.49200428" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.16950959" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33308157" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32995737" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.48534203" sideWeight="0.49253732" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="DB Browser" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="DB Execution Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.53837955" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32899022" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+    </layout>
+    <layout-to-restore>
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32899022" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="DB Browser" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32736155" sideWeight="0.4946695" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="DB Execution Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3116883" sideWeight="0.5079957" order="12" side_tool="true" content_ui="tabs" />
+      <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32995737" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.26298702" sideWeight="0.49200428" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.33308157" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.53837955" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32995737" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32899022" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3116883" sideWeight="0.49253732" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-    </layout>
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.48534203" sideWeight="0.49253732" order="3" side_tool="false" content_ui="tabs" />
+    </layout-to-restore>
   </component>
   <component name="Vcs.Log.UiProperties">
     <option name="RECENTLY_FILTERED_USER_GROUPS">
@@ -760,7 +732,7 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="26" />
+      <option name="time" value="33" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -772,76 +744,24 @@
     <entry file="file://$PROJECT_DIR$/src/Main.mxml">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="58" column="61" selection-start-line="58" selection-start-column="61" selection-end-line="58" selection-end-column="61" />
-          <folding>
-            <marker date="1446545762957" expanded="false" signature="298:858" placeholder="..." />
-            <marker date="1446545762957" expanded="true" signature="1020:1240" placeholder="{...}" />
-            <marker date="1446545762957" expanded="true" signature="1048:1099" placeholder="{...}" />
-            <marker date="1446545762957" expanded="true" signature="1304:1496" placeholder="{...}" />
-            <marker date="1446545762957" expanded="true" signature="1556:1633" placeholder="{...}" />
-            <marker date="1446545762957" expanded="true" signature="1737:1886" placeholder="{...}" />
-            <marker date="1446545762957" expanded="true" signature="1990:2126" placeholder="{...}" />
-            <marker date="1446545762957" expanded="true" signature="2136:2200" placeholder="/** ...*/" />
-            <marker date="1446545762957" expanded="true" signature="2305:2317" placeholder="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/random/renderers/RoomItemRender.mxml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <marker date="1446530843851" expanded="false" signature="-1:-1" placeholder="..." />
-            <marker date="1446530843851" expanded="true" signature="-1:-1" placeholder="{...}" />
-            <marker date="1446530843851" expanded="true" signature="-1:-1" placeholder="{...}" />
-            <marker date="1446530843851" expanded="true" signature="-1:-1" placeholder="{...}" />
-            <marker date="1446530843851" expanded="true" signature="-1:-1" placeholder="{...}" />
-            <marker date="1446530843851" expanded="true" signature="-1:-1" placeholder="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Main.mxml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <marker date="1446545762957" expanded="false" signature="298:858" placeholder="..." />
-            <marker date="1446545762957" expanded="true" signature="1020:1240" placeholder="{...}" />
-            <marker date="1446545762957" expanded="true" signature="1048:1099" placeholder="{...}" />
-            <marker date="1446545762957" expanded="true" signature="1304:1496" placeholder="{...}" />
-            <marker date="1446545762957" expanded="true" signature="1556:1633" placeholder="{...}" />
-            <marker date="1446545762957" expanded="true" signature="1737:1886" placeholder="{...}" />
-            <marker date="1446545762957" expanded="true" signature="1990:2126" placeholder="{...}" />
-            <marker date="1446545762957" expanded="true" signature="2136:2200" placeholder="/** ...*/" />
-            <marker date="1446545762957" expanded="true" signature="2305:2317" placeholder="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/resources/1_2_2.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="11" column="7" selection-start-line="11" selection-start-column="7" selection-end-line="11" selection-end-column="7" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Main.mxml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
           <caret line="11" column="0" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
           <folding>
-            <marker date="1446545762957" expanded="false" signature="298:858" placeholder="..." />
-            <marker date="1446545762957" expanded="true" signature="1020:1240" placeholder="{...}" />
-            <marker date="1446545762957" expanded="true" signature="1048:1099" placeholder="{...}" />
-            <marker date="1446545762957" expanded="true" signature="1304:1496" placeholder="{...}" />
-            <marker date="1446545762957" expanded="true" signature="1556:1633" placeholder="{...}" />
-            <marker date="1446545762957" expanded="true" signature="1737:1886" placeholder="{...}" />
-            <marker date="1446545762957" expanded="true" signature="1990:2126" placeholder="{...}" />
-            <marker date="1446545762957" expanded="true" signature="2136:2200" placeholder="/** ...*/" />
-            <marker date="1446545762957" expanded="true" signature="2305:2317" placeholder="{...}" />
+            <marker date="1446563216200" expanded="false" signature="301:1011" placeholder="..." />
+            <marker date="1446563216200" expanded="true" signature="1407:1968" placeholder="{...}" />
+            <marker date="1446563216200" expanded="true" signature="1435:1486" placeholder="{...}" />
+            <marker date="1446563216200" expanded="true" signature="2032:2224" placeholder="{...}" />
+            <marker date="1446563216200" expanded="true" signature="2284:2361" placeholder="{...}" />
+            <marker date="1446563216200" expanded="true" signature="2465:2614" placeholder="{...}" />
+            <marker date="1446563216200" expanded="true" signature="2718:2854" placeholder="{...}" />
+            <marker date="1446563216200" expanded="true" signature="2864:2928" placeholder="/**  鼠标按下开始记录选中房间 ...*/" />
+            <marker date="1446563216200" expanded="true" signature="3033:3177" placeholder="{...}" />
+            <marker date="1446563216200" expanded="true" signature="3187:3246" placeholder="/**  鼠标 ...*/" />
+            <marker date="1446563216200" expanded="true" signature="3351:3471" placeholder="{...}" />
+            <marker date="1446563216200" expanded="true" signature="3385:3461" placeholder="{...}" />
+            <marker date="1446563216200" expanded="true" signature="3481:3540" placeholder="/** ...*/" />
+            <marker date="1446563216200" expanded="true" signature="3641:3747" placeholder="{...}" />
+            <marker date="1446563216200" expanded="true" signature="3757:3817" placeholder="/**  鼠标离开 SWF ...*/" />
+            <marker date="1446563216200" expanded="true" signature="3888:3973" placeholder="{...}" />
           </folding>
         </state>
       </provider>
@@ -850,7 +770,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -902,7 +821,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.42078364">
           <caret line="15" column="4" selection-start-line="15" selection-start-column="4" selection-end-line="15" selection-end-column="4" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -951,15 +869,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.38169643">
           <caret line="20" column="0" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://D:/bin/Adobe/flashBuilder47/Adobe Flash Builder 4.7/sdks/4.6.0/frameworks/projects/rpc/src/mx/rpc/http/HTTPService.as">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.38169643">
-          <caret line="35" column="7" selection-start-line="35" selection-start-column="7" selection-end-line="35" selection-end-column="7" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -975,7 +884,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-1.3859447">
           <caret line="5" column="4" selection-start-line="5" selection-start-column="4" selection-end-line="5" selection-end-column="4" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -983,9 +891,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-0.5089286">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="n#!!doc" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -993,57 +898,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://D:/bin/flexSdk/4141/frameworks/projects/framework/src/mx/core/mx_internal.as">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.36049107">
-          <caret line="34" column="17" selection-start-line="34" selection-start-column="17" selection-end-line="34" selection-end-column="17" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://D:/bin/flexSdk/4141/frameworks/projects/spark/src/spark/components/supportClasses/GroupBase.as">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.3322091">
-          <caret line="985" column="25" selection-start-line="985" selection-start-column="25" selection-end-line="985" selection-end-column="25" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://D:/bin/flexSdk/4141/frameworks/projects/spark/src/spark/components/DataRenderer.as">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.31026527">
-          <caret line="60" column="13" selection-start-line="60" selection-start-column="13" selection-end-line="60" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://D:/bin/flexSdk/4141/frameworks/projects/spark/src/spark/components/IItemRenderer.as">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.31026527">
-          <caret line="42" column="17" selection-start-line="42" selection-start-column="17" selection-end-line="42" selection-end-column="17" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://D:/bin/flexSdk/4141/frameworks/projects/spark/src/spark/components/supportClasses/ItemRenderer.as">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.16964285">
-          <caret line="33" column="0" selection-start-line="33" selection-start-column="0" selection-end-line="33" selection-end-column="27" />
-          <folding>
-            <element signature="e#1018#1044#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://D:/bin/flexSdk/4141/frameworks/projects/framework/src/mx/core/UIComponent.as">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.84151787">
-          <caret line="2817" column="26" selection-start-line="2817" selection-start-column="20" selection-end-line="2817" selection-end-column="26" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1061,15 +915,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.03275862">
           <caret line="1" column="29" selection-start-line="1" selection-start-column="29" selection-end-line="1" selection-end-column="29" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/random/valueObject/RoomVo.as">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.3325893">
-          <caret line="28" column="16" selection-start-line="28" selection-start-column="16" selection-end-line="28" selection-end-column="16" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1077,14 +922,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.23387097">
           <caret line="34" column="15" selection-start-line="34" selection-start-column="15" selection-end-line="34" selection-end-column="15" />
-          <folding>
-            <marker date="1446530843851" expanded="false" signature="-1:-1" placeholder="..." />
-            <marker date="1446530843851" expanded="true" signature="-1:-1" placeholder="{...}" />
-            <marker date="1446530843851" expanded="true" signature="-1:-1" placeholder="{...}" />
-            <marker date="1446530843851" expanded="true" signature="-1:-1" placeholder="{...}" />
-            <marker date="1446530843851" expanded="true" signature="-1:-1" placeholder="{...}" />
-            <marker date="1446530843851" expanded="true" signature="-1:-1" placeholder="{...}" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1092,7 +930,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1100,7 +937,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.8248848">
           <caret line="1965" column="34" selection-start-line="1965" selection-start-column="34" selection-end-line="1965" selection-end-column="34" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1108,24 +944,79 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.5403226">
           <caret line="30" column="22" selection-start-line="30" selection-start-column="22" selection-end-line="30" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/random/utils/Constants.as">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="10" column="68" selection-start-line="10" selection-start-column="43" selection-end-line="10" selection-end-column="68" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/random/renderers/RoomDetailRenderer.as">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
+        <state vertical-scroll-proportion="0.6439523">
           <caret line="31" column="46" selection-start-line="31" selection-start-column="46" selection-end-line="31" selection-end-column="46" />
           <folding>
-            <element signature="e#66#100#0" expanded="true" />
+            <element signature="e#66#100#0" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://D:/bin/flexSdk/sdks/4141/frameworks/libs/player/16.0/playerglobal.swc!/library.swf">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.3321976">
+          <caret line="1850" column="13" selection-start-line="1850" selection-start-column="13" selection-end-line="1850" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://D:/bin/flexSdk/sdks/4141/frameworks/projects/framework/src/mx/core/IDataRenderer.as">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.83816016">
+          <caret line="74" column="17" selection-start-line="74" selection-start-column="17" selection-end-line="74" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://D:/bin/flexSdk/sdks/4141/frameworks/projects/framework/src/mx/core/IVisualElement.as">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-6.270869">
+          <caret line="33" column="17" selection-start-line="33" selection-start-column="17" selection-end-line="33" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://D:/bin/flexSdk/sdks/4141/frameworks/projects/spark/src/spark/components/IItemRenderer.as">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.6115843">
+          <caret line="42" column="62" selection-start-line="42" selection-start-column="62" selection-end-line="42" selection-end-column="62" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://D:/bin/flexSdk/sdks/4141/frameworks/projects/spark/src/spark/components/supportClasses/ItemRenderer.as">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.3321976">
+          <caret line="85" column="63" selection-start-line="85" selection-start-column="63" selection-end-line="85" selection-end-column="63" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/random/events/CustomMouseUpEvent.as">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
+          <caret line="10" column="61" selection-start-line="10" selection-start-column="61" selection-end-line="10" selection-end-column="61" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://D:/bin/flexSdk/sdks/4141/frameworks/projects/framework/src/mx/collections/ArrayList.as">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.3321976">
+          <caret line="392" column="20" selection-start-line="392" selection-start-column="20" selection-end-line="392" selection-end-column="20" />
           <folding />
         </state>
       </provider>
@@ -1133,87 +1024,172 @@
     <entry file="file://$PROJECT_DIR$/src/random/events/CustomMouseMoveEvent.as">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
+          <caret line="10" column="66" selection-start-line="10" selection-start-column="66" selection-end-line="10" selection-end-column="66" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/random/valueObject/BuildingVo.as">
+    <entry file="file://$PROJECT_DIR$/src/random/events/ICustom.as">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.40625">
-          <caret line="42" column="22" selection-start-line="42" selection-start-column="22" selection-end-line="42" selection-end-column="22" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://D:/bin/flexSdk/4141/frameworks/libs/player/16.0/playerglobal.swc!/library.swf">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.3325893">
-          <caret line="961" column="75" selection-start-line="961" selection-start-column="65" selection-end-line="961" selection-end-column="75" />
-          <folding />
+        <state vertical-scroll-proportion="0.19420783">
+          <caret line="8" column="24" selection-start-line="8" selection-start-column="17" selection-end-line="8" selection-end-column="24" />
+          <folding>
+            <element signature="e#67#100#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/random/events/CustomMouseDownEvent.as">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="19" column="0" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
+          <caret line="10" column="66" selection-start-line="10" selection-start-column="66" selection-end-line="10" selection-end-column="66" />
           <folding>
             <element signature="e#63#89#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/random/utils/Constants.as">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="17" column="56" selection-start-line="17" selection-start-column="56" selection-end-line="17" selection-end-column="56" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/random/events/CustomEventHandler.as">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="4" column="26" selection-start-line="4" selection-start-column="26" selection-end-line="4" selection-end-column="26" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/random/renderers/CustomRoom.mxml">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-3.490909">
-          <caret line="53" column="0" selection-start-line="53" selection-start-column="0" selection-end-line="53" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.33215547">
+          <caret line="6" column="0" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
           <folding>
-            <marker date="1446545613673" expanded="true" signature="407:623" placeholder="..." />
-            <marker date="1446545613673" expanded="true" signature="407:659" placeholder="..." />
-            <marker date="1446545613673" expanded="true" signature="709:812" placeholder="{...}" />
-            <marker date="1446545613673" expanded="true" signature="858:1385" placeholder="{...}" />
-            <marker date="1446545613673" expanded="true" signature="1145:1351" placeholder="{...}" />
-            <marker date="1446545613673" expanded="true" signature="1238:1287" placeholder="{...}" />
-            <marker date="1446545613673" expanded="true" signature="1293:1343" placeholder="{...}" />
-            <marker date="1446545613673" expanded="true" signature="1455:1536" placeholder="{...}" />
-            <marker date="1446545613673" expanded="true" signature="1606:1841" placeholder="{...}" />
-            <marker date="1446545613673" expanded="true" signature="1606:1997" placeholder="{...}" />
-            <marker date="1446545613673" expanded="true" signature="1910:1997" placeholder="{...}" />
+            <marker date="1446562427482" expanded="false" signature="-1:-1" placeholder="..." />
+            <marker date="1446562427482" expanded="true" signature="-1:-1" placeholder="/**  房间点击函数 ...*/" />
+            <marker date="1446562427482" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1446562427482" expanded="true" signature="-1:-1" placeholder="/**  绘图函数 ...*/" />
+            <marker date="1446562427482" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1446562427482" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1446562427482" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1446562427482" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1446562427482" expanded="true" signature="-1:-1" placeholder="/**  创建完成函数 ...*/" />
+            <marker date="1446562427482" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1446562427482" expanded="true" signature="-1:-1" placeholder="/**  鼠标左键按下处理 ...*/" />
+            <marker date="1446562427482" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1446562427482" expanded="true" signature="-1:-1" placeholder="/**  鼠标移动处理 ...*/" />
+            <marker date="1446562427482" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1446562427482" expanded="true" signature="-1:-1" placeholder="/** 鼠标抬起处理函数 ...*/" />
+            <marker date="1446562427482" expanded="true" signature="-1:-1" placeholder="{...}" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://D:/bin/flexSdk/sdks/4141/frameworks/projects/framework/src/mx/managers/LayoutManager.as">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.17546849">
+          <caret line="1207" column="0" selection-start-line="1207" selection-start-column="0" selection-end-line="1207" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://D:/bin/flexSdk/sdks/4141/frameworks/projects/rpc/src/mx/messaging/channels/DirectHTTPChannel.as">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.17546849">
+          <caret line="459" column="0" selection-start-line="459" selection-start-column="0" selection-end-line="459" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://D:/bin/flexSdk/sdks/4141/frameworks/projects/rpc/src/mx/rpc/AsyncRequest.as">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.17546849">
+          <caret line="94" column="0" selection-start-line="94" selection-start-column="0" selection-end-line="94" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://D:/bin/flexSdk/sdks/4141/frameworks/projects/rpc/src/mx/rpc/Responder.as">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.17546849">
+          <caret line="64" column="0" selection-start-line="64" selection-start-column="0" selection-end-line="64" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://D:/bin/flexSdk/sdks/4141/frameworks/projects/rpc/src/mx/rpc/AbstractInvoker.as">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.17546849">
+          <caret line="371" column="0" selection-start-line="371" selection-start-column="0" selection-end-line="371" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://D:/bin/flexSdk/sdks/4141/frameworks/projects/rpc/src/mx/rpc/http/HTTPService.as">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.54684836">
+          <caret line="1009" column="0" selection-start-line="1009" selection-start-column="0" selection-end-line="1009" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Main.mxml">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.62788016">
-          <caret line="57" column="24" selection-start-line="57" selection-start-column="24" selection-end-line="57" selection-end-column="24" />
+        <state vertical-scroll-proportion="-1.5178572">
+          <caret line="109" column="0" selection-start-line="109" selection-start-column="0" selection-end-line="109" selection-end-column="0" />
           <folding>
-            <marker date="1446545762957" expanded="false" signature="298:858" placeholder="..." />
-            <marker date="1446545762957" expanded="true" signature="1020:1240" placeholder="{...}" />
-            <marker date="1446545762957" expanded="true" signature="1048:1099" placeholder="{...}" />
-            <marker date="1446545762957" expanded="true" signature="1304:1496" placeholder="{...}" />
-            <marker date="1446545762957" expanded="true" signature="1556:1633" placeholder="{...}" />
-            <marker date="1446545762957" expanded="true" signature="1737:1886" placeholder="{...}" />
-            <marker date="1446545762957" expanded="true" signature="1990:2126" placeholder="{...}" />
-            <marker date="1446545762957" expanded="true" signature="2136:2200" placeholder="/** ...*/" />
-            <marker date="1446545762957" expanded="true" signature="2305:2317" placeholder="{...}" />
+            <marker date="1446563216200" expanded="false" signature="301:1011" placeholder="..." />
+            <marker date="1446563216200" expanded="true" signature="1407:1968" placeholder="{...}" />
+            <marker date="1446563216200" expanded="true" signature="1435:1486" placeholder="{...}" />
+            <marker date="1446563216200" expanded="true" signature="2032:2224" placeholder="{...}" />
+            <marker date="1446563216200" expanded="true" signature="2284:2361" placeholder="{...}" />
+            <marker date="1446563216200" expanded="true" signature="2465:2614" placeholder="{...}" />
+            <marker date="1446563216200" expanded="true" signature="2718:2854" placeholder="{...}" />
+            <marker date="1446563216200" expanded="true" signature="2864:2928" placeholder="/**  鼠标按下开始记录选中房间 ...*/" />
+            <marker date="1446563216200" expanded="true" signature="3033:3177" placeholder="{...}" />
+            <marker date="1446563216200" expanded="true" signature="3187:3246" placeholder="/**  鼠标 ...*/" />
+            <marker date="1446563216200" expanded="true" signature="3351:3471" placeholder="{...}" />
+            <marker date="1446563216200" expanded="true" signature="3385:3461" placeholder="{...}" />
+            <marker date="1446563216200" expanded="true" signature="3481:3540" placeholder="/** ...*/" />
+            <marker date="1446563216200" expanded="true" signature="3641:3747" placeholder="{...}" />
+            <marker date="1446563216200" expanded="true" signature="3757:3817" placeholder="/**  鼠标离开 SWF ...*/" />
+            <marker date="1446563216200" expanded="true" signature="3888:3973" placeholder="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/random/events/CustomEventHandler.as">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-50.214287">
+          <caret line="74" column="35" selection-start-line="74" selection-start-column="35" selection-end-line="74" selection-end-column="35" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+            <element signature="e#63#95#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/random/valueObject/ImageCacheVo.as">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.16183986">
+          <caret line="7" column="25" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/random/valueObject/RoomVo.as">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.5144804">
+          <caret line="84" column="24" selection-start-line="84" selection-start-column="24" selection-end-line="84" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/random/valueObject/BuildingVo.as">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="43" column="134" selection-start-line="43" selection-start-column="134" selection-end-line="43" selection-end-column="134" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/random/renderers/TagItemRenderer.mxml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.47584972">
+          <caret line="14" column="40" selection-start-line="14" selection-start-column="40" selection-end-line="14" selection-end-column="40" />
+          <folding>
+            <marker date="1446564290275" expanded="true" signature="331:381" placeholder="..." />
+            <marker date="1446564290275" expanded="true" signature="444:583" placeholder="{...}" />
+            <marker date="1446564290275" expanded="true" signature="534:577" placeholder="{...}" />
           </folding>
         </state>
       </provider>

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <s:Application xmlns:fx="http://ns.adobe.com/mxml/2009" xmlns:s="library://ns.adobe.com/flex/spark"
-               xmlns:mm="random.components.*" xmlns:mx="library://ns.adobe.com/flex/mx" creationComplete="initApp()">
+               xmlns:mm="random.components.*" xmlns:mx="library://ns.adobe.com/flex/mx" applicationComplete="initApp()">
     <fx:Script><![CDATA[
         import flash.display.DisplayObject;
 
@@ -10,7 +10,11 @@
         import mx.rpc.events.FaultEvent;
         import mx.rpc.events.ResultEvent;
 
+        import random.events.CustomEventHandler;
+
         import random.events.CustomMouseDownEvent;
+        import random.events.CustomMouseMoveEvent;
+        import random.events.CustomMouseUpEvent;
 
         import random.events.DemoDataUrlChangeEvent;
         import random.events.GenerateStartEvent;
@@ -22,21 +26,30 @@
 
         import spark.events.IndexChangeEvent;
 
+        // 鼠标是否离开SWF
+        private var isMouseInSWF:Boolean = true;
+        // 鼠标是否按下
+        private var isMouseDown:Boolean = false;
         [Bindable]
         private var jsonPath:String;
         [Bindable]
         private var buidingData:BuildingVo;
+        //
+        private var customEventHandler:CustomEventHandler = new CustomEventHandler();
 
         private function initApp():void {
             if (jsonPath) {
                 dataService.send();
             }
+//            stage.addEventListener(MouseEvent.MOUSE_OUT, stage_mouseOutHandler);
             buildingGroup.addEventListener(Constants.CUSTOM_MOUSE_DOWM_EVENT_TYPE, buildingGroup_customMouseDownEventTypeHandler);
+            buildingGroup.addEventListener(Constants.CUSTOM_MOUSE_MOVE_EVENT_TYPE, buildingGroup_customMouseMoveEventTypeHandler);
+            buildingGroup.addEventListener(Constants.CUSTOM_MOUSE_UP_EVENT_TYPE, buildingGroup_customMouseUpEventTypeHandler);
         }
 
         private function onLoaderComplete(e:ResultEvent):void {
             var jsonData:Object = JSON.parse(e.result.toString());
-//            Alert.show(JSON.stringify(jsonData));
+//            Alert.show(JSON.stringify(imgCache));
             buidingData = new BuildingVo(jsonData, imgCache);
         }
 
@@ -59,7 +72,37 @@
          * @param event
          */
         private function buildingGroup_customMouseDownEventTypeHandler(event:CustomMouseDownEvent):void {
+            this.isMouseDown = true;
+            this.customEventHandler.clean();
+            this.customEventHandler.append(event);
+        }
 
+        /**
+         *  鼠标移动的处理
+         * @param event
+         */
+        private function buildingGroup_customMouseMoveEventTypeHandler(event:CustomMouseMoveEvent):void {
+            if(this.isMouseDown){
+                this.customEventHandler.removeBebind(event);
+            }
+        }
+
+        /**
+         *  鼠标释放的处理
+         * @param event
+         */
+        private function buildingGroup_customMouseUpEventTypeHandler(event:CustomMouseUpEvent):void {
+            this.isMouseDown = false;
+            this.customEventHandler.removeBebind(event);
+        }
+
+        /**
+         *  鼠标离开 SWF
+         * @param event
+         */
+        private function stage_mouseOutHandler(event:MouseEvent):void {
+            this.isMouseInSWF = false;
+            Alert.show("out swf");
         }
         ]]></fx:Script>
 

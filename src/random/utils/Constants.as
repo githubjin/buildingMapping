@@ -8,7 +8,8 @@ public class Constants {
     public static var UNIT_LENGTH:uint = 100;
     public static var CUSTOM_EVENT_LOADED_DEMO_DATA_EVENT:String = "demoDataChange";
 
-    public static var SERVER_URL:String = "http://202.194.67.108:8888/bm/";
+    public static var SERVER_URL:String = "http://localhost:8080/bm/";
+//    public static var SERVER_URL:String = "http://202.194.67.108:8888/bm/";
 
     public static var TAG_IMAGES_URL:String = SERVER_URL + "resources/images/";
     public static var TAG_IMAGE_SUFFIX:String = ".png";
