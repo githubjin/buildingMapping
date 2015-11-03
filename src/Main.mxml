@@ -113,19 +113,22 @@
     </fx:Declarations>
     <s:Scroller width="100%" height="100%">
         <s:HGroup width="100%" height="100%" verticalAlign="middle" horizontalAlign="center" paddingBottom="3" paddingLeft="3" paddingRight="3">
-            <s:Panel title="Building Info" width="15%" top="3">
+            <s:Panel title="建筑物信息" width="15%" top="3">
                 <mx:Accordion width="100%" height="100%">
-                    <s:NavigatorContent label="Generate">
+                    <s:NavigatorContent label="生成JSON数据">
                         <mm:GeneratorComponent width="100%" height="100%" padding="5" generateStartEvent="generatorComponent1_generateStartEventHandler(event)"/>
                     </s:NavigatorContent>
-                    <s:NavigatorContent label="Load Data From Services">
+                    <s:NavigatorContent label="加载JSON数据并渲染">
                         <mm:LoadDataConponents width="100%" height="100%"  padding="5" buidingData="{buidingData}"
                                                demoDataChange="loadDataConponents1_demoDataChangeHandler(event)"/>
+                    </s:NavigatorContent>
+                    <s:NavigatorContent label="拆分与合并">
+
                     </s:NavigatorContent>
                 </mx:Accordion>
             </s:Panel>
             <s:Panel id="buildingPanel" minHeight="600" minWidth="955" height="{(buidingData.bFloorsNum + buidingData.uFloorsNum) * Constants.UNIT_LENGTH + 100}"
-                     width="85%" title="Building Id: {buidingData.id} -- Name: {buidingData.name}">
+                     width="85%" title="建筑物编码: {buidingData.id} -- 名称: {buidingData.name}">
                 <s:Scroller left="10" top="10" right="10" bottom="10">
                     <!--<s:DataGroup dataProvider="{buidingData.rooms}" id="buildingGroup" itemRenderer="random.renderers.RoomItemRender" width="100%" height="100%"/>-->
                     <s:DataGroup dataProvider="{buidingData.rooms}" id="buildingGroup" itemRenderer="random.renderers.CustomRoom" width="100%" height="100%"/>

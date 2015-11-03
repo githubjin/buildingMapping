@@ -36,23 +36,23 @@
   </fx:Declarations>
 
   <s:HGroup verticalAlign="middle">
-    <s:Label text="Demo"/>
+    <s:Label text="测试数据"/>
     <s:DropDownList dataProvider="{demoDataList}" labelField="name" change="dropDownList1_changeHandler(event)"/>
   </s:HGroup>
   <s:HGroup verticalAlign="middle">
-    <s:Label text="Unit Number"/>
+    <s:Label text="单元数"/>
     <s:TextInput text="{buidingData.unitNum}" width="30"/>
   </s:HGroup>
   <s:HGroup verticalAlign="middle">
-    <s:Label text="Rooms Number Per Unit"/>
+    <s:Label text="户/单元"/>
     <s:TextInput text="{buidingData.roomNumPerUnit}" width="30"/>
   </s:HGroup>
   <s:HGroup verticalAlign="middle">
-    <s:Label text="Up Floors Number"/>
+    <s:Label text="地上层数"/>
     <s:TextInput text="{buidingData.uFloorsNum}" width="30"/>
   </s:HGroup>
   <s:HGroup verticalAlign="middle">
-    <s:Label text="Down Floors Number"/>
+    <s:Label text="地下层数"/>
     <s:TextInput text="{buidingData.bFloorsNum}" width="30"/>
   </s:HGroup>
 </s:VGroup>

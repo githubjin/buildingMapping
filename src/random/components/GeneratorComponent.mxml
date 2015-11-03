@@ -31,17 +31,17 @@
       }
     ]]></fx:Script>
 
-    <s:Label text="Building Name:"/>
+    <s:Label text="建筑物名称:"/>
     <s:TextInput text="@{buildingName}"/>
-    <s:Label text="Unit Number:"/>
+    <s:Label text="单元数量:"/>
     <s:NumericStepper minimum="1" value="@{unitNum}"/>
-    <s:Label text="Room Number Per Unit:"/>
+    <s:Label text="户/单元:"/>
     <s:NumericStepper minimum="1" value="@{roomNumberPerUnit}"/>
-    <s:Label text="Floor Number:"/>
+    <s:Label text="地上层数:"/>
     <s:NumericStepper minimum="1" value="@{floorNumber}"/>
-    <s:Label text="UnderGround Floor Number:"/>
+    <s:Label text="地下层数:"/>
     <s:NumericStepper minimum="0" value="@{undergroundFloorNumber}"/>
     <s:Group minHeight="50" horizontalCenter="0">
-      <s:Button label="Generate Data" click="button1_clickHandler(event)"/>
+      <s:Button label="生成" click="button1_clickHandler(event)"/>
     </s:Group>
 </s:VGroup>
