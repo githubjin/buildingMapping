@@ -25,7 +25,7 @@ public class AddressingCalculationUtils {
     /**
      *  计算路径
      */
-    public function calculation(roomVoList: ArrayList):void{
+    public function calculation(roomVoList: ArrayList):ArrayList{
         var cntMap:CustomMap = new CustomMap();
         var coordinateMap:CustomMap = new CustomMap();
 
@@ -54,8 +54,9 @@ public class AddressingCalculationUtils {
 //        Alert.show(JSON.stringify(cntMap.data));
 //        Alert.show(JSON.stringify(coordinateMap.data));
         this.sortCoordinates();
-        Alert.show(JSON.stringify(this._coordinates));
-        Alert.show(JSON.stringify(this.sortedCoordinates));
+//        Alert.show(JSON.stringify(this._coordinates));
+//        Alert.show(JSON.stringify(this.sortedCoordinates));
+        return this.sortedCoordinates;
 
     }
 
