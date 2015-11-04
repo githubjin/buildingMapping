@@ -1,0 +1,41 @@
+<?xml version="1.0"?>
+<!--
+  Created by DaoSui on 2015/11/4.
+-->
+<s:VGroup xmlns:fx="http://ns.adobe.com/mxml/2009" xmlns:s="library://ns.adobe.com/flex/spark"
+          xmlns:mx="library://ns.adobe.com/flex/mx">
+
+    <fx:Metadata>
+        [Event(name = "operationTypeChanged", type = "random.events.OperationTypeEvent")]
+        /*[Event(name = "resetMergeOperations", type = "random.events.SignalEvent")]*/
+    </fx:Metadata>
+
+    <fx:Declarations>
+        <s:ArrayList id="dp">
+            <fx:Object text="合并选中" name="merge"/>
+            <fx:Object text="拆分选中" name="split"/>
+            <fx:Object text="重置选中" name="empty"/>
+        </s:ArrayList>
+    </fx:Declarations>
+
+    <mx:ToggleButtonBar horizontalGap="5" labelField="text" selectedIndex="-1"
+                        itemClick="toggleButtonBar1_itemClickHandler(event)" dataProvider="{dp}" />
+
+    <fx:Script><![CDATA[
+        import mx.events.ItemClickEvent;
+
+        import random.events.OperationTypeEvent;
+
+        private function toggleButtonBar1_itemClickHandler(event:ItemClickEvent):void {
+            var index:int = event.index;
+            var item:Object = dp.getItemAt(index);
+            var opChangeEvent:OperationTypeEvent = new OperationTypeEvent("operationTypeChanged", item.name);
+            dispatchEvent(opChangeEvent);
+        }
+
+        /*private function button1_clickHandler(event:MouseEvent):void {
+            var e:SignalEvent = new SignalEvent(Constants.RESET_OPERATION_EVENT, Constants.RESET_OPERATION_EVENT);
+            dispatchEvent(e);
+        }*/
+        ]]></fx:Script>
+</s:VGroup>

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <s:Application xmlns:fx="http://ns.adobe.com/mxml/2009" xmlns:s="library://ns.adobe.com/flex/spark"
-               xmlns:mm="random.components.*" xmlns:mx="library://ns.adobe.com/flex/mx" creationComplete="initApp()">
+               xmlns:mm="random.components.*" xmlns:mx="library://ns.adobe.com/flex/mx" applicationComplete="initApp()">
     <fx:Script><![CDATA[
         import flash.display.DisplayObject;
 
@@ -10,10 +10,17 @@
         import mx.rpc.events.FaultEvent;
         import mx.rpc.events.ResultEvent;
 
+        import random.events.CustomEventHandler;
+
         import random.events.CustomMouseDownEvent;
+        import random.events.CustomMouseMoveEvent;
+        import random.events.CustomMouseUpEvent;
 
         import random.events.DemoDataUrlChangeEvent;
         import random.events.GenerateStartEvent;
+        import random.events.OperationTypeEvent;
+        import random.events.SignalEvent;
+        import random.utils.AddressingCalculationUtils;
         import random.utils.Constants;
         import random.utils.GeneratorUtil;
         import random.utils.vo.Building;
@@ -22,21 +29,31 @@
 
         import spark.events.IndexChangeEvent;
 
+        // 鼠标是否离开SWF
+        private var isMouseInSWF:Boolean = true;
+        // 鼠标是否按下
+        private var isMouseDown:Boolean = false;
         [Bindable]
         private var jsonPath:String;
         [Bindable]
         private var buidingData:BuildingVo;
+        //
+        private var customEventHandler:CustomEventHandler = new CustomEventHandler();
 
         private function initApp():void {
             if (jsonPath) {
                 dataService.send();
             }
+//            stage.addEventListener(MouseEvent.MOUSE_OUT, stage_mouseOutHandler);
             buildingGroup.addEventListener(Constants.CUSTOM_MOUSE_DOWM_EVENT_TYPE, buildingGroup_customMouseDownEventTypeHandler);
+            buildingGroup.addEventListener(Constants.CUSTOM_MOUSE_MOVE_EVENT_TYPE, buildingGroup_customMouseMoveEventTypeHandler);
+            buildingGroup.addEventListener(Constants.CUSTOM_MOUSE_UP_EVENT_TYPE, buildingGroup_customMouseUpEventTypeHandler);
         }
 
         private function onLoaderComplete(e:ResultEvent):void {
             var jsonData:Object = JSON.parse(e.result.toString());
-//            Alert.show(JSON.stringify(jsonData));
+//            Alert.show(JSON.stringify(imgCache));
+            this.customEventHandler.clean();
             buidingData = new BuildingVo(jsonData, imgCache);
         }
 
@@ -59,8 +76,49 @@
          * @param event
          */
         private function buildingGroup_customMouseDownEventTypeHandler(event:CustomMouseDownEvent):void {
-
+            this.isMouseDown = true;
+//            this.customEventHandler.clean();
+            this.customEventHandler.append(event);
         }
+
+        /**
+         *  鼠标移动的处理
+         * @param event
+         */
+        private function buildingGroup_customMouseMoveEventTypeHandler(event:CustomMouseMoveEvent):void {
+            if (this.isMouseDown) {
+                this.customEventHandler.removeBebind(event);
+            }
+        }
+
+        /**
+         *  鼠标释放的处理
+         * @param event
+         */
+        private function buildingGroup_customMouseUpEventTypeHandler(event:CustomMouseUpEvent):void {
+            this.isMouseDown = false;
+            this.customEventHandler.mouseUpEvent = event;
+//            this.customEventHandler.removeBebind(event);
+//            this.customEventHandler.createNewRoom();
+        }
+
+        /**
+         *  鼠标离开 SWF
+         * @param event
+         */
+        private function stage_mouseOutHandler(event:MouseEvent):void {
+            this.isMouseInSWF = false;
+            Alert.show("out swf");
+        }
+
+        /**
+         *  切换操作类型
+         * @param event
+         */
+        private function mergeAndSplitComponent1_operationTypeChangedHandler(event:OperationTypeEvent):void {
+            this.customEventHandler.operationChangedHandler(event);
+        }
+
         ]]></fx:Script>
 
     <fx:Declarations>
@@ -70,19 +128,22 @@
     </fx:Declarations>
     <s:Scroller width="100%" height="100%">
         <s:HGroup width="100%" height="100%" verticalAlign="middle" horizontalAlign="center" paddingBottom="3" paddingLeft="3" paddingRight="3">
-            <s:Panel title="Building Info" width="15%" top="3">
+            <s:Panel title="建筑物信息" width="15%" top="3">
                 <mx:Accordion width="100%" height="100%">
-                    <s:NavigatorContent label="Generate">
+                    <s:NavigatorContent label="生成JSON数据">
                         <mm:GeneratorComponent width="100%" height="100%" padding="5" generateStartEvent="generatorComponent1_generateStartEventHandler(event)"/>
                     </s:NavigatorContent>
-                    <s:NavigatorContent label="Load Data From Services">
+                    <s:NavigatorContent label="加载JSON数据并渲染">
                         <mm:LoadDataConponents width="100%" height="100%"  padding="5" buidingData="{buidingData}"
                                                demoDataChange="loadDataConponents1_demoDataChangeHandler(event)"/>
+                    </s:NavigatorContent>
+                    <s:NavigatorContent label="合并与拆分">
+                        <mm:MergeAndSplitComponent width="100%" height="100%" padding="5" operationTypeChanged="mergeAndSplitComponent1_operationTypeChangedHandler(event)"/>
                     </s:NavigatorContent>
                 </mx:Accordion>
             </s:Panel>
             <s:Panel id="buildingPanel" minHeight="600" minWidth="955" height="{(buidingData.bFloorsNum + buidingData.uFloorsNum) * Constants.UNIT_LENGTH + 100}"
-                     width="85%" title="Building Id: {buidingData.id} -- Name: {buidingData.name}">
+                     width="85%" title="建筑物编码: {buidingData.id} -- 名称: {buidingData.name}">
                 <s:Scroller left="10" top="10" right="10" bottom="10">
                     <!--<s:DataGroup dataProvider="{buidingData.rooms}" id="buildingGroup" itemRenderer="random.renderers.RoomItemRender" width="100%" height="100%"/>-->
                     <s:DataGroup dataProvider="{buidingData.rooms}" id="buildingGroup" itemRenderer="random.renderers.CustomRoom" width="100%" height="100%"/>

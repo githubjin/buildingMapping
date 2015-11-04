@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<!--
+  Created by DaoSui on 2015/11/3.
+-->
+<s:ItemRenderer xmlns:fx="http://ns.adobe.com/mxml/2009" xmlns:s="library://ns.adobe.com/flex/spark"
+        dataChange="dataChangeHandler(event)">
+
+  <s:Image id="_tagImg" contentLoaderGrouping="gr1" contentLoader="{data.cache}"/>
+  <fx:Script><![CDATA[
+    import mx.controls.Alert;
+    import mx.events.FlexEvent;
+
+    private function dataChangeHandler(event:FlexEvent):void {
+//      Alert.show(JSON.stringify(data));
+      if (data && data.hasOwnProperty("src")) {
+        _tagImg.source = data.src
+      }
+    }
+
+    ]]></fx:Script>
+
+</s:ItemRenderer>

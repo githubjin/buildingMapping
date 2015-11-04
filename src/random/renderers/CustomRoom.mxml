@@ -3,8 +3,9 @@
   Created by Yo on 2015/11/3.
 -->
 <renderers:RoomDetailRenderer xmlns:fx="http://ns.adobe.com/mxml/2009" xmlns:renderers="random.renderers.*"
-                              xmlns:s="library://ns.adobe.com/flex/spark"
-                              autoDrawBackground="false" render="draw(event)" creationComplete="creationCompleteHandler(event)">
+                              xmlns:s="library://ns.adobe.com/flex/spark" xmlns:mx="library://ns.adobe.com/flex/mx"
+                              autoDrawBackground="false" render="draw(event)"
+                              creationComplete="creationCompleteHandler(event)">
 
   <fx:Script><![CDATA[
     import mx.collections.ArrayList;
@@ -12,24 +13,35 @@
     import mx.events.FlexEvent;
 
     import random.events.CustomMouseDownEvent;
+    import random.events.CustomMouseMoveEvent;
+    import random.events.CustomMouseUpEvent;
 
     import random.utils.Constants;
 
     import random.valueObject.CoordinateVo;
+    import random.valueObject.RoomVo;
 
     import spark.components.Group;
 
+    /**
+     *  房间点击函数
+     * @param e
+     */
     private function clickHandler(e:Event):void {
       var g:Group = e.target as Group;
       Alert.show(data.id + "-" + data.x + "-" + data.y);
     }
 
+    /**
+     *  绘图函数
+     * @param event
+     */
     private function draw(event:Event):void {
       var coordinates:ArrayList = data.coordinates as ArrayList;
       var s:Group = this.getChildByName("vd") as Group;
       s.graphics.clear();
       s.graphics.lineStyle(1, 0x000000);
-      s.graphics.beginFill(0xffffff, 3);
+      s.graphics.beginFill(0x808080, 3);
       for (var i:uint = 0; i < coordinates.length; i++) {
         var c:CoordinateVo = coordinates.getItemAt(i) as CoordinateVo;
         if (i == 0) {
@@ -41,54 +53,62 @@
       s.graphics.endFill();
     }
 
-    private function group1_mouseMoveHandler(event:MouseEvent):void {
-      var g:Group = event.currentTarget as Group;
-      Alert.show(g.id);
-    }
-
-    private function group1_mouseDownHandler(event:MouseEvent):void {
-      var customeMouseDownEvent: CustomMouseDownEvent = new CustomMouseDownEvent(Constants.CUSTOM_MOUSE_DOWM_EVENT_TYPE,true,true,
-              (event.currentTarget as Group), data);
-      dispatchEvent(customeMouseDownEvent);
-    }
-
+    /**
+     *  创建完成函数
+     * @param event
+     */
     private function creationCompleteHandler(event:FlexEvent):void {
       var gr:Group = this.getChildByName("vd") as Group;
       gr.id = data.id;
     }
-    ]]></fx:Script>
-<!--   <s:Graphic click="clickHandler(event)" name="g_room">
-     <s:Path data="{data.pathData}">
-       &lt;!&ndash; Define the border color. &ndash;&gt;
-       <s:stroke>
-         <s:SolidColorStroke color="0x888888"/>
-       </s:stroke>
-       <s:fill>
-         <s:LinearGradient rotation="90">
-           <s:GradientEntry color="0x6bd8ff" alpha="0.8"/>
-           <s:GradientEntry color="0x1f72ff" alpha="0.8"/>
-         </s:LinearGradient>
-       </s:fill>
-     </s:Path>
-   </s:Graphic>-->
 
-  <s:Group name="vd" width="100%" height="100%" click="clickHandler(event)" mouseMove="group1_mouseMoveHandler(event)" mouseDown="group1_mouseDownHandler(event)">
+    /**
+     *  鼠标左键按下处理
+     * @param event
+     */
+    private function group1_mouseDownHandler(event:MouseEvent):void {
+      var customeMouseDownEvent:CustomMouseDownEvent = new CustomMouseDownEvent(Constants.CUSTOM_MOUSE_DOWM_EVENT_TYPE, true, true,
+              (event.currentTarget as Group), data as RoomVo);
+      dispatchEvent(customeMouseDownEvent);
+    }
+
+    /**
+     *  鼠标移动处理
+     * @param event
+     */
+    private function group1_mouseMoveHandler(event:MouseEvent):void {
+      var g:Group = event.currentTarget as Group;
+      var customMouseMoveEvent:CustomMouseMoveEvent = new CustomMouseMoveEvent(Constants.CUSTOM_MOUSE_MOVE_EVENT_TYPE,
+              true, true,g, (data as RoomVo));
+      dispatchEvent(customMouseMoveEvent);
+    }
+
+    /**
+     * 鼠标抬起处理函数
+     * @param event
+     */
+    private function group1_mouseUpHandler(event:MouseEvent):void {
+      var g:Group = event.currentTarget as Group;
+      var customMouseUpEvent:CustomMouseUpEvent = new CustomMouseUpEvent(Constants.CUSTOM_MOUSE_UP_EVENT_TYPE,
+              true, true,g, data as RoomVo);
+      dispatchEvent(customMouseUpEvent);
+    }
+    ]]></fx:Script>
+
+  <s:Group name="vd" width="100%" height="100%"  alpha="0.7" color="#ffffff"
+           mouseMove="group1_mouseMoveHandler(event)"
+           mouseDown="group1_mouseDownHandler(event)"
+           mouseUp="group1_mouseUpHandler(event)">
     <s:layout>
       <s:ConstraintLayout/>
     </s:layout>
     <s:VGroup x="{data.x + 5}" y="{data.y + Constants.UNIT_LENGTH/2}">
-      <s:Label text="{data.name}-{data.x}-{data.y}"/>
-      <s:DataGroup id="tagsGroup" dataProvider="{data.tagImgs}">
+        <mx:LinkButton label="{data.name}-{data.x}-{data.y}" color="0xFFFFFF" click="{Alert.show('Pressed');}"
+                       textDecoration="underline" fontWeight="normal"/>
+      <s:DataGroup id="tagsGroup" dataProvider="{data.tagImgs}" itemRenderer="random.renderers.TagItemRenderer">
         <s:layout>
           <s:TileLayout/>
         </s:layout>
-        <s:itemRenderer>
-          <fx:Component>
-            <s:ItemRenderer dataChange="_tagImg.source = data.src">
-              <s:Image id="_tagImg" contentLoaderGrouping="gr1" contentLoader="{data.cache}"/>
-            </s:ItemRenderer>
-          </fx:Component>
-        </s:itemRenderer>
       </s:DataGroup>
     </s:VGroup>
   </s:Group>

@@ -9,7 +9,6 @@ import mx.controls.Alert;
 import random.utils.Constants;
 
 import spark.core.ContentCache;
-
 [Bindable]
 public class BuildingVo {
 
@@ -22,7 +21,7 @@ public class BuildingVo {
     private var _rooms:ArrayList = new ArrayList();
 
     //image cache
-    private var imgCache:ContentCache;
+    private var _imgCache:ContentCache;
 
 
     public function BuildingVo(jsonData:Object, imgCache: ContentCache) {
@@ -32,8 +31,8 @@ public class BuildingVo {
         this._bFloorsNum = jsonData.bFloorsNum;
         this._id = jsonData.id;
         this._name = jsonData.name;
+        this._imgCache = imgCache;
         this.addRooms(jsonData.rooms);
-        this.imgCache = imgCache;
     }
 
     public function addRooms(rooms: Array):void {
@@ -42,7 +41,7 @@ public class BuildingVo {
            roomVo.addCoordinates(r.coordinates);
            if(r.tags){
                for each (var tag:String in r.tags){
-                   roomVo.tagImgs.addItem({src: Constants.TAG_IMAGES_URL + tag + Constants.TAG_IMAGE_SUFFIX, cache: this.imgCache});
+                   roomVo.tagImgs.addItem(new ImageCacheVo((Constants.TAG_IMAGES_URL + tag + Constants.TAG_IMAGE_SUFFIX), this._imgCache));
                }
            }
            this._rooms.addItem(roomVo);
@@ -80,6 +79,11 @@ public class BuildingVo {
 
     public function get rooms():ArrayList {
         return _rooms;
+    }
+
+
+    public function get imgCache():ContentCache {
+        return _imgCache;
     }
 }
 }
