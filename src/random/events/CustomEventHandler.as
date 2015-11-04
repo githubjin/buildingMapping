@@ -6,6 +6,7 @@ import mx.collections.ArrayList;
 import mx.controls.Alert;
 
 import random.utils.AddressingCalculationUtils;
+import random.utils.Constants;
 
 import random.valueObject.RoomVo;
 
@@ -17,7 +18,9 @@ public class CustomEventHandler {
     private var dataList:ArrayList;
     private var groupList:ArrayList;
 
-    private var _operationType:String = OperationTypeEvent.OP_MERGE;
+    private var _operationType:String = null;;
+
+    private var _mouseUpEvent:CustomMouseUpEvent;
 
     public function CustomEventHandler() {
         roomIdList = new ArrayList();
@@ -27,10 +30,10 @@ public class CustomEventHandler {
 
     public function append(customEvent: ICustom):void{
         var id:String = this.getRoomIdentity(customEvent);
-        trace("-------------------------------"+id+"-------------------------------------")
+//        trace("-------------------------------"+id+"-------------------------------------")
         var itemIndex:int = this.roomIdList.getItemIndex(id);
-        trace("-------------------------------"+JSON.stringify(this.roomIdList)+"-------------------------------------")
-        trace("-------------------------------"+itemIndex+"-------------------------------------")
+//        trace("-------------------------------"+JSON.stringify(this.roomIdList)+"-------------------------------------")
+//        trace("-------------------------------"+itemIndex+"-------------------------------------")
         if(itemIndex > -1){
             return;
         }
@@ -52,7 +55,7 @@ public class CustomEventHandler {
     public function removeBebind(customEvent:ICustom):void{
         var itemIndex:int = this.roomIdList.getItemIndex(this.getRoomIdentity(customEvent));
 //        Alert.show(itemIndex+":"+this.roomIdList.length);
-        if(itemIndex > 0){
+        if(itemIndex >= 0){
             for(var i:uint=(itemIndex+1);i<this.roomIdList.length;i++){
                 this.roomIdList.removeItemAt(i);
                 this.dataList.removeItemAt(i);
@@ -66,12 +69,12 @@ public class CustomEventHandler {
 
     public function addMouseOverEffect(group:Group):void{
         group.alpha = 1;
-        group.setStyle("color","#5938ff");
+//        group.setStyle("color","#5938ff");
     }
 
     public function removeMouseOverEffect(group:Group):void{
         group.alpha = 0.7;
-        group.setStyle("color","#ffffff");
+//        group.setStyle("color","#ffffff");
     }
 
     public function clean():void{
@@ -103,6 +106,31 @@ public class CustomEventHandler {
     public function createNewRoom():void{
         var util:AddressingCalculationUtils = new AddressingCalculationUtils();
         util.calculation(this.dataList);
+    }
+
+    public function operationChangedHandler(event:OperationTypeEvent):void{
+        this.operationType = event.operationType;
+        if(operationType == Constants.EMPTY){ // 清理
+            this.clean();
+        }
+        if(operationType == Constants.MERGE) {
+            this.removeBebind(this._mouseUpEvent);
+            this.createNewRoom();
+            // 排序新房间坐标
+            // 重新绘画新的新房间
+            //清理
+            this.clean();
+        }
+    }
+
+
+    public function get mouseUpEvent():CustomMouseUpEvent {
+        return _mouseUpEvent;
+    }
+
+
+    public function set mouseUpEvent(value:CustomMouseUpEvent):void {
+        _mouseUpEvent = value;
     }
 }
 }

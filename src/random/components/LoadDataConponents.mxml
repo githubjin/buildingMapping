@@ -40,19 +40,15 @@
     <s:DropDownList dataProvider="{demoDataList}" labelField="name" change="dropDownList1_changeHandler(event)"/>
   </s:HGroup>
   <s:HGroup verticalAlign="middle">
-    <s:Label text="单元数"/>
-    <s:TextInput text="{buidingData.unitNum}" width="30"/>
+    <s:Label text="单元数：{buidingData.unitNum}"/>
   </s:HGroup>
   <s:HGroup verticalAlign="middle">
-    <s:Label text="户/单元"/>
-    <s:TextInput text="{buidingData.roomNumPerUnit}" width="30"/>
+    <s:Label text="户/单元：{buidingData.roomNumPerUnit}"/>
   </s:HGroup>
   <s:HGroup verticalAlign="middle">
-    <s:Label text="地上层数"/>
-    <s:TextInput text="{buidingData.uFloorsNum}" width="30"/>
+    <s:Label text="地上层数：{buidingData.uFloorsNum}"/>
   </s:HGroup>
   <s:HGroup verticalAlign="middle">
-    <s:Label text="地下层数"/>
-    <s:TextInput text="{buidingData.bFloorsNum}" width="30"/>
+    <s:Label text="地下层数：{buidingData.bFloorsNum}"/>
   </s:HGroup>
 </s:VGroup>

@@ -19,6 +19,7 @@
         import random.events.DemoDataUrlChangeEvent;
         import random.events.GenerateStartEvent;
         import random.events.OperationTypeEvent;
+        import random.events.SignalEvent;
         import random.utils.AddressingCalculationUtils;
         import random.utils.Constants;
         import random.utils.GeneratorUtil;
@@ -52,6 +53,7 @@
         private function onLoaderComplete(e:ResultEvent):void {
             var jsonData:Object = JSON.parse(e.result.toString());
 //            Alert.show(JSON.stringify(imgCache));
+            this.customEventHandler.clean();
             buidingData = new BuildingVo(jsonData, imgCache);
         }
 
@@ -75,7 +77,7 @@
          */
         private function buildingGroup_customMouseDownEventTypeHandler(event:CustomMouseDownEvent):void {
             this.isMouseDown = true;
-            this.customEventHandler.clean();
+//            this.customEventHandler.clean();
             this.customEventHandler.append(event);
         }
 
@@ -95,8 +97,9 @@
          */
         private function buildingGroup_customMouseUpEventTypeHandler(event:CustomMouseUpEvent):void {
             this.isMouseDown = false;
-            this.customEventHandler.removeBebind(event);
-            this.customEventHandler.createNewRoom();
+            this.customEventHandler.mouseUpEvent = event;
+//            this.customEventHandler.removeBebind(event);
+//            this.customEventHandler.createNewRoom();
         }
 
         /**
@@ -113,8 +116,9 @@
          * @param event
          */
         private function mergeAndSplitComponent1_operationTypeChangedHandler(event:OperationTypeEvent):void {
-            this.customEventHandler.operationType = event.operationType;
+            this.customEventHandler.operationChangedHandler(event);
         }
+
         ]]></fx:Script>
 
     <fx:Declarations>

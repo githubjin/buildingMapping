@@ -7,42 +7,35 @@
 
     <fx:Metadata>
         [Event(name = "operationTypeChanged", type = "random.events.OperationTypeEvent")]
+        /*[Event(name = "resetMergeOperations", type = "random.events.SignalEvent")]*/
     </fx:Metadata>
 
-  <mx:LinkBar color="0x0050AA" horizontalAlign="center" width="100%" fontWeight="bold"
-              dataProvider="{MergeSplitViewStack}" borderColor="0xACACAC" borderStyle="solid"
-              itemClick="linkBar1_itemClickHandler(event)"/>
+    <fx:Declarations>
+        <s:ArrayList id="dp">
+            <fx:Object text="合并选中" name="merge"/>
+            <fx:Object text="拆分选中" name="split"/>
+            <fx:Object text="重置选中" name="empty"/>
+        </s:ArrayList>
+    </fx:Declarations>
 
-  <!-- Define the ViewStack and the three child containers -->
-  <mx:ViewStack id="MergeSplitViewStack" borderStyle="solid" width="100%" height="100%">
-
-    <s:NavigatorContent id="mergeMav" name="merge" label="我要合并" backgroundColor="0xDCDCDC" fontWeight="bold">
-      <s:layout>
-        <s:VerticalLayout horizontalAlign="center" />
-      </s:layout>
-
-      <s:TextArea width="100%" height="100%" id="mergedDatArea"/>
-    </s:NavigatorContent>
-
-    <s:NavigatorContent id="splitNav" name="split" label="我要拆分" backgroundColor="0xDCDCDC" width="100%" height="100%">
-
-      <s:layout>
-        <s:VerticalLayout horizontalAlign="center" />
-      </s:layout>
-
-        <s:TextArea width="100%" height="100%" id="spliTextArea"/>
-    </s:NavigatorContent>
-
-  </mx:ViewStack>
+    <mx:ToggleButtonBar horizontalGap="5" labelField="text" selectedIndex="-1"
+                        itemClick="toggleButtonBar1_itemClickHandler(event)" dataProvider="{dp}" />
 
     <fx:Script><![CDATA[
         import mx.events.ItemClickEvent;
 
         import random.events.OperationTypeEvent;
 
-        private function linkBar1_itemClickHandler(event:ItemClickEvent):void {
-            var opChangeEvent:OperationTypeEvent = new OperationTypeEvent("operationTypeChanged", event.item.name);
+        private function toggleButtonBar1_itemClickHandler(event:ItemClickEvent):void {
+            var index:int = event.index;
+            var item:Object = dp.getItemAt(index);
+            var opChangeEvent:OperationTypeEvent = new OperationTypeEvent("operationTypeChanged", item.name);
             dispatchEvent(opChangeEvent);
         }
+
+        /*private function button1_clickHandler(event:MouseEvent):void {
+            var e:SignalEvent = new SignalEvent(Constants.RESET_OPERATION_EVENT, Constants.RESET_OPERATION_EVENT);
+            dispatchEvent(e);
+        }*/
         ]]></fx:Script>
 </s:VGroup>
