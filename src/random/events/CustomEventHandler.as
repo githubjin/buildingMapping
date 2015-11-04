@@ -119,7 +119,7 @@ public class CustomEventHandler {
             // 排序新房间坐标
             // 重新绘画新的新房间
             //清理
-            this.clean();
+//            this.clean();
         }
     }
 
