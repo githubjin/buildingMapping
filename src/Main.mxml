@@ -5,8 +5,10 @@
         import flash.display.DisplayObject;
 
         import mx.collections.ArrayList;
+        import mx.containers.TitleWindow;
 
         import mx.controls.Alert;
+        import mx.managers.PopUpManager;
         import mx.rpc.events.FaultEvent;
         import mx.rpc.events.ResultEvent;
 
@@ -119,6 +121,10 @@
          */
         private function mergeAndSplitComponent1_operationTypeChangedHandler(event:OperationTypeEvent):void {
             this.customEventHandler.operationChangedHandler(event);
+
+            /*var titleWindow:TitleWindow = new TitleWindow()
+            titleWindow.title = "1";
+            PopUpManager.addPopUp(titleWindow,this, true);*/
         }
 
         ]]></fx:Script>

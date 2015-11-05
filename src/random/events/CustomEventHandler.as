@@ -4,15 +4,18 @@
 package random.events {
 import mx.collections.ArrayList;
 import mx.controls.Alert;
+import mx.managers.PopUpManager;
 import mx.utils.ObjectUtil;
 
 import random.utils.AddressingCalculationUtils;
 import random.utils.Constants;
+import random.utils.RoomReductionUtils;
 import random.valueObject.BuildingVo;
 
 import random.valueObject.RoomVo;
 
 import spark.components.Group;
+import spark.components.TitleWindow;
 
 public class CustomEventHandler {
 
@@ -138,6 +141,9 @@ public class CustomEventHandler {
                 Alert.show("只能选中一个房间进行拆分！");
                 return;
             }
+            // 还原最小单位
+            RoomReductionUtils.reductionCoordinates(this.selectedRoomList.getItemAt(0) as RoomVo);
+//            this.selectedRoomList
         }
     }
 

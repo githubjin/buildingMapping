@@ -5,6 +5,9 @@ package random.utils {
 import mx.collections.ArrayList;
 import mx.controls.Alert;
 
+import random.utils.vo.Coordinate;
+import random.utils.vo.Room;
+
 import random.valueObject.CoordinateVo;
 
 
@@ -165,5 +168,6 @@ public class AddressingCalculationUtils {
     public function get coordinates():ArrayList {
         return _coordinates;
     }
+
 }
 }
