@@ -4,15 +4,18 @@
 package random.events {
 import mx.collections.ArrayList;
 import mx.controls.Alert;
+import mx.managers.PopUpManager;
 import mx.utils.ObjectUtil;
 
 import random.utils.AddressingCalculationUtils;
 import random.utils.Constants;
+import random.utils.RoomReductionUtils;
 import random.valueObject.BuildingVo;
 
 import random.valueObject.RoomVo;
 
 import spark.components.Group;
+import spark.components.TitleWindow;
 
 public class CustomEventHandler {
 
@@ -123,10 +126,24 @@ public class CustomEventHandler {
         if(operationType == Constants.EMPTY){ // 清理
             this.clean();
         }
-        if(operationType == Constants.MERGE) {
+        if(operationType == Constants.MERGE) { // 合并操作
+            if(this.selectedRoomList.length < 2){
+                Alert.show("请选中多个房间进行合并！");
+                return;
+            }
             this.removeBebind(this._mouseUpEvent);
             this.createNewRoom();
             this.clean();
+//            Alert.show(JSON.stringify(this.buidingData));
+        }
+        if(operationType == Constants.SPLIT){
+            if(this.selectedRoomList.length > 1){
+                Alert.show("只能选中一个房间进行拆分！");
+                return;
+            }
+            // 还原最小单位
+            RoomReductionUtils.reductionCoordinates(this.selectedRoomList.getItemAt(0) as RoomVo);
+//            this.selectedRoomList
         }
     }
 

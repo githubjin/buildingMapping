@@ -28,6 +28,7 @@ public class RoomVo {
 
     private var _tagImgs:ArrayList = new ArrayList();
 
+    private var _backgroundColor:int;
 
     public function RoomVo(id:String, name:String, description:String) {
         this._id = id;
@@ -92,6 +93,14 @@ public class RoomVo {
 
     public function set coordinates(value:ArrayList):void {
         _coordinates = value;
+    }
+
+    public function get backgroundColor():int {
+        return _backgroundColor;
+    }
+
+    public function set backgroundColor(value:int):void {
+        _backgroundColor = value;
     }
 }
 }

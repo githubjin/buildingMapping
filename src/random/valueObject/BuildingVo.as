@@ -20,6 +20,11 @@ public class BuildingVo {
     private var  _name:String;
     private var _rooms:ArrayList = new ArrayList();
 
+    // 楼层
+    private var _floors:ArrayList = new ArrayList();
+    // 单元
+    private var _units:ArrayList = new ArrayList();
+
     //image cache
     private var _imgCache:ContentCache;
 
@@ -33,6 +38,29 @@ public class BuildingVo {
         this._name = jsonData.name;
         this._imgCache = imgCache;
         this.addRooms(jsonData.rooms);
+        this.initFloors();
+        this.iniUnits();
+
+    }
+
+    private function initFloors():void{
+        this.floors.removeAll();
+        for(var i:uint=0;i<this._uFloorsNum;i++){
+            this.floors.addItem((this.uFloorsNum - i) + "F");
+        }
+
+        for(var k:uint=0;k<this._bFloorsNum;k++){
+            this.floors.addItem(("-" + (k+1)) + "F");
+        }
+
+    }
+
+    private function  iniUnits():void{
+        this.units.removeAll();
+        for(var i:uint=this._unitNum;i>0;i--){
+//            this.units.addItem(i+"单元");
+            this.units.addItem({name:(i+"单元"), roomNumber: this.roomNumPerUnit, unitNum: this.unitNum});
+        }
     }
 
     public function addRooms(rooms: Array):void {
@@ -84,6 +112,22 @@ public class BuildingVo {
 
     public function get imgCache():ContentCache {
         return _imgCache;
+    }
+
+    public function get floors():ArrayList {
+        return _floors;
+    }
+
+    public function set floors(value:ArrayList):void {
+        _floors = value;
+    }
+
+    public function get units():ArrayList {
+        return _units;
+    }
+
+    public function set units(value:ArrayList):void {
+        _units = value;
     }
 }
 }

@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<!--
+  Created by Yo on 2015/11/5.
+-->
+<s:ItemRenderer xmlns:fx="http://ns.adobe.com/mxml/2009" xmlns:s="library://ns.adobe.com/flex/spark" autoDrawBackground="false">
+  <s:Group width="30" height="100" y="{100 * itemIndex}">
+    <s:Rect height="100" width="30">
+      <s:stroke>
+        <s:SolidColorStroke color="0x6bd8ff" weight="2"/>
+      </s:stroke>
+      <s:fill>
+        <s:SolidColor color="0xff6837"/>
+      </s:fill>
+    </s:Rect>
+    <s:Label text="{data}" verticalCenter="0" horizontalCenter="0" rotation="270"/>
+  </s:Group>
+</s:ItemRenderer>

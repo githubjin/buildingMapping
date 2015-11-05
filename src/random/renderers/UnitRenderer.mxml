@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<!--
+  Created by Yo on 2015/11/5.
+-->
+<s:ItemRenderer xmlns:fx="http://ns.adobe.com/mxml/2009" xmlns:s="library://ns.adobe.com/flex/spark"
+                autoDrawBackground="false">
+  <s:Group height="30" width="{100 * data.roomNumber}" x="{(data.unitNum-itemIndex-1) * 100 * data.roomNumber + 35}">
+    <!--<s:Rect height="30" width="{100 * data.roomNumber}">
+      <s:stroke>
+        <s:SolidColorStroke color="0xea6e4d" weight="2"/>
+      </s:stroke>
+      <s:fill>
+        <s:SolidColor color="0x6bd8ff"/>
+      </s:fill>
+    </s:Rect>-->
+    <s:BitmapImage id="bg2" source="{roofImage}" width="{100 * data.roomNumber}" height="30" fillMode="scale" smooth="true" blendMode="normal"/>
+    <s:Label text="{data.name}" verticalCenter="0" horizontalCenter="0" paddingTop="7"/>
+  </s:Group>
+  <fx:Script><![CDATA[
+    import random.utils.Constants;
+
+    [Bindable]
+    private var roofImage:String = Constants.SERVER_URL + "resources/images/roof.png";
+
+    ]]></fx:Script>
+</s:ItemRenderer>
