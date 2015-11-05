@@ -140,6 +140,9 @@ public class AddressingCalculationUtils {
      * @return
      */
     private function compare(rcA:uint, iteA:uint, rcB:uint, iteB:uint, preC:CoordinateVo, preM:uint, ite:CoordinateVo):Object{
+//        trace("-------------------------------------------------------------");
+//        trace("------"+rcA+"------"+rcB+"--------"+iteA+"-----"+iteB+"---------preM:"+preM+"--------------------------");
+//        trace("-------------------------------------------------------------");
         var obj : Object = new Object();
         if(rcA == iteA){
             var bt:int = iteB - rcB;
@@ -150,6 +153,9 @@ public class AddressingCalculationUtils {
             }else if((btAbs == preM) && bt > 0){
                 obj.preC = ite;
                 obj.preM = btAbs;
+            }else{
+                obj.preM = preM;
+                obj.preC = preC;
             }
         }
         return obj;

@@ -112,6 +112,9 @@
 
         /**
          *  切换操作类型
+         *   merge:合并选中
+         *   split 切分
+         *   empty 重置
          * @param event
          */
         private function mergeAndSplitComponent1_operationTypeChangedHandler(event:OperationTypeEvent):void {
@@ -145,7 +148,15 @@
                      width="85%" title="建筑物编码: {customEventHandler.buidingData.id} -- 名称: {customEventHandler.buidingData.name}">
                 <s:Scroller left="10" top="10" right="10" bottom="10">
                     <!--<s:DataGroup dataProvider="{buidingData.rooms}" id="buildingGroup" itemRenderer="random.renderers.RoomItemRender" width="100%" height="100%"/>-->
-                    <s:DataGroup dataProvider="{customEventHandler.buidingData.rooms}" id="buildingGroup" itemRenderer="random.renderers.CustomRoom" width="100%" height="100%"/>
+                    <s:VGroup>
+                        <!--  单元  -->
+                        <s:DataGroup dataProvider="{customEventHandler.buidingData.units}" id="unitsDataGroup" itemRenderer="random.renderers.UnitRenderer"/>
+                        <s:HGroup>
+                            <!-- 楼层 -->
+                            <s:DataGroup dataProvider="{customEventHandler.buidingData.floors}" id="floorsDataGroup" itemRenderer="random.renderers.FloorRenderer"/>
+                            <s:DataGroup dataProvider="{customEventHandler.buidingData.rooms}" id="buildingGroup" itemRenderer="random.renderers.CustomRoom" width="100%" height="100%"/>
+                        </s:HGroup>
+                    </s:VGroup>
                 </s:Scroller>
             </s:Panel>
         </s:HGroup>

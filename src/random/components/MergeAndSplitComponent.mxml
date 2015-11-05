@@ -22,6 +22,7 @@
                         itemClick="toggleButtonBar1_itemClickHandler(event)" dataProvider="{dp}" />
 
     <fx:Script><![CDATA[
+        import mx.controls.Alert;
         import mx.events.ItemClickEvent;
 
         import random.events.OperationTypeEvent;

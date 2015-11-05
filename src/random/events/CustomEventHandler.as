@@ -123,10 +123,21 @@ public class CustomEventHandler {
         if(operationType == Constants.EMPTY){ // 清理
             this.clean();
         }
-        if(operationType == Constants.MERGE) {
+        if(operationType == Constants.MERGE) { // 合并操作
+            if(this.selectedRoomList.length < 2){
+                Alert.show("请选中多个房间进行合并！");
+                return;
+            }
             this.removeBebind(this._mouseUpEvent);
             this.createNewRoom();
             this.clean();
+//            Alert.show(JSON.stringify(this.buidingData));
+        }
+        if(operationType == Constants.SPLIT){
+            if(this.selectedRoomList.length > 1){
+                Alert.show("只能选中一个房间进行拆分！");
+                return;
+            }
         }
     }
 
