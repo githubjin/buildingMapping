@@ -142,8 +142,8 @@ public class CustomEventHandler {
                 return;
             }
             // 还原最小单位
-            RoomReductionUtils.reductionCoordinates(this.selectedRoomList.getItemAt(0) as RoomVo);
-//            this.selectedRoomList
+            var roomReductionUtils:RoomReductionUtils = new RoomReductionUtils();
+            roomReductionUtils.reductionCoordinates(this.selectedRoomList.getItemAt(0) as RoomVo);
         }
     }
 
