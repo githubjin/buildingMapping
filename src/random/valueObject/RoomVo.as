@@ -89,5 +89,9 @@ public class RoomVo {
     public function set tagImgs(value:ArrayList):void {
         _tagImgs = value;
     }
+
+    public function set coordinates(value:ArrayList):void {
+        _coordinates = value;
+    }
 }
 }

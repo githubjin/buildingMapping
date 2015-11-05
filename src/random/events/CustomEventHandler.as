@@ -4,9 +4,11 @@
 package random.events {
 import mx.collections.ArrayList;
 import mx.controls.Alert;
+import mx.utils.ObjectUtil;
 
 import random.utils.AddressingCalculationUtils;
 import random.utils.Constants;
+import random.valueObject.BuildingVo;
 
 import random.valueObject.RoomVo;
 
@@ -15,17 +17,19 @@ import spark.components.Group;
 public class CustomEventHandler {
 
     private var roomIdList:ArrayList;
-    private var dataList:ArrayList;
-    private var groupList:ArrayList;
+    private var selectedRoomList:ArrayList;
+    private var selectedGroupList:ArrayList;
 
     private var _operationType:String = null;;
 
     private var _mouseUpEvent:CustomMouseUpEvent;
 
+    private var _buidingData:BuildingVo;
+
     public function CustomEventHandler() {
         roomIdList = new ArrayList();
-        dataList = new ArrayList();
-        groupList = new ArrayList();
+        selectedRoomList = new ArrayList();
+        selectedGroupList = new ArrayList();
     }
 
     public function append(customEvent: ICustom):void{
@@ -38,16 +42,16 @@ public class CustomEventHandler {
             return;
         }
         this.roomIdList.addItem(this.getRoomIdentity(customEvent));
-        this.dataList.addItem(customEvent.itemRendererData);
-        this.groupList.addItem(customEvent.group);
+        this.selectedRoomList.addItem(customEvent.itemRendererData);
+        this.selectedGroupList.addItem(customEvent.group);
         this.addMouseOverEffect(customEvent.group);
     }
 
     public function remove(customEvent:ICustom):void{
         var itemIndex:int = this.roomIdList.getItemIndex(this.getRoomIdentity(customEvent));
         this.roomIdList.removeItemAt(itemIndex);
-        this.dataList.removeItemAt(itemIndex);
-        var group:Group = this.groupList.removeItemAt(itemIndex) as Group;
+        this.selectedRoomList.removeItemAt(itemIndex);
+        var group:Group = this.selectedGroupList.removeItemAt(itemIndex) as Group;
         this.removeMouseOverEffect(group);
 
     }
@@ -58,8 +62,8 @@ public class CustomEventHandler {
         if(itemIndex >= 0){
             for(var i:uint=(itemIndex+1);i<this.roomIdList.length;i++){
                 this.roomIdList.removeItemAt(i);
-                this.dataList.removeItemAt(i);
-                var group:Group = this.groupList.removeItemAt(i) as Group;
+                this.selectedRoomList.removeItemAt(i);
+                var group:Group = this.selectedGroupList.removeItemAt(i) as Group;
                 this.removeMouseOverEffect(group);
             }
         }else{
@@ -79,11 +83,11 @@ public class CustomEventHandler {
 
     public function clean():void{
         this.roomIdList.removeAll();
-        this.dataList.removeAll();
-        for(var i:uint=0;i<this.groupList.length;i++){
-            this.removeMouseOverEffect((this.groupList.getItemAt(i) as Group));
+        this.selectedRoomList.removeAll();
+        for(var i:uint=0;i<this.selectedGroupList.length;i++){
+            this.removeMouseOverEffect((this.selectedGroupList.getItemAt(i) as Group));
         }
-        this.groupList.removeAll();
+        this.selectedGroupList.removeAll();
     }
 
 
@@ -105,7 +109,13 @@ public class CustomEventHandler {
      */
     public function createNewRoom():void{
         var util:AddressingCalculationUtils = new AddressingCalculationUtils();
-        util.calculation(this.dataList);
+        var newRoomCoordinates:ArrayList = util.calculation(this.selectedRoomList);
+        for(var i:uint=0;i<this.selectedRoomList.length;i++){
+            this.buidingData.rooms.removeItem(this.selectedRoomList.getItemAt(i));
+        }
+        var roomVo:RoomVo = new RoomVo(ObjectUtil.toString(Math.random()), "newRoom", "new Room");
+        roomVo.coordinates = newRoomCoordinates;
+        this.buidingData.rooms.addItem(roomVo);
     }
 
     public function operationChangedHandler(event:OperationTypeEvent):void{
@@ -116,9 +126,6 @@ public class CustomEventHandler {
         if(operationType == Constants.MERGE) {
             this.removeBebind(this._mouseUpEvent);
             this.createNewRoom();
-            // 排序新房间坐标
-            // 重新绘画新的新房间
-            //清理
             this.clean();
         }
     }
@@ -131,6 +138,15 @@ public class CustomEventHandler {
 
     public function set mouseUpEvent(value:CustomMouseUpEvent):void {
         _mouseUpEvent = value;
+    }
+
+    [Bindable]
+    public function get buidingData():BuildingVo {
+        return _buidingData;
+    }
+
+    public function set buidingData(value:BuildingVo):void {
+        _buidingData = value;
     }
 }
 }
