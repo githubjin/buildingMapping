@@ -116,12 +116,17 @@ public class CustomEventHandler {
         for(var i:uint=0;i<this.selectedRoomList.length;i++){
             this.buidingData.rooms.removeItem(this.selectedRoomList.getItemAt(i));
         }
+        Alert.show(JSON.stringify(newRoomCoordinates));
         var roomVo:RoomVo = new RoomVo(ObjectUtil.toString(Math.random()), "newRoom", "new Room");
         roomVo.coordinates = newRoomCoordinates;
         this.buidingData.rooms.addItem(roomVo);
     }
 
-    public function operationChangedHandler(event:OperationTypeEvent):void{
+    /**
+     *  合并 拆分 重置
+     * @param event
+     */
+    public function operationChangedHandler(event:OperationTypeEvent, callBack:Function):void{
         this.operationType = event.operationType;
         if(operationType == Constants.EMPTY){ // 清理
             this.clean();
@@ -142,8 +147,11 @@ public class CustomEventHandler {
                 return;
             }
             // 还原最小单位
-            RoomReductionUtils.reductionCoordinates(this.selectedRoomList.getItemAt(0) as RoomVo);
-//            this.selectedRoomList
+            var roomReductionUtils:RoomReductionUtils = new RoomReductionUtils();
+            var reductionCoordinates:ArrayList = roomReductionUtils.reductionCoordinates(this.selectedRoomList.getItemAt(0) as RoomVo);
+            if(callBack != null){
+                callBack.call(null, Constants.SPLIT,reductionCoordinates);
+            }
         }
     }
 
@@ -165,5 +173,6 @@ public class CustomEventHandler {
     public function set buidingData(value:BuildingVo):void {
         _buidingData = value;
     }
+
 }
 }

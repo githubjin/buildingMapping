@@ -8,9 +8,12 @@
         import mx.containers.TitleWindow;
 
         import mx.controls.Alert;
+        import mx.events.CloseEvent;
         import mx.managers.PopUpManager;
         import mx.rpc.events.FaultEvent;
         import mx.rpc.events.ResultEvent;
+
+        import random.components.RoomSplitWindow;
 
         import random.events.CustomEventHandler;
 
@@ -28,6 +31,8 @@
         import random.utils.vo.Building;
 
         import random.valueObject.BuildingVo;
+
+        import spark.components.Label;
 
         import spark.events.IndexChangeEvent;
 
@@ -120,13 +125,20 @@
          * @param event
          */
         private function mergeAndSplitComponent1_operationTypeChangedHandler(event:OperationTypeEvent):void {
-            this.customEventHandler.operationChangedHandler(event);
+            var that:* = this;
+            this.customEventHandler.operationChangedHandler(event, function(type:String, data:Object):void{
+                if(Constants.SPLIT == type){
+                    var splitWindow:RoomSplitWindow = new RoomSplitWindow();
+                    splitWindow = RoomSplitWindow(PopUpManager.createPopUp(that, RoomSplitWindow, true));
+                    splitWindow.roomReductionCoordinates = data as ArrayList;
+                    splitWindow.addEventListener(CloseEvent.CLOSE, function splitWindow_closeHandler(event:CloseEvent):void {
+                        PopUpManager.removePopUp(splitWindow);
+                    });
+                    PopUpManager.centerPopUp(splitWindow);
+                }
+            });
 
-            /*var titleWindow:TitleWindow = new TitleWindow()
-            titleWindow.title = "1";
-            PopUpManager.addPopUp(titleWindow,this, true);*/
         }
-
         ]]></fx:Script>
 
     <fx:Declarations>
