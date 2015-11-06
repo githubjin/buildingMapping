@@ -63,8 +63,8 @@
       <file leaf-file-name="RoomReductionUtils.as" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/random/utils/RoomReductionUtils.as">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.14174107">
-              <caret line="21" column="27" selection-start-line="21" selection-start-column="27" selection-end-line="21" selection-end-column="27" />
+            <state vertical-scroll-proportion="0.5588235">
+              <caret line="34" column="43" selection-start-line="34" selection-start-column="43" selection-end-line="34" selection-end-column="43" />
               <folding>
                 <element signature="e#62#94#0" expanded="true" />
               </folding>
@@ -162,8 +162,8 @@
         <option value="$PROJECT_DIR$/src/random/RoomSplitWindow.mxml" />
         <option value="$PROJECT_DIR$/src/Main.mxml" />
         <option value="$PROJECT_DIR$/src/random/utils/AddressingCalculationUtils.as" />
-        <option value="$PROJECT_DIR$/src/random/utils/RoomReductionUtils.as" />
         <option value="$PROJECT_DIR$/src/random/events/CustomEventHandler.as" />
+        <option value="$PROJECT_DIR$/src/random/utils/RoomReductionUtils.as" />
       </list>
     </option>
   </component>
@@ -664,12 +664,12 @@
       <workItem from="1446548928076" duration="26751000" />
       <workItem from="1446598872542" duration="21779000" />
       <workItem from="1446636814848" duration="8123000" />
-      <workItem from="1446685626091" duration="20880000" />
+      <workItem from="1446685626091" duration="23919000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="160009000" />
+    <option name="totallyTimeSpent" value="163048000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -682,7 +682,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32792208" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="DB Browser" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -694,7 +694,7 @@
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32995737" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.41774893" sideWeight="0.49200428" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.41774893" sideWeight="0.49200428" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.17803837" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.47547975" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
@@ -1207,8 +1207,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/random/utils/RoomReductionUtils.as">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.14174107">
-          <caret line="21" column="27" selection-start-line="21" selection-start-column="27" selection-end-line="21" selection-end-column="27" />
+        <state vertical-scroll-proportion="0.5588235">
+          <caret line="34" column="43" selection-start-line="34" selection-start-column="43" selection-end-line="34" selection-end-column="43" />
           <folding>
             <element signature="e#62#94#0" expanded="true" />
           </folding>
