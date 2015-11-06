@@ -116,12 +116,17 @@ public class CustomEventHandler {
         for(var i:uint=0;i<this.selectedRoomList.length;i++){
             this.buidingData.rooms.removeItem(this.selectedRoomList.getItemAt(i));
         }
+//        Alert.show(JSON.stringify(newRoomCoordinates));
         var roomVo:RoomVo = new RoomVo(ObjectUtil.toString(Math.random()), "newRoom", "new Room");
         roomVo.coordinates = newRoomCoordinates;
         this.buidingData.rooms.addItem(roomVo);
     }
 
-    public function operationChangedHandler(event:OperationTypeEvent):void{
+    /**
+     *  合并 拆分 重置
+     * @param event
+     */
+    public function operationChangedHandler(event:OperationTypeEvent, callBack:Function):void{
         this.operationType = event.operationType;
         if(operationType == Constants.EMPTY){ // 清理
             this.clean();
@@ -137,13 +142,20 @@ public class CustomEventHandler {
 //            Alert.show(JSON.stringify(this.buidingData));
         }
         if(operationType == Constants.SPLIT){
+            if(this.selectedRoomList.length < 1){
+                Alert.show("请选中一个房间进行拆分！");
+                return;
+            }
             if(this.selectedRoomList.length > 1){
                 Alert.show("只能选中一个房间进行拆分！");
                 return;
             }
             // 还原最小单位
             var roomReductionUtils:RoomReductionUtils = new RoomReductionUtils();
-            roomReductionUtils.reductionCoordinates(this.selectedRoomList.getItemAt(0) as RoomVo);
+            var reductionCoordinates:ArrayList = roomReductionUtils.reductionCoordinates(this.selectedRoomList.getItemAt(0) as RoomVo);
+            if(callBack != null){
+                callBack.call(null, Constants.SPLIT,reductionCoordinates);
+            }
         }
     }
 
@@ -165,5 +177,6 @@ public class CustomEventHandler {
     public function set buidingData(value:BuildingVo):void {
         _buidingData = value;
     }
+
 }
 }

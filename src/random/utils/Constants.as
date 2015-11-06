@@ -25,5 +25,14 @@ public class Constants {
     public static var SPLIT:String = "split";
     public static var EMPTY:String = "empty";
 
+    public static var DIRECTION_UP:String = "U";
+    public static var DIRECTION_DOWN:String = "D";
+    public static var DIRECTION_LEFT:String = "L";
+    public static var DIRECTION_RIGHT:String = "R";
+
+    //直线方向
+    public static var LINE_DIRECTIONS_HORIZONTAL:String = "H";
+    public static var LINE_DIRECTIONS_VERTICAL:String = "V";
+
 }
 }

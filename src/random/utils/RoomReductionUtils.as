@@ -140,11 +140,23 @@ public class RoomReductionUtils {
                 ax.push(c[field]);
             }
         }
-        /*for(var c:Object in coordinates) {
-            if(ax.indexOf(c[field]) < 0){
-                ax.push(c[field]);
+        ax = ax.sort();
+        var minGap:int =10000;
+        for(var k:int=0;k<(ax.length - 1);k++){
+            var gap:int = Math.abs(ax[k+1] - ax[k]);
+            if(gap < minGap){
+                minGap = gap;
             }
-        }*/
+        }
+        var tArr:Array = new Array();
+        ax.forEach(function(item:int, index:int, arr:Array):void{
+            if(arr.indexOf((item + minGap))<0){
+                tArr.push((item + minGap));
+            }
+        });
+        tArr.forEach(function(item:int,index:int,arr:Array):void{
+            ax.push(item);
+        });
         return ax.sort();
     }
 
