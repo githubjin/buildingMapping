@@ -19,7 +19,7 @@
     </fx:Declarations>
 
     <mx:ToggleButtonBar horizontalGap="5" labelField="text" selectedIndex="-1"
-                        itemClick="toggleButtonBar1_itemClickHandler(event)" dataProvider="{dp}" />
+                        itemClick="toggleButtonBar1_itemClickHandler(event)" dataProvider="{dp}" rotation="270"/>
 
     <fx:Script><![CDATA[
         import mx.controls.Alert;

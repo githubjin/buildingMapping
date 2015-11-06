@@ -7,7 +7,7 @@ import mx.controls.Alert;
 import mx.managers.PopUpManager;
 import mx.utils.ObjectUtil;
 
-import random.utils.AddressingCalculationUtils;
+import random.utils.RoomMergeUtils;
 import random.utils.Constants;
 import random.utils.RoomReductionUtils;
 import random.valueObject.BuildingVo;
@@ -111,7 +111,7 @@ public class CustomEventHandler {
      *  合并操作 确定新的边界
      */
     public function createNewRoom():void{
-        var util:AddressingCalculationUtils = new AddressingCalculationUtils();
+        var util:RoomMergeUtils = new RoomMergeUtils();
         var newRoomCoordinates:ArrayList = util.calculation(this.selectedRoomList);
         for(var i:uint=0;i<this.selectedRoomList.length;i++){
             this.buidingData.rooms.removeItem(this.selectedRoomList.getItemAt(i));

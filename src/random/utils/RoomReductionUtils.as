@@ -140,7 +140,7 @@ public class RoomReductionUtils {
                 ax.push(c[field]);
             }
         }
-        ax = ax.sort();
+        /*ax = ax.sort();
         var minGap:int =10000;
         for(var k:int=0;k<(ax.length - 1);k++){
             var gap:int = Math.abs(ax[k+1] - ax[k]);
@@ -157,8 +157,36 @@ public class RoomReductionUtils {
         tArr.forEach(function(item:int,index:int,arr:Array):void{
             ax.push(item);
         });
-        return ax.sort();
+        return ax.sort();*/
+        return this.fillGapBetweenCoordinates(ax.sort(sortFunction));
     }
 
+    private function fillGapBetweenCoordinates(ax:Array):Array{
+        var minGap:int =10000;
+        for(var k:int=0;k<(ax.length - 1);k++){
+            var gap:int = Math.abs(ax[k+1] - ax[k]);
+            if(gap < minGap){
+                minGap = gap;
+            }
+        }
+        var tArr:Array = new Array();
+        ax.forEach(function(item:int, index:int, arr:Array):void{
+            if(arr.indexOf((item + minGap))<0 && arr[(arr.length - 1) > (item + minGap)]){
+                tArr.push((item + minGap));
+            }
+        });
+        if(tArr.length == 0){
+            return ax.sort(sortFunction);
+        }else{
+            tArr.forEach(function(item:int,index:int,arr:Array):void{
+                ax.push(item);
+            });
+            return this.fillGapBetweenCoordinates(ax.sort(sortFunction));
+        }
+    }
+
+    private function sortFunction(a:int, b:int):int {
+        return a - b;
+    }
 }
 }

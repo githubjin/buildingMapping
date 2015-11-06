@@ -1,0 +1,84 @@
+<?xml version="1.0"?>
+<!--
+  Created by DaoSui on 2015/11/6.
+-->
+<s:BorderContainer xmlns:fx="http://ns.adobe.com/mxml/2009" xmlns:s="library://ns.adobe.com/flex/spark">
+
+  <s:layout>
+    <s:BasicLayout/>
+  </s:layout>
+  <fx:Declarations>
+    <!--
+将非可视元素（例如服务、值对象）放在此处 -->
+  </fx:Declarations>
+
+  <!--
+画一个椭圆或圆 -->
+  <s:Ellipse
+          width="120" height="100" x="52" y="115">
+    <s:fill>
+      <s:SolidColor
+              color="#ff0000" />
+    </s:fill>
+  </s:Ellipse>
+
+  <!--
+画一个红色的椭圆或圆，描黑色的边 -->
+  <s:Ellipse
+          width="120" height="100" x="48" y="224">
+    <s:fill>
+      <s:SolidColor
+              color="#ff0000" />
+    </s:fill>
+    <s:stroke>
+      <s:SolidColorStroke
+              color="0x000000" weight="2"/>
+    </s:stroke>
+  </s:Ellipse>
+
+  <!--
+画一个空心的椭圆或圆，有黑色的边 -->
+  <s:Ellipse
+          width="120" height="100" x="208" y="111">
+    <s:stroke>
+      <s:SolidColorStroke
+              color="0x000000" weight="1"/>
+    </s:stroke>
+  </s:Ellipse>
+
+  <!--
+画一个长方形或正方形 -->
+  <s:Rect
+          width="100" height="80" x="432" y="134">
+    <s:fill>
+      <s:SolidColor
+              color="#ff0000" />
+    </s:fill>
+  </s:Rect>
+
+  <!--
+画一个红色的直线 -->
+  <s:Line
+          width="238" x="200" y="80" >
+    <s:stroke>
+      <s:SolidColorStroke
+              color="0xff0000" weight="2"/>
+    </s:stroke>
+  </s:Line>
+
+  <!--
+画一个颜色渐变的直线 -->
+  <s:Line
+          width="238" x="200" y="100" >
+    <s:stroke>
+      <s:LinearGradientStroke
+              weight="2">
+        <s:GradientEntry
+                color="#ff0000"/>
+        <s:GradientEntry
+                color="#ffff00"/>
+      </s:LinearGradientStroke>
+    </s:stroke>
+  </s:Line>
+
+</s:BorderContainer>

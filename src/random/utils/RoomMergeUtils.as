@@ -13,7 +13,7 @@ import random.valueObject.CoordinateVo;
 
 import random.valueObject.RoomVo;
 
-public class AddressingCalculationUtils {
+public class RoomMergeUtils {
 
     // Coordinate 新坐标地址
     private var _coordinates:ArrayList;
@@ -26,7 +26,7 @@ public class AddressingCalculationUtils {
     private var directions:ArrayList;
 
 
-    public function AddressingCalculationUtils() {
+    public function RoomMergeUtils() {
         this._coordinates = new ArrayList();
         this.sortedCoordinates = new ArrayList();
         this.directions = new ArrayList();
@@ -63,7 +63,7 @@ public class AddressingCalculationUtils {
         for(var m:int=0;m<cntMap.keys.length;m++){
             var k:String = cntMap.keys.getItemAt(m) as String;
             var number:Number = (cntMap.get(k) as Number);
-            if(number !== 2 && number != 4){
+            if(number !== 2 && number != 4 && number < 4){
                 this._coordinates.addItem(coordinateMap.get(k));
             }
         }
@@ -187,6 +187,10 @@ public class AddressingCalculationUtils {
         // 之前的 坐标
         var preC:CoordinateVo = null;
 
+        if(c.x == 700 && c.y == 100){
+            trace("");
+        }
+
 
         for(var i:uint=0;i<this.coordinates.length;i++){
             if(itemIndex == i){
@@ -279,7 +283,7 @@ public class AddressingCalculationUtils {
         if(rcA == iteA){
             var bt:int = iteB - rcB;
             var btAbs:uint = Math.abs(bt);
-            if(btAbs < preM){
+            if(btAbs < preM  && this.isSameDirectionWithGrandCoordinate(startPoint, ite)){
                 obj.preM = btAbs;
                 obj.preC = ite;
 //            }else if((btAbs == preM) && bt > 0){ // 存在两种选择

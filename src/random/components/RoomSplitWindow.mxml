@@ -3,7 +3,7 @@
   Created by Yo on 2015/11/5.
 -->
 <s:TitleWindow xmlns:fx="http://ns.adobe.com/mxml/2009" xmlns:s="library://ns.adobe.com/flex/spark" title="房间拆分"
-        width="{Capabilities.screenResolutionX * 0.7}" height="{Capabilities.screenResolutionY * 0.8}">
+               xmlns:mm="random.demo.*" width="{Capabilities.screenResolutionX * 0.7}" height="{Capabilities.screenResolutionY * 0.8}">
 
 <fx:Script><![CDATA[
   import mx.collections.ArrayList;
@@ -18,15 +18,25 @@
   }
 
   ]]></fx:Script>
+<s:VGroup  horizontalCenter="0" verticalCenter="0">
+    <s:DataGroup dataProvider="{this._roomReductionCoordinates}">
+      <s:itemRenderer>
+        <fx:Component>
+          <s:ItemRenderer>
+            <s:Label text="{data.x}--{data.y}"/>
+              <s:Ellipse
+                      width="7" height="7" x="{data.x}" y="{data.y}">
+                  <s:fill>
+                      <s:SolidColor
+                              color="#ff0000" />
+                  </s:fill>
+              </s:Ellipse>
+          </s:ItemRenderer>
+        </fx:Component>
+      </s:itemRenderer>
+    </s:DataGroup>
+</s:VGroup>
 
-<s:DataGroup dataProvider="{this._roomReductionCoordinates}">
-  <s:itemRenderer>
-    <fx:Component>
-      <s:ItemRenderer>
-        <s:Label text="{data.x}--{data.y}"/>
-      </s:ItemRenderer>
-    </fx:Component>
-  </s:itemRenderer>
-</s:DataGroup>
+  <!--<mm:EllipseDemo/>-->
 
 </s:TitleWindow>
