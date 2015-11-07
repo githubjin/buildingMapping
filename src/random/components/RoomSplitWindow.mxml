@@ -2,41 +2,230 @@
 <!--
   Created by Yo on 2015/11/5.
 -->
-<s:TitleWindow xmlns:fx="http://ns.adobe.com/mxml/2009" xmlns:s="library://ns.adobe.com/flex/spark" title="房间拆分"
-               xmlns:mm="random.demo.*" width="{Capabilities.screenResolutionX * 0.7}" height="{Capabilities.screenResolutionY * 0.8}">
+<s:TitleWindow xmlns:fx="http://ns.adobe.com/mxml/2009" xmlns:s="library://ns.adobe.com/flex/spark" title="房间拆分-{mouseLocationX}-{mouseLocationY}"
+               xmlns:mm="random.components.*" width="{Capabilities.screenResolutionX * 0.7}" height="{Capabilities.screenResolutionY * 0.8}"
+               creationComplete="creationCompleteHandler(event)">
 
 <fx:Script><![CDATA[
-  import mx.collections.ArrayList;
+    import mx.collections.ArrayList;
+    import mx.controls.Alert;
+    import mx.events.FlexEvent;
+    import mx.graphics.GradientStroke;
+    import mx.graphics.SolidColorStroke;
 
-  [Bindable]
-  private var _roomReductionCoordinates:ArrayList;
+    import random.valueObject.CoordinateVo;
+
+    import spark.primitives.Ellipse;
+    import spark.primitives.Graphic;
+    import spark.primitives.Line;
+    import spark.primitives.Path;
+
+    // source data
+    private var _roomReductionCoordinates:ArrayList;
+    // 窗口内使用的坐标
+    private var internalCoordinates:Array;
+    //  连线属猪
+    private var diagonals:Array;
+    // 当前移动的对角线
+    private var currentDiagonal:Line = null;
+
+    // 边框偏移
+    [Bindable]
+    private var offsetX:int = 33;
+    [Bindable]
+    private var offsetY:int = 33;
+
+    // 舞台坐标偏移量
+    private var  pointOffsetX:int = 0;
+    private var  pointOffsetY:int = 0;
+
+    //  X, Y 坐标的最小值
+    private var minX:int = 0;
+    private var minY:int = 0;
+
+    [Bindable]
+    private var mouseLocationX:int = 0;
+    [Bindable]
+    private var mouseLocationY:int = 0;
 
 
-  public function set roomReductionCoordinates(value:ArrayList):void {
+    public function set roomReductionCoordinates(value:ArrayList):void {
+        _roomReductionCoordinates = value;
+    }
 
-    _roomReductionCoordinates = value;
-  }
+    /**
+     *  创建完成绘制点和边界
+     * @param event
+     */
+    private function creationCompleteHandler(event:FlexEvent):void {
+//        Alert.show(JSON.stringify(_roomReductionCoordinates));
+        this.findLeftTopCoordinate(function (minX:int, minY:int):void {
+            internalCoordinates = new Array();
+            _roomReductionCoordinates.toArray().forEach(function (item:Object, index:int, arr:Array):void {
+                internalCoordinates.push(new CoordinateVo((item.x - minX), (item.y - minY)));
+            });
+        });
+        this.drawBoundary();
+        internalCoordinates.forEach(function (item:Object, index:int, arr:Array):void {
+            var gra:Graphic = new Graphic();
+            gra.x = item.x;
+            gra.y = item.y;
+//            trace("---------------"+gra.x+"-----------------"+gra.y+"-------------item.y："+item.y+"-------------------------------------");
+            var ellipse:Ellipse = new Ellipse();
+            ellipse.width = 7;
+            ellipse.height = 7;
+            ellipse.stroke = new SolidColorStroke(0x66CCFF, 5, 1);
+            ellipse.alpha = 0.7;
+            gra.addElement(ellipse);
+            gra.addEventListener(MouseEvent.MOUSE_OVER, ellipse_mouseOverHandler);
+            gra.addEventListener(MouseEvent.MOUSE_OUT, ellipse_mouseOverHandler);
+            gra.addEventListener(MouseEvent.CLICK, gra_clickHandler);
+            gcGroup.addElement(gra);
+        });
+    }
 
-  ]]></fx:Script>
-<s:VGroup  horizontalCenter="0" verticalCenter="0">
-    <s:DataGroup dataProvider="{this._roomReductionCoordinates}">
-      <s:itemRenderer>
-        <fx:Component>
-          <s:ItemRenderer>
-            <s:Label text="{data.x}--{data.y}"/>
-              <s:Ellipse
-                      width="7" height="7" x="{data.x}" y="{data.y}">
-                  <s:fill>
-                      <s:SolidColor
-                              color="#ff0000" />
-                  </s:fill>
-              </s:Ellipse>
-          </s:ItemRenderer>
-        </fx:Component>
-      </s:itemRenderer>
-    </s:DataGroup>
-</s:VGroup>
+    /**
+     *  点 over 和 out 的监听函数
+     * @param event
+     */
+    private function ellipse_mouseOverHandler(event:MouseEvent):void {
+        var g:Graphic = event.target as Graphic;
+        var multiple:Number = 1;
+        switch (event.type) {
+            case MouseEvent.MOUSE_OVER:
+                multiple = 1.5
+                break;
+            case MouseEvent.MOUSE_OUT:
+                multiple = 1 / 1.5;
+                break;
+        }
+        g.alpha = g.alpha * multiple;
+        g.width = g.width * multiple;
+        g.height = g.height * multiple;
+    }
 
-  <!--<mm:EllipseDemo/>-->
+    /**
+     *  画边界
+     */
+    private function drawBoundary():void {
+        var boundary:Path = new Path();
+        /* this.findLeftTopCoordinate(function(x:int, y:int):void{
+         boundary.x = x;
+         boundary.y = y;
+         });*/
+        boundary.x = boundary.x + offsetX;
+        boundary.y = boundary.y + offsetY;
+        boundary.stroke = new SolidColorStroke(0x66CCFF, 1, 1);
+        boundary.data = boundaryPath();
+        this.addElement(boundary);
+    }
+
+    /**
+     *  获取边界途径
+     * @return
+     */
+    private function boundaryPath():String {
+        var path:String = "M ";
+        this.internalCoordinates.forEach(function (item:Object, index:int, arr:Array):void {
+            path += (item.x + " " + item.y + " ");
+        });
+        path += "Z";
+        return path;
+    }
+
+    /**
+     *  确定最小的 X 和 Y 坐标
+     * @param callback
+     */
+    private function findLeftTopCoordinate(callback:Function):void {
+        this._roomReductionCoordinates.toArray().forEach(function (item:Object, index:int, arr:Array):void {
+            if (index == 0) {
+                minX = item.x;
+                minY = item.y;
+            } else {
+                if (minX > item.x) {
+                    minX = item.x;
+                }
+                if (minY > item.y) {
+                    minY = item.y;
+                }
+            }
+        });
+        callback.call(null, minX, minY);
+    }
+
+    /**
+     *  坐标点击
+     * this.currentDiagonal is null 开始画对角线
+     * this.currentDiagonal si not null 检测对角线落点
+     * @param event
+     */
+    private function gra_clickHandler(event:MouseEvent):void {
+        mouseLocationX = event.stageX;
+        mouseLocationY = event.stageY;
+        /*if (this.currentDiagonal == null) {
+            this.currentDiagonal = new Line();
+            this.currentDiagonal.stroke = new SolidColorStroke(0x33DDFF, 3, 1);
+            if(event.target is Graphic){
+                var graphic:Graphic = event.target as Graphic;
+                this.currentDiagonal.xFrom = graphic.x;
+                this.currentDiagonal.yFrom = graphic.y;
+                this.currentDiagonal.xTo = graphic.x;
+                this.currentDiagonal.yFrom = graphic.y;
+
+                mouseLocationX = graphic.x;
+                mouseLocationY = graphic.y;
+            }else{
+
+            }
+            gcGroup.addElement(this.currentDiagonal);
+            this.addEventListener(MouseEvent.MOUSE_MOVE, mouseMoveHandler);
+        } else {
+            this.currentDiagonal.xTo = graphic.x;
+            this.currentDiagonal.yFrom = graphic.y;
+            this.removeEventListener(MouseEvent.MOUSE_MOVE, mouseMoveHandler);
+        }*/
+
+    }
+
+    /**
+     *  鼠标移动，寻找对角线落点
+     * @param event
+     */
+    private function mouseMoveHandler(event:MouseEvent):void {
+        /*mouseLocationX = event.stageX;
+        mouseLocationY = event.stageY;*/
+        /*if (event.target is Graphic) {
+            var graphic:Graphic = event.target as Graphic;
+            this.currentDiagonal.xTo = graphic.x;
+            this.currentDiagonal.yTo = graphic.y;
+            mouseLocationX = graphic.x;
+            mouseLocationY = graphic.y;
+        } else {
+            this.currentDiagonal.xTo = event.stageX - 307;
+            this.currentDiagonal.yTo = event.stageY - 105;
+            mouseLocationX = event.stageX - 307;
+            mouseLocationY = event.stageY - 105;
+        }*/
+    }
+
+    /**
+     *  确定舞台的偏移量
+     * @param gradphic
+     * @param stageX
+     * @param stageY
+     */
+    private function getStageXYOffset(gradphic:Graphic, stageX:int, stageY:int):void {
+
+    }
+    ]]></fx:Script>
+
+    <!--<fx:Style source="resources/css/Styles.css"/>-->
+
+<s:Group id="gcGroup" left="{offsetX - 3}" top="{offsetY - 3}">
+    <s:layout>
+        <s:BasicLayout/>
+    </s:layout>
+</s:Group>
 
 </s:TitleWindow>

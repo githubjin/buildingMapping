@@ -187,9 +187,9 @@ public class RoomMergeUtils {
         // 之前的 坐标
         var preC:CoordinateVo = null;
 
-        if(c.x == 700 && c.y == 100){
+        /*if(c.x == 700 && c.y == 100){
             trace("");
-        }
+        }*/
 
 
         for(var i:uint=0;i<this.coordinates.length;i++){
