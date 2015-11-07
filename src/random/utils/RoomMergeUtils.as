@@ -13,7 +13,7 @@ import random.valueObject.CoordinateVo;
 
 import random.valueObject.RoomVo;
 
-public class AddressingCalculationUtils {
+public class RoomMergeUtils {
 
     // Coordinate 新坐标地址
     private var _coordinates:ArrayList;
@@ -26,7 +26,7 @@ public class AddressingCalculationUtils {
     private var directions:ArrayList;
 
 
-    public function AddressingCalculationUtils() {
+    public function RoomMergeUtils() {
         this._coordinates = new ArrayList();
         this.sortedCoordinates = new ArrayList();
         this.directions = new ArrayList();
@@ -63,11 +63,11 @@ public class AddressingCalculationUtils {
         for(var m:int=0;m<cntMap.keys.length;m++){
             var k:String = cntMap.keys.getItemAt(m) as String;
             var number:Number = (cntMap.get(k) as Number);
-            if(number !== 2 && number != 4){
+            if(number !== 2 && number != 4 && number < 4){
                 this._coordinates.addItem(coordinateMap.get(k));
             }
         }
-        Alert.show(JSON.stringify(cntMap.data));
+//        Alert.show(JSON.stringify(cntMap.data));
 //        Alert.show(JSON.stringify(coordinateMap.data));
         this.sortCoordinates();
 //        Alert.show(JSON.stringify(this._coordinates));
@@ -187,6 +187,10 @@ public class AddressingCalculationUtils {
         // 之前的 坐标
         var preC:CoordinateVo = null;
 
+        if(c.x == 700 && c.y == 100){
+            trace("");
+        }
+
 
         for(var i:uint=0;i<this.coordinates.length;i++){
             if(itemIndex == i){
@@ -279,7 +283,7 @@ public class AddressingCalculationUtils {
         if(rcA == iteA){
             var bt:int = iteB - rcB;
             var btAbs:uint = Math.abs(bt);
-            if(btAbs < preM){
+            if(btAbs < preM  && this.isSameDirectionWithGrandCoordinate(startPoint, ite)){
                 obj.preM = btAbs;
                 obj.preC = ite;
 //            }else if((btAbs == preM) && bt > 0){ // 存在两种选择
@@ -313,12 +317,43 @@ public class AddressingCalculationUtils {
         /**
          *  (0,200),(100,200),(200,200)
          */
-        if()
-
-        trace("-------------"+ite.x+"------"+ite.y+"---------------"+this.sortedCoordinates.getItemIndex(ite)+"-----------------------------------------");
-        var directionG:String = this.directions.getItemAt((this.directions.length - 2)) as String;
+        if(startPoint.x == ite.x){
+            var countX:int = this.countCoordinateOneSide(startPoint, ite, "x", "y");
+            if(countX % 2 == 0){
+                return false;
+            }
+        }
+        if(startPoint.y == ite.y){
+            var countY:int = this.countCoordinateOneSide(startPoint, ite, "y", "x");
+            if(countY % 2 == 0){
+                return false;
+            }
+        }
+        return true;
+//        trace("-------------"+ite.x+"------"+ite.y+"---------------"+this.sortedCoordinates.getItemIndex(ite)+"-----------------------------------------");
+        /*var directionG:String = this.directions.getItemAt((this.directions.length - 2)) as String;
         var directionWithTowCoordinates:String = this.getDirectionWithTowCoordinates(startPoint, ite);
-        return directionWithTowCoordinates == directionG;
+        return directionWithTowCoordinates == directionG;*/
+    }
+
+    private function countCoordinateOneSide(startPoint: CoordinateVo, ite:CoordinateVo, fieldA:String, fieldB:String):int{
+        var count:int = 0;
+//        if(startPoint[fieldA] == ite[fieldA]){
+            if(startPoint[fieldB] > ite[fieldB]){
+                this.coordinates.toArray().forEach(function(coor:CoordinateVo, index:int, arr:Array):void{
+                    if(coor[fieldA] == startPoint[fieldA] && startPoint[fieldB] > coor[fieldB]){
+                        count++;
+                    }
+                });
+            }else if(startPoint[fieldB] < ite[fieldB]){
+                this.coordinates.toArray().forEach(function(coor:CoordinateVo, index:int, arr:Array):void{
+                    if(coor[fieldA] == startPoint[fieldA] && startPoint[fieldB] < coor[fieldB]){
+                        count++;
+                    }
+                });
+            }
+//        }
+        return count;
     }
 
     private function getDirectionWithTowCoordinates(startPoint: CoordinateVo, endPoint: CoordinateVo):String{

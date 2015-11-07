@@ -25,7 +25,7 @@
         import random.events.GenerateStartEvent;
         import random.events.OperationTypeEvent;
         import random.events.SignalEvent;
-        import random.utils.AddressingCalculationUtils;
+        import random.utils.RoomMergeUtils;
         import random.utils.Constants;
         import random.utils.GeneratorUtil;
         import random.utils.vo.Building;
@@ -126,8 +126,8 @@
          */
         private function mergeAndSplitComponent1_operationTypeChangedHandler(event:OperationTypeEvent):void {
             var that:* = this;
-            this.customEventHandler.operationChangedHandler(event, function(type:String, data:Object):void{
-                if(Constants.SPLIT == type){
+            this.customEventHandler.operationChangedHandler(event, function (type:String, data:Object):void {
+                if (Constants.SPLIT == type) {
                     var splitWindow:RoomSplitWindow = new RoomSplitWindow();
                     splitWindow = RoomSplitWindow(PopUpManager.createPopUp(that, RoomSplitWindow, true));
                     splitWindow.roomReductionCoordinates = data as ArrayList;
