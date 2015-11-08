@@ -171,8 +171,10 @@ public class RoomReductionUtils {
         }
         var tArr:Array = new Array();
         ax.forEach(function(item:int, index:int, arr:Array):void{
-            if(arr.indexOf((item + minGap))<0 && arr[(arr.length - 1) > (item + minGap)]){
-                tArr.push((item + minGap));
+            var val:int = item as Number;
+//            trace("---------------------------- value:" + val + " index:"+index + " arr:" + JSON.stringify(arr) + " indexOf:" + arr.indexOf((val + minGap)) + " arr[length-1]:" + arr[(arr.length - 1)] + " [item + minGap]:" + (val + minGap) + " -----------------------------------------");
+            if(arr.indexOf((val + minGap))<0 && arr[(arr.length - 1)] > (val + minGap)){
+                tArr.push((val + minGap));
             }
         });
         if(tArr.length == 0){
