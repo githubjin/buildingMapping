@@ -13,6 +13,8 @@
     import mx.graphics.GradientStroke;
     import mx.graphics.SolidColorStroke;
 
+    import random.utils.CalculationUtils;
+
     import random.valueObject.CoordinateVo;
 
     import spark.primitives.Ellipse;
@@ -20,6 +22,8 @@
     import spark.primitives.Line;
     import spark.primitives.Path;
 
+    // 所选房间的有效坐标
+    private var _roomValidCoordinates:ArrayList;
     // source data
     private var _roomReductionCoordinates:ArrayList;
     // 窗口内使用的坐标
@@ -36,21 +40,25 @@
     private var offsetY:int = 33;
 
     // 舞台坐标偏移量
-    private var  pointOffsetX:int = 0;
-    private var  pointOffsetY:int = 0;
+    private var pointOffsetXInStage:Number = -1;
+    private var pointOffsetYInStage:Number = -1;
 
     //  X, Y 坐标的最小值
     private var minX:int = 0;
     private var minY:int = 0;
 
     [Bindable]
-    private var mouseLocationX:int = 0;
+    private var mouseLocationX:Number = 0;
     [Bindable]
-    private var mouseLocationY:int = 0;
+    private var mouseLocationY:Number = 0;
 
 
     public function set roomReductionCoordinates(value:ArrayList):void {
         _roomReductionCoordinates = value;
+    }
+
+    public function set roomValidCoordinates(value:ArrayList):void {
+        _roomValidCoordinates = value;
     }
 
     /**
@@ -91,9 +99,11 @@
     private function ellipse_mouseOverHandler(event:MouseEvent):void {
         var g:Graphic = event.target as Graphic;
         var multiple:Number = 1;
+        var xyMultiple:Number = 2;
         switch (event.type) {
             case MouseEvent.MOUSE_OVER:
-                multiple = 1.5
+                multiple = 1.5;
+                xyMultiple = -2;
                 break;
             case MouseEvent.MOUSE_OUT:
                 multiple = 1 / 1.5;
@@ -102,6 +112,8 @@
         g.alpha = g.alpha * multiple;
         g.width = g.width * multiple;
         g.height = g.height * multiple;
+        g.x += xyMultiple;
+        g.y += xyMultiple;
     }
 
     /**
@@ -161,30 +173,39 @@
      * @param event
      */
     private function gra_clickHandler(event:MouseEvent):void {
-        mouseLocationX = event.stageX;
-        mouseLocationY = event.stageY;
-        /*if (this.currentDiagonal == null) {
-            this.currentDiagonal = new Line();
-            this.currentDiagonal.stroke = new SolidColorStroke(0x33DDFF, 3, 1);
-            if(event.target is Graphic){
-                var graphic:Graphic = event.target as Graphic;
-                this.currentDiagonal.xFrom = graphic.x;
-                this.currentDiagonal.yFrom = graphic.y;
-                this.currentDiagonal.xTo = graphic.x;
-                this.currentDiagonal.yFrom = graphic.y;
+        if(this.pointOffsetXInStage < 0){
+       /* Alert.show("event.stageX："+event.stageX + " event.stageY:" + event.stageY + " event.target.x:"
+                + event.target.x + " event.target.y:" + event.target.y + " event.localX:" + event.localX + " event.localY:" + event.localY);*/
+            var that:* = this;
+            CalculationUtils.getStageCoordinateOffset(event.stageX, event.stageY,
+                    event.target.x, event.target.y, event.localX, event.localY, function(offsetXInstage:Number, offsetYInstage:Number):void{
+                        that.pointOffsetXInStage = offsetXInstage;
+                        that.pointOffsetYInStage = offsetYInstage;
+                    });
+        }
+//        Alert.show(event.localX + ":" +event.localY + "-" + event.target.width + ":" + event.target.height)
+        if (this.currentDiagonal == null) {
+             this.currentDiagonal = new Line();
+             this.currentDiagonal.stroke = new SolidColorStroke(0x33DDFF, 3, 1);
+             if(event.target is Graphic){
+             var graphic:Graphic = event.target as Graphic;
+             this.currentDiagonal.xFrom = graphic.x + (graphic.width / 2 - 2);
+             this.currentDiagonal.yFrom = graphic.y + (graphic.height / 2 - 2);
+             this.currentDiagonal.xTo = this.currentDiagonal.xFrom;
+             this.currentDiagonal.yTo = this.currentDiagonal.yFrom;
 
-                mouseLocationX = graphic.x;
-                mouseLocationY = graphic.y;
-            }else{
+             mouseLocationX = graphic.x;
+             mouseLocationY = graphic.y;
+         }else{
 
-            }
-            gcGroup.addElement(this.currentDiagonal);
-            this.addEventListener(MouseEvent.MOUSE_MOVE, mouseMoveHandler);
-        } else {
-            this.currentDiagonal.xTo = graphic.x;
-            this.currentDiagonal.yFrom = graphic.y;
-            this.removeEventListener(MouseEvent.MOUSE_MOVE, mouseMoveHandler);
-        }*/
+         }
+             gcGroup.addElement(this.currentDiagonal);
+             this.addEventListener(MouseEvent.MOUSE_MOVE, mouseMoveHandler);
+         } else {
+             this.currentDiagonal.xTo = graphic.x;
+             this.currentDiagonal.yFrom = graphic.y;
+             this.removeEventListener(MouseEvent.MOUSE_MOVE, mouseMoveHandler);
+         }
 
     }
 
@@ -194,19 +215,19 @@
      */
     private function mouseMoveHandler(event:MouseEvent):void {
         /*mouseLocationX = event.stageX;
-        mouseLocationY = event.stageY;*/
-        /*if (event.target is Graphic) {
-            var graphic:Graphic = event.target as Graphic;
-            this.currentDiagonal.xTo = graphic.x;
-            this.currentDiagonal.yTo = graphic.y;
-            mouseLocationX = graphic.x;
-            mouseLocationY = graphic.y;
-        } else {
-            this.currentDiagonal.xTo = event.stageX - 307;
-            this.currentDiagonal.yTo = event.stageY - 105;
-            mouseLocationX = event.stageX - 307;
-            mouseLocationY = event.stageY - 105;
-        }*/
+         mouseLocationY = event.stageY;*/
+        if (event.target is Graphic) {
+             var graphic:Graphic = event.target as Graphic;
+             this.currentDiagonal.xTo = graphic.x + (graphic.width / 2 - 2);
+             this.currentDiagonal.yTo = graphic.y + (graphic.width / 2 - 2);
+             mouseLocationX = graphic.x;
+             mouseLocationY = graphic.y;
+         } else {
+             this.currentDiagonal.xTo = event.stageX - this.pointOffsetXInStage;
+             this.currentDiagonal.yTo = event.stageY - this.pointOffsetYInStage;
+             mouseLocationX = event.stageX - this.pointOffsetXInStage;
+             mouseLocationY = event.stageY - this.pointOffsetYInStage;
+         }
     }
 
     /**
@@ -218,6 +239,7 @@
     private function getStageXYOffset(gradphic:Graphic, stageX:int, stageY:int):void {
 
     }
+
     ]]></fx:Script>
 
     <!--<fx:Style source="resources/css/Styles.css"/>-->

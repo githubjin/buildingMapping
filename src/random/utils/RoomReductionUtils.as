@@ -4,6 +4,8 @@
 package random.utils {
 import mx.collections.ArrayList;
 
+import random.utils.vo.ValidAndFilledCoordinateList;
+
 import random.valueObject.CoordinateVo;
 
 import random.valueObject.RoomVo;
@@ -23,7 +25,7 @@ public class RoomReductionUtils {
     /**
      *  由要拆分的房间坐标，还原所有的最小单元表格表格
      */
-    public function reductionCoordinates(roomVo:RoomVo):ArrayList {
+    public function reductionCoordinates(roomVo:RoomVo):ValidAndFilledCoordinateList {
         // 清理
         newCoordinateList.removeAll();
         // 确认是否是闭合坐标
@@ -42,8 +44,8 @@ public class RoomReductionUtils {
 //        Alert.show(JSON.stringify(xScope));
 //        Alert.show(JSON.stringify(yScope));
 //        Alert.show(JSON.stringify(newCoordinateList));
-
-        return newCoordinateList;
+        var resultData:ValidAndFilledCoordinateList = new ValidAndFilledCoordinateList(coordinates, newCoordinateList);
+        return resultData;
     }
 
     /**

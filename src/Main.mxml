@@ -29,6 +29,7 @@
         import random.utils.Constants;
         import random.utils.GeneratorUtil;
         import random.utils.vo.Building;
+        import random.utils.vo.ValidAndFilledCoordinateList;
 
         import random.valueObject.BuildingVo;
 
@@ -126,11 +127,12 @@
          */
         private function mergeAndSplitComponent1_operationTypeChangedHandler(event:OperationTypeEvent):void {
             var that:* = this;
-            this.customEventHandler.operationChangedHandler(event, function (type:String, data:Object):void {
+            this.customEventHandler.operationChangedHandler(event, function (type:String, data:ValidAndFilledCoordinateList):void {
                 if (Constants.SPLIT == type) {
                     var splitWindow:RoomSplitWindow = new RoomSplitWindow();
                     splitWindow = RoomSplitWindow(PopUpManager.createPopUp(that, RoomSplitWindow, true));
-                    splitWindow.roomReductionCoordinates = data as ArrayList;
+                    splitWindow.roomReductionCoordinates = data.filledCoordinates;
+                    splitWindow.roomValidCoordinates = data.validCoordinates;
                     splitWindow.addEventListener(CloseEvent.CLOSE, function splitWindow_closeHandler(event:CloseEvent):void {
                         PopUpManager.removePopUp(splitWindow);
                     });

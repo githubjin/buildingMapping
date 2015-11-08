@@ -10,6 +10,7 @@ import mx.utils.ObjectUtil;
 import random.utils.RoomMergeUtils;
 import random.utils.Constants;
 import random.utils.RoomReductionUtils;
+import random.utils.vo.ValidAndFilledCoordinateList;
 import random.valueObject.BuildingVo;
 
 import random.valueObject.RoomVo;
@@ -152,9 +153,9 @@ public class CustomEventHandler {
             }
             // 还原最小单位
             var roomReductionUtils:RoomReductionUtils = new RoomReductionUtils();
-            var reductionCoordinates:ArrayList = roomReductionUtils.reductionCoordinates(this.selectedRoomList.getItemAt(0) as RoomVo);
+            var validAndFilledCoordinateList:ValidAndFilledCoordinateList = roomReductionUtils.reductionCoordinates(this.selectedRoomList.getItemAt(0) as RoomVo);
             if(callBack != null){
-                callBack.call(null, Constants.SPLIT,reductionCoordinates);
+                callBack.call(null, Constants.SPLIT,validAndFilledCoordinateList);
             }
         }
     }
