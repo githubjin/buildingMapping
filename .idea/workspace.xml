@@ -32,7 +32,7 @@
       <file leaf-file-name="Main.mxml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Main.mxml">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-3.6785715">
+            <state vertical-scroll-proportion="0.0">
               <caret line="128" column="53" selection-start-line="128" selection-start-column="53" selection-end-line="128" selection-end-column="54" />
               <folding>
                 <marker date="1446825703925" expanded="false" signature="301:1357" placeholder="..." />
@@ -65,7 +65,7 @@
       <file leaf-file-name="RoomSplitWindow.mxml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/random/components/RoomSplitWindow.mxml">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-5.714286">
+            <state vertical-scroll-proportion="0.0">
               <caret line="20" column="10" selection-start-line="20" selection-start-column="10" selection-end-line="20" selection-end-column="10" />
               <folding>
                 <marker date="1446825997357" expanded="true" signature="503:548" placeholder="{...}" />
@@ -77,7 +77,7 @@
       <file leaf-file-name="RoomMergeUtils.as" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/random/utils/RoomMergeUtils.as">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.3470483">
+            <state vertical-scroll-proportion="0.0">
               <caret line="285" column="90" selection-start-line="285" selection-start-column="90" selection-end-line="285" selection-end-column="90" />
               <folding>
                 <element signature="n#!!doc" expanded="true" />
@@ -90,7 +90,7 @@
       <file leaf-file-name="MergeAndSplitComponent.mxml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/random/components/MergeAndSplitComponent.mxml">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-9.5">
+            <state vertical-scroll-proportion="0.0">
               <caret line="14" column="46" selection-start-line="14" selection-start-column="46" selection-end-line="14" selection-end-column="46" />
               <folding>
                 <marker date="1446822517219" expanded="true" signature="330:408" placeholder="/*...*/" />
@@ -105,7 +105,7 @@
       <file leaf-file-name="CustomEventHandler.as" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/random/events/CustomEventHandler.as">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-8.0">
+            <state vertical-scroll-proportion="0.0">
               <caret line="114" column="59" selection-start-line="114" selection-start-column="48" selection-end-line="114" selection-end-column="59" />
               <folding>
                 <element signature="e#63#95#0" expanded="true" />
@@ -727,12 +727,13 @@
       <workItem from="1446727128283" duration="7708000" />
       <workItem from="1446786785469" duration="17540000" />
       <workItem from="1446804532753" duration="3546000" />
-      <workItem from="1446813339830" duration="14371000" />
+      <workItem from="1446813339830" duration="15045000" />
+      <workItem from="1446990853793" duration="15000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="203174000" />
+    <option name="totallyTimeSpent" value="203863000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -745,32 +746,32 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32792208" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32084692" sideWeight="0.4946695" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3116883" sideWeight="0.5079957" order="12" side_tool="true" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32995737" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.41530946" sideWeight="0.49200428" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.41530946" sideWeight="0.49200428" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.27039275" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.47432023" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32995737" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33387622" sideWeight="0.49253732" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="DB Browser" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32084692" sideWeight="0.4946695" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="DB Execution Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.47432023" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32792208" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33387622" sideWeight="0.49253732" order="5" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -822,9 +823,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="34" column="53" selection-start-line="34" selection-start-column="53" selection-end-line="34" selection-end-column="53" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -832,9 +830,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="2" column="3" selection-start-line="2" selection-start-column="3" selection-end-line="2" selection-end-column="3" />
-          <folding>
-            <element signature="e#62#94#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1002,7 +997,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.5826235">
           <caret line="20" column="0" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1010,7 +1004,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-0.48892674">
           <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1018,11 +1011,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-8.821428">
           <caret line="14" column="40" selection-start-line="14" selection-start-column="40" selection-end-line="14" selection-end-column="40" />
-          <folding>
-            <marker date="1446564290275" expanded="false" signature="-1:-1" placeholder="..." />
-            <marker date="1446564290275" expanded="true" signature="-1:-1" placeholder="{...}" />
-            <marker date="1446564290275" expanded="true" signature="-1:-1" placeholder="{...}" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1030,9 +1018,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="11" column="64" selection-start-line="11" selection-start-column="50" selection-end-line="11" selection-end-column="64" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1040,7 +1025,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.7120954">
           <caret line="24" column="20" selection-start-line="24" selection-start-column="20" selection-end-line="24" selection-end-column="20" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1048,7 +1032,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-3.3214285">
           <caret line="6" column="114" selection-start-line="6" selection-start-column="114" selection-end-line="6" selection-end-column="114" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1056,7 +1039,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="20" column="51" selection-start-line="20" selection-start-column="51" selection-end-line="20" selection-end-column="51" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1064,7 +1046,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-0.93867123">
           <caret line="66" column="40" selection-start-line="66" selection-start-column="40" selection-end-line="66" selection-end-column="40" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1072,7 +1053,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.097103916">
           <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1080,7 +1060,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.16183986">
           <caret line="7" column="25" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="25" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1088,7 +1067,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.80919933">
           <caret line="30" column="32" selection-start-line="30" selection-start-column="16" selection-end-line="30" selection-end-column="32" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1096,10 +1074,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="1.4955277">
           <caret line="49" column="13" selection-start-line="49" selection-start-column="13" selection-end-line="49" selection-end-column="13" />
-          <folding>
-            <marker date="1446636632684" expanded="false" signature="-1:-1" placeholder="..." />
-            <marker date="1446636632684" expanded="true" signature="-1:-1" placeholder="{...}" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1107,7 +1081,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.7768313">
           <caret line="31" column="46" selection-start-line="31" selection-start-column="46" selection-end-line="31" selection-end-column="46" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1115,14 +1088,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-9.785714">
           <caret line="54" column="32" selection-start-line="54" selection-start-column="32" selection-end-line="54" selection-end-column="32" />
-          <folding>
-            <marker date="1446548918427" expanded="false" signature="-1:-1" placeholder="..." />
-            <marker date="1446548918427" expanded="true" signature="-1:-1" placeholder="{...}" />
-            <marker date="1446548918427" expanded="true" signature="-1:-1" placeholder="{...}" />
-            <marker date="1446548918427" expanded="true" signature="-1:-1" placeholder="{...}" />
-            <marker date="1446548918427" expanded="true" signature="-1:-1" placeholder="{...}" />
-            <marker date="1446548918427" expanded="true" signature="-1:-1" placeholder="{...}" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1130,7 +1095,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.16994633">
           <caret line="5" column="20" selection-start-line="5" selection-start-column="18" selection-end-line="5" selection-end-column="20" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1138,25 +1102,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.12880144">
           <caret line="96" column="72" selection-start-line="96" selection-start-column="72" selection-end-line="96" selection-end-column="72" />
-          <folding>
-            <marker date="1446822287720" expanded="false" signature="-1:-1" placeholder="..." />
-            <marker date="1446822287720" expanded="true" signature="-1:-1" placeholder="/**  房间点击函数 ...*/" />
-            <marker date="1446822287720" expanded="true" signature="-1:-1" placeholder="{...}" />
-            <marker date="1446822287720" expanded="true" signature="-1:-1" placeholder="/**  绘图函数 ...*/" />
-            <marker date="1446822287720" expanded="true" signature="-1:-1" placeholder="{...}" />
-            <marker date="1446822287720" expanded="true" signature="-1:-1" placeholder="{...}" />
-            <marker date="1446822287720" expanded="true" signature="-1:-1" placeholder="{...}" />
-            <marker date="1446822287720" expanded="true" signature="-1:-1" placeholder="{...}" />
-            <marker date="1446822287720" expanded="true" signature="-1:-1" placeholder="/**  创建完成函数 ...*/" />
-            <marker date="1446822287720" expanded="true" signature="-1:-1" placeholder="{...}" />
-            <marker date="1446822287720" expanded="true" signature="-1:-1" placeholder="/**  鼠标左键按下处理 ...*/" />
-            <marker date="1446822287720" expanded="true" signature="-1:-1" placeholder="{...}" />
-            <marker date="1446822287720" expanded="true" signature="-1:-1" placeholder="/**  鼠标移动处理 ...*/" />
-            <marker date="1446822287720" expanded="true" signature="-1:-1" placeholder="{...}" />
-            <marker date="1446822287720" expanded="true" signature="-1:-1" placeholder="/** 鼠标抬起处理函数 ...*/" />
-            <marker date="1446822287720" expanded="true" signature="-1:-1" placeholder="{...}" />
-            <marker date="1446822287720" expanded="true" signature="-1:-1" placeholder="{...}" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1164,7 +1109,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-8.571428">
           <caret line="18" column="25" selection-start-line="18" selection-start-column="11" selection-end-line="18" selection-end-column="25" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1172,7 +1116,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.54382825">
           <caret line="22" column="14" selection-start-line="16" selection-start-column="2" selection-end-line="22" selection-end-column="14" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1180,10 +1123,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.8157424">
           <caret line="26" column="43" selection-start-line="26" selection-start-column="23" selection-end-line="26" selection-end-column="43" />
-          <folding>
-            <marker date="1446565861883" expanded="false" signature="-1:-1" placeholder="..." />
-            <marker date="1446565861883" expanded="true" signature="-1:-1" placeholder="{...}" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1191,15 +1130,12 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.70661896">
           <caret line="43" column="31" selection-start-line="43" selection-start-column="31" selection-end-line="43" selection-end-column="31" />
-          <folding>
-            <element signature="e#62#94#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/random/components/RoomSplitWindow.mxml">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-5.714286">
+        <state vertical-scroll-proportion="0.0">
           <caret line="20" column="10" selection-start-line="20" selection-start-column="10" selection-end-line="20" selection-end-column="10" />
           <folding>
             <marker date="1446825997357" expanded="true" signature="503:548" placeholder="{...}" />
@@ -1209,7 +1145,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/random/components/MergeAndSplitComponent.mxml">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-9.5">
+        <state vertical-scroll-proportion="0.0">
           <caret line="14" column="46" selection-start-line="14" selection-start-column="46" selection-end-line="14" selection-end-column="46" />
           <folding>
             <marker date="1446822517219" expanded="true" signature="330:408" placeholder="/*...*/" />
@@ -1222,7 +1158,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Main.mxml">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-3.6785715">
+        <state vertical-scroll-proportion="0.0">
           <caret line="128" column="53" selection-start-line="128" selection-start-column="53" selection-end-line="128" selection-end-column="54" />
           <folding>
             <marker date="1446825703925" expanded="false" signature="301:1357" placeholder="..." />
@@ -1253,7 +1189,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/random/events/CustomEventHandler.as">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-8.0">
+        <state vertical-scroll-proportion="0.0">
           <caret line="114" column="59" selection-start-line="114" selection-start-column="48" selection-end-line="114" selection-end-column="59" />
           <folding>
             <element signature="e#63#95#0" expanded="true" />
@@ -1263,7 +1199,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/random/utils/RoomMergeUtils.as">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.3470483">
+        <state vertical-scroll-proportion="0.0">
           <caret line="285" column="90" selection-start-line="285" selection-start-column="90" selection-end-line="285" selection-end-column="90" />
           <folding>
             <element signature="n#!!doc" expanded="true" />
