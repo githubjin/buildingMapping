@@ -219,6 +219,11 @@
                 this.currentRect.setRightBottomCoordinate(endGraphic.x + Constants.CUSTOM_RECT_OFFSET_XY, endGraphic.y + Constants.CUSTOM_RECT_OFFSET_XY);
                 this.removeEventListener(MouseEvent.MOUSE_MOVE, mouseMoveHandler);
                 this.removeEventListener(MouseEvent.RIGHT_MOUSE_DOWN, rightMouseDownHandler);
+                // 基础：需要预设点，准确坐标
+                // 0. 不允许跨线画矩形，只允许在房间范围内画矩形，及画出来的矩形不能超出房间范围
+                // 1.获取房间与画出的矩形的交集坐标
+                // 2.然后在预览窗口显示划分的情况，然后在预览里可以合并
+                // 3. 实现变形划分
                 CalculationUtils.calculationPolygonIntersection(this._roomValidCoordinates,this.currentRect,this.minX,this.minY);
                 // 允许开始画第二个矩形
                 this.rectList.addItem(this.currentRect);
