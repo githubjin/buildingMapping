@@ -9,8 +9,8 @@ public class Constants {
     public static var CUSTOM_EVENT_LOADED_DEMO_DATA_EVENT:String = "demoDataChange";
     public static var OPERATION_TYPE_CHANGE_EVENT:String = "operationTypeChanged";
 
-//    public static var SERVER_URL:String = "http://localhost:8080/bm/";
-    public static var SERVER_URL:String = "http://202.194.67.108:8888/bm/";
+    public static var SERVER_URL:String = "http://localhost:8080/bm/";
+//    public static var SERVER_URL:String = "http://202.194.67.108:8888/bm/";
 
     public static var TAG_IMAGES_URL:String = SERVER_URL + "resources/images/";
     public static var TAG_IMAGE_SUFFIX:String = ".png";
@@ -33,6 +33,9 @@ public class Constants {
     //直线方向
     public static var LINE_DIRECTIONS_HORIZONTAL:String = "H";
     public static var LINE_DIRECTIONS_VERTICAL:String = "V";
+
+    // 坐标圆浮动大小
+    public static var CUSTOM_RECT_OFFSET_XY:Number = 2;
 
 }
 }

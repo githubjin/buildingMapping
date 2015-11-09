@@ -3,8 +3,7 @@
   Created by Yo on 2015/11/5.
 -->
 <s:TitleWindow xmlns:fx="http://ns.adobe.com/mxml/2009" xmlns:s="library://ns.adobe.com/flex/spark" title="房间拆分-{mouseLocationX}-{mouseLocationY}"
-               xmlns:mm="random.components.*" xmlns:demo="random.demo.*"
-               width="{gcGroup.width + 100}" height="{gcGroup.height + 100}"
+               xmlns:mm="random.components.*" width="{Capabilities.screenResolutionX * 0.7}" height="{Capabilities.screenResolutionY * 0.8}"
                creationComplete="creationCompleteHandler(event)">
 
 <fx:Script><![CDATA[
@@ -12,11 +11,9 @@
     import mx.controls.Alert;
     import mx.events.FlexEvent;
     import mx.graphics.GradientStroke;
-    import mx.graphics.SolidColor;
     import mx.graphics.SolidColorStroke;
 
     import random.utils.CalculationUtils;
-    import random.utils.Constants;
 
     import random.valueObject.CoordinateVo;
 
@@ -24,20 +21,17 @@
     import spark.primitives.Graphic;
     import spark.primitives.Line;
     import spark.primitives.Path;
-    import spark.primitives.Rect;
 
     // 所选房间的有效坐标
     private var _roomValidCoordinates:ArrayList;
-    // source data 有效坐标和现实坐标
+    // source data
     private var _roomReductionCoordinates:ArrayList;
-    // 窗口内使用的坐标 -minX -minY
+    // 窗口内使用的坐标
     private var internalCoordinates:Array;
-    //  连线属猪 Path 列表
-    private var splitedPolygons:Array;
-    // Rect 列表
-    private var rectList:ArrayList = new ArrayList();
+    //  连线属猪
+    private var diagonals:Array;
     // 当前移动的对角线
-    private var currentRect:CustomRect = null;
+    private var currentDiagonal:Line = null;
 
     // 边框偏移
     [Bindable]
@@ -50,8 +44,8 @@
     private var pointOffsetYInStage:Number = -1;
 
     //  X, Y 坐标的最小值
-    private var minX:Number = 0;
-    private var minY:Number = 0;
+    private var minX:int = 0;
+    private var minY:int = 0;
 
     [Bindable]
     private var mouseLocationX:Number = 0;
@@ -174,59 +168,44 @@
 
     /**
      *  坐标点击
-     * currentRect is null 开始画对角线
-     * currentRect si not null 检测对角线落点
+     * this.currentDiagonal is null 开始画对角线
+     * this.currentDiagonal si not null 检测对角线落点
      * @param event
      */
     private function gra_clickHandler(event:MouseEvent):void {
-        if (this.pointOffsetXInStage < 0) {
-            /* Alert.show("event.stageX："+event.stageX + " event.stageY:" + event.stageY + " event.target.x:"
-             + event.target.x + " event.target.y:" + event.target.y + " event.localX:" + event.localX + " event.localY:" + event.localY);*/
+        if(this.pointOffsetXInStage < 0){
+       /* Alert.show("event.stageX："+event.stageX + " event.stageY:" + event.stageY + " event.target.x:"
+                + event.target.x + " event.target.y:" + event.target.y + " event.localX:" + event.localX + " event.localY:" + event.localY);*/
             var that:* = this;
             CalculationUtils.getStageCoordinateOffset(event.stageX, event.stageY,
-                    event.target.x, event.target.y, event.localX, event.localY, function (offsetXInstage:Number, offsetYInstage:Number):void {
+                    event.target.x, event.target.y, event.localX, event.localY, function(offsetXInstage:Number, offsetYInstage:Number):void{
                         that.pointOffsetXInStage = offsetXInstage;
                         that.pointOffsetYInStage = offsetYInstage;
                     });
         }
 //        Alert.show(event.localX + ":" +event.localY + "-" + event.target.width + ":" + event.target.height)
-        if (this.currentRect == null) {
-            this.currentRect = new CustomRect();
-            this.currentRect.stroke = new SolidColorStroke(0x33DDFF, 3, 1);
-            this.currentRect.fill = new SolidColor(0xffaa45, 0.5);
-            if (event.target is Graphic) {
-                var graphic:Graphic = event.target as Graphic;
-                this.currentRect.x = graphic.x + (graphic.width / 2 - 2);
-                this.currentRect.y = graphic.y + (graphic.height / 2 - 2);
-                this.currentRect.width = 0;
-                this.currentRect.height = 0;
-                this.currentRect.setLetTopCoordinate(graphic.x + Constants.CUSTOM_RECT_OFFSET_XY, graphic.y + Constants.CUSTOM_RECT_OFFSET_XY);
+        if (this.currentDiagonal == null) {
+             this.currentDiagonal = new Line();
+             this.currentDiagonal.stroke = new SolidColorStroke(0x33DDFF, 3, 1);
+             if(event.target is Graphic){
+             var graphic:Graphic = event.target as Graphic;
+             this.currentDiagonal.xFrom = graphic.x + (graphic.width / 2 - 2);
+             this.currentDiagonal.yFrom = graphic.y + (graphic.height / 2 - 2);
+             this.currentDiagonal.xTo = this.currentDiagonal.xFrom;
+             this.currentDiagonal.yTo = this.currentDiagonal.yFrom;
 
-                mouseLocationX = graphic.x;
-                mouseLocationY = graphic.y;
-            } else {
+             mouseLocationX = graphic.x;
+             mouseLocationY = graphic.y;
+         }else{
 
-            }
-            gcGroup.addElement(this.currentRect);
-            this.addEventListener(MouseEvent.MOUSE_MOVE, mouseMoveHandler);
-            this.addEventListener(MouseEvent.RIGHT_MOUSE_DOWN, rightMouseDownHandler);
-        } else {
-            // 点击预设的节点
-            if (event.target is Graphic) {
-                var endGraphic:Graphic = event.target as Graphic;
-                this.currentRect.width = endGraphic.x + (endGraphic.width / 2 - 2)  - this.currentRect.x;
-                this.currentRect.height = endGraphic.y + (endGraphic.width / 2 - 2) - this.currentRect.y;
-                this.currentRect.setRightBottomCoordinate(endGraphic.x + Constants.CUSTOM_RECT_OFFSET_XY, endGraphic.y + Constants.CUSTOM_RECT_OFFSET_XY);
-                this.removeEventListener(MouseEvent.MOUSE_MOVE, mouseMoveHandler);
-                this.removeEventListener(MouseEvent.RIGHT_MOUSE_DOWN, rightMouseDownHandler);
-                CalculationUtils.calculationPolygonIntersection(this._roomValidCoordinates,this.currentRect,this.minX,this.minY);
-                // 允许开始画第二个矩形
-                this.rectList.addItem(this.currentRect);
-                this.currentRect = null;
-            }else{ // 点击空白地
-
-            }
-        }
+         }
+             gcGroup.addElement(this.currentDiagonal);
+             this.addEventListener(MouseEvent.MOUSE_MOVE, mouseMoveHandler);
+         } else {
+             this.currentDiagonal.xTo = graphic.x;
+             this.currentDiagonal.yFrom = graphic.y;
+             this.removeEventListener(MouseEvent.MOUSE_MOVE, mouseMoveHandler);
+         }
 
     }
 
@@ -238,33 +217,29 @@
         /*mouseLocationX = event.stageX;
          mouseLocationY = event.stageY;*/
         if (event.target is Graphic) {
-            var graphic:Graphic = event.target as Graphic;
-            this.currentRect.width = graphic.x + (graphic.width / 2 - 2) - this.currentRect.x;
-            this.currentRect.height = graphic.y + (graphic.width / 2 - 2) - this.currentRect.y;
-            mouseLocationX = graphic.x;
-            mouseLocationY = graphic.y;
-        } else {
-            var b:Boolean = CalculationUtils.isPointInPolygonAdapter((event.stageX - this.pointOffsetXInStage),
-                    (event.stageY - this.pointOffsetYInStage), this._roomValidCoordinates, this.minX, this.minY);
-            if (!b) {
-                return;
-            }
-            this.currentRect.width = event.stageX - this.pointOffsetXInStage - this.currentRect.x;
-            this.currentRect.height = event.stageY - this.pointOffsetYInStage - this.currentRect.y;
-            mouseLocationX = event.stageX - this.pointOffsetXInStage;
-            mouseLocationY = event.stageY - this.pointOffsetYInStage;
-        }
+             var graphic:Graphic = event.target as Graphic;
+             this.currentDiagonal.xTo = graphic.x + (graphic.width / 2 - 2);
+             this.currentDiagonal.yTo = graphic.y + (graphic.width / 2 - 2);
+             mouseLocationX = graphic.x;
+             mouseLocationY = graphic.y;
+         } else {
+             this.currentDiagonal.xTo = event.stageX - this.pointOffsetXInStage;
+             this.currentDiagonal.yTo = event.stageY - this.pointOffsetYInStage;
+             mouseLocationX = event.stageX - this.pointOffsetXInStage;
+             mouseLocationY = event.stageY - this.pointOffsetYInStage;
+         }
     }
 
     /**
-     * 取消当先 currentRect
-     * @param event
+     *  确定舞台的偏移量
+     * @param gradphic
+     * @param stageX
+     * @param stageY
      */
-    private function rightMouseDownHandler(event:MouseEvent):void {
-        this.removeEventListener(MouseEvent.MOUSE_MOVE, mouseMoveHandler);
-        gcGroup.removeElement(this.currentRect);
-        this.currentRect = null;
+    private function getStageXYOffset(gradphic:Graphic, stageX:int, stageY:int):void {
+
     }
+
     ]]></fx:Script>
 
     <!--<fx:Style source="resources/css/Styles.css"/>-->
@@ -274,6 +249,5 @@
         <s:BasicLayout/>
     </s:layout>
 </s:Group>
-    <!--<s:Panel title="预览"  width="{gcGroup.width + 100}" height="90%" right="3"/>-->
-<!--<demo:EllipseDemo/>-->
+
 </s:TitleWindow>

@@ -52,7 +52,7 @@
           width="100" height="80" x="432" y="134">
     <s:fill>
       <s:SolidColor
-              color="#ff0000" />
+              color="0xffaa45" />
     </s:fill>
   </s:Rect>
 
