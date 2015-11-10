@@ -4,15 +4,19 @@
 package random.utils.vo {
 import mx.collections.ArrayList;
 
+import random.valueObject.RoomVo;
+
 public class ValidAndFilledCoordinateList {
 
     private var _validCoordinates:ArrayList;
     private var _filledCoordinates:ArrayList;
+    private var _sourceRoom:RoomVo;
 
 
-    public function ValidAndFilledCoordinateList(validCoordinates:ArrayList, FilledCoordinates:ArrayList) {
+    public function ValidAndFilledCoordinateList(validCoordinates:ArrayList, filledCoordinates:ArrayList, sourceRoom:RoomVo) {
         _validCoordinates = validCoordinates;
-        _filledCoordinates = FilledCoordinates;
+        _filledCoordinates = filledCoordinates;
+        this._sourceRoom = sourceRoom;
     }
 
     public function get validCoordinates():ArrayList {
@@ -29,6 +33,15 @@ public class ValidAndFilledCoordinateList {
 
     public function set filledCoordinates(value:ArrayList):void {
         _filledCoordinates = value;
+    }
+
+
+    public function get sourceRoom():RoomVo {
+        return _sourceRoom;
+    }
+
+    public function set sourceRoom(value:RoomVo):void {
+        _sourceRoom = value;
     }
 }
 }

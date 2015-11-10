@@ -1,0 +1,138 @@
+<?xml version="1.0"?>
+<!--
+  Created by Yo on 2015/11/10.
+-->
+<s:TitleWindow xmlns:fx="http://ns.adobe.com/mxml/2009" xmlns:s="library://ns.adobe.com/flex/spark">
+
+  <fx:Script><![CDATA[
+      import mx.collections.ArrayList;
+      import mx.controls.Alert;
+      import mx.managers.PopUpManager;
+
+      import random.events.RoomSplitEvent;
+      import random.utils.CalculationUtils;
+      import random.valueObject.CoordinateVo;
+      import random.valueObject.RoomVo;
+
+      private var _rowsNumber:int;
+      private var _columnsNumber:int;
+
+      private var _sourceRoom:RoomVo;
+
+      private var splitedRooms:ArrayList;
+
+
+      [Bindable]
+      public function get rowsNumber():int {
+          return _rowsNumber;
+      }
+
+      public function set rowsNumber(value:int):void {
+          _rowsNumber = value;
+      }
+
+      [Bindable]
+      public function get columnsNumber():int {
+          return _columnsNumber;
+      }
+
+      public function set columnsNumber(value:int):void {
+          _columnsNumber = value;
+      }
+
+      public function get sourceRoom():RoomVo {
+          return _sourceRoom;
+      }
+
+      public function set sourceRoom(value:RoomVo):void {
+          _sourceRoom = value;
+      }
+
+      private function button1_clickHandler(event:MouseEvent, type:int):void {
+          if (type == 1) {
+              if (this.rowsNumber == 1 && this.columnsNumber == 0) {
+                  return;
+              }
+              generateMultipleRect();
+//        var splitEvent:RoomSplitEvent = new RoomSplitEvent(RoomSplitEvent.EVENT_NAME, true, true,
+//                RoomSplitEvent.OP_TYPE_OK, CalculationUtils.convertRectToRooms(this.rectList, this.minX, this.minY), this.sourceRoom);
+//        dispatchEvent(splitEvent);
+          } else {
+              PopUpManager.removePopUp(this);
+          }
+      }
+
+      private function generateMultipleRect():ArrayList {
+          splitedRooms = new ArrayList();
+          var coordinates:ArrayList = this.sourceRoom.coordinates;
+          var toArray:Array = coordinates.toArray();
+          if (toArray.length == 5) {
+              toArray.pop();
+          }
+          toArray.sort(function (ca:CoordinateVo, cb:CoordinateVo):int {
+              return (ca.x + ca.y) - (cb.x + cb.y);
+          });
+          var firstC:CoordinateVo = toArray[0] as CoordinateVo;
+          var lastC:CoordinateVo = toArray[toArray.length - 1] as CoordinateVo;
+
+          var xSpace:Number = Math.abs(firstC.x - lastC.x);
+          var ySpace:Number = Math.abs(firstC.y - lastC.y);
+          var everageXSpace:Number = xSpace / columnsNumber;
+          var everageYSpace:Number = ySpace / rowsNumber;
+          var rowArr:Array = new Array();
+          for (var i:int = 0; i < (rowsNumber + 1); i++) {
+              var columnArr:Array = new Array();
+              for (var j:int = 0; j < (columnsNumber + 1); j++) {
+                  if (j == columnsNumber) {
+                      if (i == rowsNumber) {
+                          columnArr.push(lastC);
+                      } else {
+                          columnArr.push(new CoordinateVo(lastC.x, (firstC.y + i * everageYSpace)));
+                      }
+                  } else {
+                      if (i == rowsNumber) {
+                          columnArr.push(new CoordinateVo(firstC.x + j * everageXSpace, lastC.y));
+                      } else {
+                          columnArr.push(new CoordinateVo((firstC.x + j * everageXSpace), (firstC.y + i * everageYSpace)));
+                      }
+                  }
+              }
+              rowArr.push(columnArr);
+          }
+
+          for (var m:int = 0; m < (rowArr.length - 1); m++) {
+              var array:Array = rowArr[i] as Array;
+              var array_1:Array = rowArr[i + 1] as Array;
+              for(var n:int=0;n<(array.length-1);n++){
+                  coordinatesORoom.push()
+                  var coordinatesORoom:Array = new Array();
+                  var idNameDesc:String = array[i].x + "_" + array[i+1];
+                  var room:RoomVo = new RoomVo(idNameDesc, idNameDesc, idNameDesc);
+                  room.addCoordinates();
+              }
+          }
+
+          Alert.show(JSON.stringify(rowArr));
+
+          return null;
+      }
+      ]]></fx:Script>
+
+  <s:VGroup padding="10">
+    <s:Form>
+      <s:FormItem label="列">
+        <s:NumericStepper minimum="1" value="@{columnsNumber}"/>
+      </s:FormItem>
+      <s:FormItem label="行">
+        <s:NumericStepper minimum="1" value="@{rowsNumber}"/>
+      </s:FormItem>
+    </s:Form>
+    <s:FormItem>
+      <s:HGroup>
+        <s:Button label="确定" click="button1_clickHandler(event, 1)"/>
+        <s:Button label="取消" click="button1_clickHandler(event, 0)"/>
+      </s:HGroup>
+    </s:FormItem>
+  </s:VGroup>
+
+</s:TitleWindow>

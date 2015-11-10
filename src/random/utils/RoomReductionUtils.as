@@ -14,6 +14,11 @@ import spark.components.Alert;
 
 public class RoomReductionUtils {
 
+//    z轴间距
+    public static var SPACING_X:Number = 0;
+    //    y轴间距
+    public static var SPACING_Y:Number = 0;
+
     // 记录扩充之后的坐标
     private var newCoordinateList:ArrayList = new ArrayList();
 
@@ -34,6 +39,8 @@ public class RoomReductionUtils {
         //  确认 x,y轴坐标的方位
         var xScope:Array = obtainXorYScope(coordinates, "x");
         var yScope:Array = obtainXorYScope(coordinates, "y");
+        // 获取最小间距
+        getSpacingBetweenXY(xScope, yScope);
         // 确定两个临近有效坐标之间的存在坐标
         for(var i:uint = 0; i < (coordinates.length - 1); i++) {
             var coorA:CoordinateVo = coordinates.getItemAt(i) as CoordinateVo;
@@ -44,8 +51,16 @@ public class RoomReductionUtils {
 //        Alert.show(JSON.stringify(xScope));
 //        Alert.show(JSON.stringify(yScope));
 //        Alert.show(JSON.stringify(newCoordinateList));
-        var resultData:ValidAndFilledCoordinateList = new ValidAndFilledCoordinateList(coordinates, newCoordinateList);
+        var resultData:ValidAndFilledCoordinateList = new ValidAndFilledCoordinateList(coordinates, newCoordinateList, roomVo);
         return resultData;
+    }
+
+    /**
+     *  x,y 轴间的徐iixoajianju
+     */
+    private function getSpacingBetweenXY(xScope:Array, yScope:Array):void{
+        SPACING_X = xScope[1] - xScope[0];
+        SPACING_Y = yScope[1] - yScope[0];
     }
 
     /**

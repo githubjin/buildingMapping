@@ -13,6 +13,8 @@
         import mx.rpc.events.FaultEvent;
         import mx.rpc.events.ResultEvent;
 
+        import random.components.RectRoomSplitWindow;
+
         import random.components.RoomSplitWindow;
 
         import random.events.CustomEventHandler;
@@ -24,6 +26,7 @@
         import random.events.DemoDataUrlChangeEvent;
         import random.events.GenerateStartEvent;
         import random.events.OperationTypeEvent;
+        import random.events.RoomSplitEvent;
         import random.events.SignalEvent;
         import random.utils.RoomMergeUtils;
         import random.utils.Constants;
@@ -129,18 +132,52 @@
             var that:* = this;
             this.customEventHandler.operationChangedHandler(event, function (type:String, data:ValidAndFilledCoordinateList):void {
                 if (Constants.SPLIT == type) {
-                    var splitWindow:RoomSplitWindow = new RoomSplitWindow();
-                    splitWindow = RoomSplitWindow(PopUpManager.createPopUp(that, RoomSplitWindow, true));
-                    splitWindow.roomReductionCoordinates = data.filledCoordinates;
-                    splitWindow.roomValidCoordinates = data.validCoordinates;
-                    splitWindow.addEventListener(CloseEvent.CLOSE, function splitWindow_closeHandler(event:CloseEvent):void {
-                        PopUpManager.removePopUp(splitWindow);
-                    });
-                    PopUpManager.centerPopUp(splitWindow);
+                    if(that.customEventHandler.getTheRoomToSplitIsRect()){ // 矩形
+                        var rectSplitWindow:RectRoomSplitWindow = new RectRoomSplitWindow();
+//                        PopUpManager.centerPopUp(rectSplitWindow);
+                        rectSplitWindow.x = Capabilities.screenResolutionX * 0.3;
+                        rectSplitWindow.y = Capabilities.screenResolutionY * 0.1;
+                        rectSplitWindow = RectRoomSplitWindow(PopUpManager.createPopUp(that, RectRoomSplitWindow, true));
+                        rectSplitWindow.sourceRoom = data.sourceRoom;
+                        rectSplitWindow.addEventListener(CloseEvent.CLOSE, function splitWindow_closeHandler(event:CloseEvent):void {
+                            PopUpManager.removePopUp(rectSplitWindow);
+                        });
+                        rectSplitWindow.addEventListener(RoomSplitEvent.EVENT_NAME, function buildingGroup_ROOM_SPLIT_EVENTHandler(event:RoomSplitEvent):void {
+                            if(event.oprationType == RoomSplitEvent.OP_TYPE_OK){
+                                that.customEventHandler.buidingData.rooms.removeItem(event.sourceRoom);
+                                that.customEventHandler.buidingData.rooms.addAll(event.rooms);
+                                that.customEventHandler.clean();
+                                PopUpManager.removePopUp(rectSplitWindow);
+//                            Alert.show(JSON.stringify(event.rooms));
+                            }
+                        });
+                    }else{ // 多边形
+                        var splitWindow:RoomSplitWindow = new RoomSplitWindow();
+                        splitWindow = RoomSplitWindow(PopUpManager.createPopUp(that, RoomSplitWindow, true));
+                        splitWindow.roomReductionCoordinates = data.filledCoordinates;
+                        splitWindow.roomValidCoordinates = data.validCoordinates;
+                        splitWindow.sourceRoom = data.sourceRoom;
+                        splitWindow.x = Capabilities.screenResolutionX * 0.3;
+                        splitWindow.y = Capabilities.screenResolutionY * 0.1;
+                        splitWindow.addEventListener(CloseEvent.CLOSE, function splitWindow_closeHandler(event:CloseEvent):void {
+                            PopUpManager.removePopUp(splitWindow);
+//                        PopUpManager.removePopUp(splitWindow.myAuxiliaryWindow);
+                        });
+                        splitWindow.addEventListener(RoomSplitEvent.EVENT_NAME, function buildingGroup_ROOM_SPLIT_EVENTHandler(event:RoomSplitEvent):void {
+                            if(event.oprationType == RoomSplitEvent.OP_TYPE_OK){
+                                that.customEventHandler.buidingData.rooms.removeItem(event.sourceRoom);
+                                that.customEventHandler.buidingData.rooms.addAll(event.rooms);
+                                that.customEventHandler.clean();
+                                PopUpManager.removePopUp(splitWindow);
+//                            Alert.show(JSON.stringify(event.rooms));
+                            }
+                        });
+                    }
                 }
             });
 
         }
+
         ]]></fx:Script>
 
     <fx:Declarations>

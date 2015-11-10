@@ -160,6 +160,23 @@ public class CustomEventHandler {
         }
     }
 
+    /**
+     * 判断选中的是否为矩形房间
+     * @return
+     */
+    public function getTheRoomToSplitIsRect():Boolean{
+        var rl:int = this.selectedRoomList.length;
+        if(rl > 1 || rl < 1){
+            return false;
+        }
+        var roomVo:RoomVo = this.selectedRoomList.getItemAt(0) as RoomVo;
+        var coordinatsNum:int = roomVo.coordinates.length;
+        if(coordinatsNum > 5){
+            return false;
+        }
+        return true;
+    }
+
 
     public function get mouseUpEvent():CustomMouseUpEvent {
         return _mouseUpEvent;

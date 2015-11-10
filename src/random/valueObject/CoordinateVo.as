@@ -4,20 +4,20 @@
 package random.valueObject {
 [Bindable]
 public class CoordinateVo {
-    private var _x:uint;
-    private var _y:uint;
+    private var _x:Number;
+    private var _y:Number;
 
-    public function CoordinateVo(x:uint, y:uint) {
+    public function CoordinateVo(x:Number, y:Number) {
         this._x = x;
         this._y = y;
     }
 
 
-    public function get x():uint {
+    public function get x():Number {
         return _x;
     }
 
-    public function get y():uint {
+    public function get y():Number {
         return _y;
     }
 }

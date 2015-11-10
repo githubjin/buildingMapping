@@ -34,5 +34,8 @@ public class Constants {
     public static var LINE_DIRECTIONS_HORIZONTAL:String = "H";
     public static var LINE_DIRECTIONS_VERTICAL:String = "V";
 
+    // 坐标圆浮动大小
+    public static var CUSTOM_RECT_OFFSET_XY:Number = 2;
+
 }
 }
