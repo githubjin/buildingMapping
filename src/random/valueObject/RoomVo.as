@@ -102,5 +102,14 @@ public class RoomVo {
     public function set backgroundColor(value:int):void {
         _backgroundColor = value;
     }
+
+
+    public function set x(value:uint):void {
+        _x = value;
+    }
+
+    public function set y(value:uint):void {
+        _y = value;
+    }
 }
 }

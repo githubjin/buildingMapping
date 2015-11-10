@@ -14,17 +14,25 @@
     import mx.graphics.GradientStroke;
     import mx.graphics.SolidColor;
     import mx.graphics.SolidColorStroke;
+    import mx.managers.PopUpManager;
+
+    import random.events.RoomSplitEvent;
 
     import random.utils.CalculationUtils;
     import random.utils.Constants;
+    import random.utils.RoomReductionUtils;
+    import random.utils.vo.Coordinate;
 
     import random.valueObject.CoordinateVo;
+    import random.valueObject.RoomVo;
 
     import spark.primitives.Ellipse;
     import spark.primitives.Graphic;
     import spark.primitives.Line;
     import spark.primitives.Path;
     import spark.primitives.Rect;
+
+    private var _sourceRoom:RoomVo;
 
     // 所选房间的有效坐标
     private var _roomValidCoordinates:ArrayList;
@@ -58,6 +66,11 @@
     [Bindable]
     private var mouseLocationY:Number = 0;
 
+    // 预览合并辅助窗口
+    //    private var _myAuxiliaryWindow:RoomSplitAuxiliaryWindow;
+
+    // 画矩形需要添加的新坐标
+    private var newCoordinatesWhileRect:ArrayList = new ArrayList();
 
     public function set roomReductionCoordinates(value:ArrayList):void {
         _roomReductionCoordinates = value;
@@ -81,7 +94,12 @@
         });
         this.drawBoundary();
         internalCoordinates.forEach(function (item:Object, index:int, arr:Array):void {
+            /*if(index == 0){
+             spacingBetweenXs = Math.abs(arr[(index + 1)].x - item.x);
+             spacingBetweenYs = Math.abs(arr[(arr.length - 2)].y - item.y);
+             }*/
             var gra:Graphic = new Graphic();
+            gra.name = gra.x + "_" + gra.y;
             gra.x = item.x;
             gra.y = item.y;
 //            trace("---------------"+gra.x+"-----------------"+gra.y+"-------------item.y："+item.y+"-------------------------------------");
@@ -214,24 +232,132 @@
             // 点击预设的节点
             if (event.target is Graphic) {
                 var endGraphic:Graphic = event.target as Graphic;
-                this.currentRect.width = endGraphic.x + (endGraphic.width / 2 - 2)  - this.currentRect.x;
+                this.currentRect.width = endGraphic.x + (endGraphic.width / 2 - 2) - this.currentRect.x;
                 this.currentRect.height = endGraphic.y + (endGraphic.width / 2 - 2) - this.currentRect.y;
                 this.currentRect.setRightBottomCoordinate(endGraphic.x + Constants.CUSTOM_RECT_OFFSET_XY, endGraphic.y + Constants.CUSTOM_RECT_OFFSET_XY);
                 this.removeEventListener(MouseEvent.MOUSE_MOVE, mouseMoveHandler);
                 this.removeEventListener(MouseEvent.RIGHT_MOUSE_DOWN, rightMouseDownHandler);
-                // 基础：需要预设点，准确坐标
-                // 0. 不允许跨线画矩形，只允许在房间范围内画矩形，及画出来的矩形不能超出房间范围
-                // 1.获取房间与画出的矩形的交集坐标
-                // 2.然后在预览窗口显示划分的情况，然后在预览里可以合并
-                // 3. 实现变形划分
-                CalculationUtils.calculationPolygonIntersection(this._roomValidCoordinates,this.currentRect,this.minX,this.minY);
+                //  只允许画矩形
+//                CalculationUtils.calculationPolygonIntersection(this._roomValidCoordinates,this.currentRect,this.minX,this.minY);
+                // 取画出的矩形的四边中间点 辅助点
+                this.appendCoordinatesWhileRect();
+                // 生成预览
+                /* var thatWin:* = this;
+                 if(myAuxiliaryWindow == null){
+                 myAuxiliaryWindow = new RoomSplitAuxiliaryWindow();
+                 myAuxiliaryWindow = RoomSplitAuxiliaryWindow(PopUpManager.createPopUp(thatWin, RoomSplitAuxiliaryWindow, false));
+                 myAuxiliaryWindow.x = this.x + this.width + 10;
+                 myAuxiliaryWindow.y = this.y;
+                 myAuxiliaryWindow.width = this.width;
+                 myAuxiliaryWindow.height = this.height;
+                 myAuxiliaryWindow.title = "拆分预览";
+                 }
+                 myAuxiliaryWindow.appendRect(this.currentRect);*/
                 // 允许开始画第二个矩形
                 this.rectList.addItem(this.currentRect);
                 this.currentRect = null;
-            }else{ // 点击空白地
+            } else { // 点击空白地
 
             }
         }
+
+    }
+
+    /**
+     *  话剧形式添加点
+     */
+    private function appendCoordinatesWhileRect():void {
+        var list:ArrayList = CalculationUtils.generateRectCoordinates(this.currentRect);
+        for (var i:int = 0; i < (list.length - 1); i++) {
+            var a:CoordinateVo = list.getItemAt(i) as CoordinateVo;
+            var b:CoordinateVo = list.getItemAt((i + 1)) as CoordinateVo;
+            if (a.x == b.x) {
+                this.listCoordinateBetweenSpacing(a.x, a.y, b.y, "y", true);
+            } else {
+                this.listCoordinateBetweenSpacing(a.y, a.x, b.x, "x", true);
+            }
+        }
+        this.addCoordinatesAndAddEventListener(this.newCoordinatesWhileRect);
+    }
+
+    /**
+     *  生成新的辅助点
+     * @param coordinateXorY
+     * @param start
+     * @param end
+     * @param field
+     * @param b
+     */
+    private function listCoordinateBetweenSpacing(coordinateXorY:Number, start:Number, end:Number, field:String, b:Boolean):void {
+        var s:Number = (start < end ? start : end);
+        var e:Number = (start > end ? start : end);
+        var newC:Number = 0;
+        trace("s:" + s + " e:" + e + " :" + RoomReductionUtils.SPACING_X + " :" + RoomReductionUtils.SPACING_Y);
+        if (field == "x") {
+            if ((e - s) > RoomReductionUtils.SPACING_X) {
+                newC = s + RoomReductionUtils.SPACING_X;
+                newCoordinatesWhileRect.addItem(new CoordinateVo(newC, coordinateXorY));
+            } else if ((e - s) == RoomReductionUtils.SPACING_X) {
+                if (!b) {
+                    newCoordinatesWhileRect.addItem(new CoordinateVo(s, coordinateXorY));
+                }
+            } else {
+                return;
+            }
+        } else {
+            if ((e - s) > RoomReductionUtils.SPACING_Y) {
+                newC = s + RoomReductionUtils.SPACING_Y;
+                newCoordinatesWhileRect.addItem(new CoordinateVo(coordinateXorY, newC));
+            } else if ((e - s) == RoomReductionUtils.SPACING_Y) {
+                if (!b) {
+                    newCoordinatesWhileRect.addItem(new CoordinateVo(coordinateXorY, s));
+                }
+            } else {
+                return;
+            }
+        }
+        if (newC > 0) {
+            if (start < end) {
+                this.listCoordinateBetweenSpacing(coordinateXorY, newC, end, field, false);
+            } else {
+                this.listCoordinateBetweenSpacing(coordinateXorY, newC, start, field, false);
+            }
+        } else {
+            return;
+        }
+    }
+
+    /**
+     *  添加的新的提示坐标
+     * @param coordinates
+     */
+    private function addCoordinatesAndAddEventListener(coordinates:ArrayList):void {
+        coordinates.toArray().forEach(function (item:CoordinateVo, index:int, arr:Array):void {
+            var ellipseName:String = item.x + "_" + item.y;
+            var childByName:DisplayObject = gcGroup.getChildByName(ellipseName);
+            if (childByName == null) {
+                var gra:Graphic = new Graphic();
+                gra.x = item.x;
+                gra.y = item.y;
+                gra.name = ellipseName;
+                var ellipse:Ellipse = new Ellipse();
+                ellipse.width = 7;
+                ellipse.height = 7;
+                ellipse.stroke = new SolidColorStroke(0x66CCFF, 5, 1);
+                ellipse.alpha = 0.7;
+                gra.addElement(ellipse);
+                gra.addEventListener(MouseEvent.MOUSE_OVER, ellipse_mouseOverHandler);
+                gra.addEventListener(MouseEvent.MOUSE_OUT, ellipse_mouseOverHandler);
+                gra.addEventListener(MouseEvent.CLICK, gra_clickHandler);
+                gcGroup.addElement(gra);
+            }
+        });
+    }
+
+    /**
+     *  删除矩形时删除点
+     */
+    private function deleteCoordinatesWhileDeleteRect():void {
 
     }
 
@@ -270,15 +396,51 @@
         gcGroup.removeElement(this.currentRect);
         this.currentRect = null;
     }
+
+    /*public function get myAuxiliaryWindow():RoomSplitAuxiliaryWindow{
+     return _myAuxiliaryWindow;
+     }
+     public function set myAuxiliaryWindow(rectValue:RoomSplitAuxiliaryWindow):void{
+     _myAuxiliaryWindow = rectValue;
+     }*/
+
+    private function button1_clickHandler(event:MouseEvent, type:int):void {
+        if(type == 1){
+            var splitEvent:RoomSplitEvent = new RoomSplitEvent(RoomSplitEvent.EVENT_NAME, true, true,
+                    RoomSplitEvent.OP_TYPE_OK, CalculationUtils.convertRectToRooms(this.rectList, this.minX, this.minY), this.sourceRoom);
+            dispatchEvent(splitEvent);
+        }else{
+            PopUpManager.removePopUp(this);
+        }
+    }
+
+    public function set sourceRoom(sr:RoomVo):void{
+        this._sourceRoom = sr;
+    }
+    public function get sourceRoom():RoomVo{
+        return this._sourceRoom;
+    }
     ]]></fx:Script>
 
     <!--<fx:Style source="resources/css/Styles.css"/>-->
 
-<s:Group id="gcGroup" left="{offsetX - 3}" top="{offsetY - 3}">
-    <s:layout>
-        <s:BasicLayout/>
-    </s:layout>
-</s:Group>
+<!--<s:VGroup padding="0">
+    <s:ButtonBar>
+        <s:ArrayList>
+            <fx:String>确认</fx:String>
+            <fx:String>取消</fx:String>
+        </s:ArrayList>
+    </s:ButtonBar>-->
+    <s:Group id="gcGroup" left="{offsetX - 3}" top="{offsetY - 3}">
+        <s:layout>
+            <s:BasicLayout/>
+        </s:layout>
+    </s:Group>
+    <s:HGroup horizontalCenter="0">
+        <s:Button label="确认" click="button1_clickHandler(event, 1)"/>
+        <s:Button label="取消" click="button1_clickHandler(event, 0)"/>
+    </s:HGroup>
+<!--</s:VGroup>-->
     <!--<s:Panel title="预览"  width="{gcGroup.width + 100}" height="90%" right="3"/>-->
 <!--<demo:EllipseDemo/>-->
 </s:TitleWindow>

@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<s:SparkSkin xmlns:fx="http://ns.adobe.com/mxml/2009" 
+			 xmlns:mx="library://ns.adobe.com/flex/mx" 
+			 xmlns:s="library://ns.adobe.com/flex/spark" >
+	
+	<!-- Properties of the parent ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+	
+	<s:states>
+		
+		<s:State name="normal" />
+		<s:State name="inactive" />
+		<s:State name="disabled" />
+		<s:State name="normalWithControlBar" />
+		<s:State name="inactiveWithControlBar" />
+		<s:State name="disabledWithControlBar" />
+
+	</s:states>
+	
+	<!-- Metadata ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+	
+	<fx:Metadata>
+		
+		[HostComponent("random.components.RoomSplitWindow")]
+		
+	</fx:Metadata> 
+	
+	<!-- Styles ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+	
+	
+	
+	<!-- Script ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+	
+	<fx:Script>
+		<![CDATA[
+			
+			/*private function initTitleSkin():void
+			{
+				headerSkinColor.color = 0x6bd8ff;
+				headerSkinColor.alpha = 0.1;
+			}*/
+			
+		]]>
+	</fx:Script>
+	
+	<!-- Declarations ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+	
+	<fx:Declarations>
+		<!-- Place non-visual elements (e.g., services, value objects) here -->		
+		
+	</fx:Declarations>
+	
+	<!-- UI components ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+	
+	<!--<s:Rect radiusX="4" radiusY="4"
+			height="100%" width="100%" 
+			right="10">
+		
+		<s:fill>
+			<mx:SolidColor id="panelSkin" 
+						   color="#E8E8E8"/>
+		</s:fill>
+		
+	</s:Rect>
+	
+	<s:Path winding="nonZero" 
+			data="M 0.016 0.012 L 0.016 23.354 L 287.419 23.354 L 287.408 12.012 C 287.408 5.385 282.035 0.012 275.408 0.012 L 0.016 0.012 Z" 
+			rotation="90"
+			top="0" bottom="0"
+			right="0">
+		
+		<s:fill>
+			<s:SolidColor id="headerSkinColor"/>
+		</s:fill>
+		
+	</s:Path>-->
+	
+	<s:Group top="0" 
+			 bottom="0" 
+			 right="0">
+		
+		<s:Label id="titleDisplay"
+				 lineBreak="explicit"
+				 left="10" right="8" 
+				 top="0" height="30"
+				 fontWeight="bold" fontSize="12"
+				 color="#FFFFFF"/>
+		
+	</s:Group>
+	
+	<s:Group id="contentGroup" right="25">
+		
+	</s:Group>        
+	
+</s:SparkSkin>

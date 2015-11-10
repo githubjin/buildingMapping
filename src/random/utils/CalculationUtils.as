@@ -7,6 +7,7 @@ import mx.collections.ArrayList;
 import random.components.CustomRect;
 
 import random.valueObject.CoordinateVo;
+import random.valueObject.RoomVo;
 
 public class CalculationUtils {
     public function CalculationUtils() {
@@ -168,5 +169,42 @@ public class CalculationUtils {
         coors.addItem(new CoordinateVo(rect.xFrom, rect.yFrom));
         return coors;
     }
+
+    /**
+     *  添加最小x y坐标还原到外部坐标
+     * @param rect
+     * @param minX
+     * @param minY
+     * @return
+     */
+    public static function generateRectCoordintesWithMinXY(rect:CustomRect, minX:int, minY:int):ArrayList{
+        var coors:ArrayList = new ArrayList();
+        coors.addItem(new CoordinateVo(rect.xFrom + minX, rect.yFrom + minY));
+        coors.addItem(new CoordinateVo(rect.xFrom + minX, rect.yTo + minY));
+        coors.addItem(new CoordinateVo(rect.xTo + minX, rect.yTo + minY));
+        coors.addItem(new CoordinateVo(rect.xTo + minX, rect.yFrom + minY));
+        coors.addItem(new CoordinateVo(rect.xFrom + minX, rect.yFrom + minY));
+        return coors;
+    }
+
+    /**
+     *  矩形转换为 房间
+     * @param rects
+     * @return
+     */
+    public static function convertRectToRooms(rects:ArrayList, minX:int, minY:int):ArrayList{
+        var rooms:ArrayList = new ArrayList();
+        rects.toArray().forEach(function (item:CustomRect, index:int, arr:Array):void {
+            var coordinates:ArrayList = CalculationUtils.generateRectCoordintesWithMinXY(item, minX, minY);
+            var rId:String = Math.random()+ " 房";
+            var r:RoomVo = new RoomVo(rId, rId, rId);
+            r.coordinates = coordinates;
+            r.x = item.xFrom;
+            r.y = item.yFrom;
+            rooms.addItem(r);
+        });
+        return rooms;
+    }
+
 }
 }

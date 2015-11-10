@@ -1,0 +1,82 @@
+<?xml version="1.0"?>
+<!--
+  Created by Yo on 2015/11/10.
+-->
+<s:TitleWindow xmlns:fx="http://ns.adobe.com/mxml/2009" xmlns:s="library://ns.adobe.com/flex/spark">
+
+  <fx:Script><![CDATA[
+    import mx.collections.ArrayList;
+    import mx.utils.ObjectUtil;
+
+    import random.utils.CalculationUtils;
+    import random.valueObject.RoomVo;
+
+
+    private var _rects:ArrayList;
+
+    [Bindable]
+    private var _rooms:ArrayList;
+
+    // 边框偏移
+    [Bindable]
+    private var offsetX:int = 33;
+    [Bindable]
+    private var offsetY:int = 33;
+
+
+    public function get rooms():ArrayList {
+      return _rooms;
+    }
+
+    public function set rooms(value:ArrayList):void {
+      _rooms = value;
+    }
+
+    public function get rects():ArrayList {
+      return _rects;
+    }
+
+    public function set rects(value:ArrayList):void {
+      _rects = value;
+    }
+
+    public function appendRect(rect:CustomRect):void{
+      if(this.rects == null){
+        this.rects = new ArrayList();
+      }
+      this.rects.addItem(rect);
+      this.roomDataChanged();
+    }
+
+    public function roomDataChanged():void {
+      if(_rooms == null){
+        _rooms = new ArrayList();
+      }
+      var that:* = this;
+      this.rects.toArray().forEach(function (item:CustomRect, index:int, arr:Array):void {
+        var coordinates:ArrayList = CalculationUtils.generateRectCoordinates(item);
+        var rId:String = Math.random()+ " 房";
+        var r:RoomVo = new RoomVo(rId, rId, rId);
+        r.coordinates = coordinates;
+        r.x = item.xFrom;
+        r.y = item.yFrom;
+        that._rooms.addItem(r);
+      });
+    }
+    ]]></fx:Script>
+
+  <s:VGroup padding="5" gap="3">
+    <s:ButtonBar id="myButtonBar">
+      <s:ArrayList>
+        <fx:String>确认</fx:String>
+        <fx:String>取消</fx:String>
+      </s:ArrayList>
+    </s:ButtonBar>
+    <s:Group id="gcGroup" left="{offsetX - 3}" top="{offsetY - 3}">
+      <s:layout>
+        <s:BasicLayout/>
+      </s:layout>
+      <s:DataGroup dataProvider="{_rooms}" id="buildingGroup" itemRenderer="random.renderers.CustomRoom" width="100%" height="100%"/>
+    </s:Group>
+  </s:VGroup>
+</s:TitleWindow>
