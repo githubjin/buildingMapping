@@ -206,5 +206,20 @@ public class CalculationUtils {
         return rooms;
     }
 
+    /**
+     * 根据坐标求面积
+     * @param coordinates
+     * @return
+     */
+    public static function caculationArea(coordinates:ArrayList):Number{
+        var area:Number = 0;
+        for(var i:int=0;i<(coordinates.length - 1);i++){
+            var a:Object = coordinates.getItemAt(i);
+            var b:Object = coordinates.getItemAt((i+1));
+            area += ((b.x-a.x)*(a.y+b.y));
+        }
+        return Math.abs(area/2);
+    }
+
 }
 }

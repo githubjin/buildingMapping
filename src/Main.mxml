@@ -134,10 +134,8 @@
                 if (Constants.SPLIT == type) {
                     if(that.customEventHandler.getTheRoomToSplitIsRect()){ // 矩形
                         var rectSplitWindow:RectRoomSplitWindow = new RectRoomSplitWindow();
-//                        PopUpManager.centerPopUp(rectSplitWindow);
-                        rectSplitWindow.x = Capabilities.screenResolutionX * 0.3;
-                        rectSplitWindow.y = Capabilities.screenResolutionY * 0.1;
-                        rectSplitWindow = RectRoomSplitWindow(PopUpManager.createPopUp(that, RectRoomSplitWindow, true));
+                        PopUpManager.addPopUp(rectSplitWindow, that, true);
+                        PopUpManager.centerPopUp(rectSplitWindow);
                         rectSplitWindow.sourceRoom = data.sourceRoom;
                         rectSplitWindow.addEventListener(CloseEvent.CLOSE, function splitWindow_closeHandler(event:CloseEvent):void {
                             PopUpManager.removePopUp(rectSplitWindow);
@@ -153,12 +151,14 @@
                         });
                     }else{ // 多边形
                         var splitWindow:RoomSplitWindow = new RoomSplitWindow();
-                        splitWindow = RoomSplitWindow(PopUpManager.createPopUp(that, RoomSplitWindow, true));
+//                        splitWindow = RoomSplitWindow(PopUpManager.createPopUp(that, RoomSplitWindow, true));
                         splitWindow.roomReductionCoordinates = data.filledCoordinates;
                         splitWindow.roomValidCoordinates = data.validCoordinates;
                         splitWindow.sourceRoom = data.sourceRoom;
-                        splitWindow.x = Capabilities.screenResolutionX * 0.3;
-                        splitWindow.y = Capabilities.screenResolutionY * 0.1;
+//                        splitWindow.x = Capabilities.screenResolutionX * 0.3;
+//                        splitWindow.y = Capabilities.screenResolutionY * 0.1;
+                        PopUpManager.addPopUp(splitWindow, that, true);
+                        PopUpManager.centerPopUp(splitWindow);
                         splitWindow.addEventListener(CloseEvent.CLOSE, function splitWindow_closeHandler(event:CloseEvent):void {
                             PopUpManager.removePopUp(splitWindow);
 //                        PopUpManager.removePopUp(splitWindow.myAuxiliaryWindow);

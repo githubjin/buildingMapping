@@ -2,7 +2,7 @@
 <!--
   Created by Yo on 2015/11/10.
 -->
-<s:TitleWindow xmlns:fx="http://ns.adobe.com/mxml/2009" xmlns:s="library://ns.adobe.com/flex/spark">
+<s:TitleWindow xmlns:fx="http://ns.adobe.com/mxml/2009" xmlns:s="library://ns.adobe.com/flex/spark" title="规则房间拆分">
 
   <fx:Script><![CDATA[
       import mx.collections.ArrayList;
@@ -53,10 +53,9 @@
               if (this.rowsNumber == 1 && this.columnsNumber == 0) {
                   return;
               }
-              generateMultipleRect();
-//        var splitEvent:RoomSplitEvent = new RoomSplitEvent(RoomSplitEvent.EVENT_NAME, true, true,
-//                RoomSplitEvent.OP_TYPE_OK, CalculationUtils.convertRectToRooms(this.rectList, this.minX, this.minY), this.sourceRoom);
-//        dispatchEvent(splitEvent);
+        var splitEvent:RoomSplitEvent = new RoomSplitEvent(RoomSplitEvent.EVENT_NAME, true, true,
+                RoomSplitEvent.OP_TYPE_OK, generateMultipleRect(), this.sourceRoom);
+        dispatchEvent(splitEvent);
           } else {
               PopUpManager.removePopUp(this);
           }
@@ -101,30 +100,35 @@
           }
 
           for (var m:int = 0; m < (rowArr.length - 1); m++) {
-              var array:Array = rowArr[i] as Array;
-              var array_1:Array = rowArr[i + 1] as Array;
+              var array:Array = rowArr[m] as Array;
+              var array_1:Array = rowArr[m + 1] as Array;
               for(var n:int=0;n<(array.length-1);n++){
-                  coordinatesORoom.push()
-                  var coordinatesORoom:Array = new Array();
-                  var idNameDesc:String = array[i].x + "_" + array[i+1];
+//                  var coordinatesORoom:Array = new Array();
+//                  coordinatesORoom.push(array[n], array[n+1], array_1[n + 1],array_1[n],array[n]);
+                  var idNameDesc:String = array[n].x + "_" + array[n+1];
                   var room:RoomVo = new RoomVo(idNameDesc, idNameDesc, idNameDesc);
-                  room.addCoordinates();
+                  room.coordinates.addItem(array[n]);
+                  room.coordinates.addItem(array[n + 1]);
+                  room.coordinates.addItem(array_1[n + 1]);
+                  room.coordinates.addItem(array_1[n]);
+                  room.coordinates.addItem(array[n]);
+                  room.x = array[n].x;
+                  room.y = array[n].y;
+                  splitedRooms.addItem(room);
               }
           }
-
-          Alert.show(JSON.stringify(rowArr));
-
-          return null;
+//          Alert.show(JSON.stringify(splitedRooms));
+          return splitedRooms;
       }
       ]]></fx:Script>
 
   <s:VGroup padding="10">
     <s:Form>
       <s:FormItem label="列">
-        <s:NumericStepper minimum="1" value="@{columnsNumber}"/>
+        <s:NumericStepper minimum="1" value="@{columnsNumber}" maximum="1000"/>
       </s:FormItem>
       <s:FormItem label="行">
-        <s:NumericStepper minimum="1" value="@{rowsNumber}"/>
+        <s:NumericStepper minimum="1" value="@{rowsNumber}" maximum="1000"/>
       </s:FormItem>
     </s:Form>
     <s:FormItem>

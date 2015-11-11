@@ -4,7 +4,7 @@
 -->
 <s:TitleWindow xmlns:fx="http://ns.adobe.com/mxml/2009" xmlns:s="library://ns.adobe.com/flex/spark" title="房间拆分-{mouseLocationX}-{mouseLocationY}"
                xmlns:mm="random.components.*" xmlns:demo="random.demo.*"
-               width="{gcGroup.width + 100}" height="{gcGroup.height + 100}"
+               width="{gcGroup.width + 100}" height="{gcGroup.height + 100}" minWidth="{suButton.width * 3.5}"
                creationComplete="creationCompleteHandler(event)">
 
 <fx:Script><![CDATA[
@@ -40,8 +40,6 @@
     private var _roomReductionCoordinates:ArrayList;
     // 窗口内使用的坐标 -minX -minY
     private var internalCoordinates:Array;
-    //  连线属猪 Path 列表
-    private var splitedPolygons:Array;
     // Rect 列表
     private var rectList:ArrayList = new ArrayList();
     // 当前移动的对角线
@@ -71,6 +69,7 @@
 
     // 画矩形需要添加的新坐标
     private var newCoordinatesWhileRect:ArrayList = new ArrayList();
+    private var newGraphicWhileRect:ArrayList = new ArrayList();
 
     public function set roomReductionCoordinates(value:ArrayList):void {
         _roomReductionCoordinates = value;
@@ -277,6 +276,7 @@
                 this.listCoordinateBetweenSpacing(a.y, a.x, b.x, "x", true);
             }
         }
+        this.newCoordinatesWhileRect.addAll(list);
         this.addCoordinatesAndAddEventListener(this.newCoordinatesWhileRect);
     }
 
@@ -349,6 +349,7 @@
                 gra.addEventListener(MouseEvent.MOUSE_OVER, ellipse_mouseOverHandler);
                 gra.addEventListener(MouseEvent.MOUSE_OUT, ellipse_mouseOverHandler);
                 gra.addEventListener(MouseEvent.CLICK, gra_clickHandler);
+                newGraphicWhileRect.addItem(gra);
                 gcGroup.addElement(gra);
             }
         });
@@ -370,6 +371,11 @@
          mouseLocationY = event.stageY;*/
         if (event.target is Graphic) {
             var graphic:Graphic = event.target as Graphic;
+            // 在一条直线上
+            /*if(this.currentRect.xFrom == (graphic.x + (graphic.width / 2 - 2))
+                    || this.currentRect.y == (graphic.y + (graphic.width / 2 - 2))){
+                return;
+            }*/
             this.currentRect.width = graphic.x + (graphic.width / 2 - 2) - this.currentRect.x;
             this.currentRect.height = graphic.y + (graphic.width / 2 - 2) - this.currentRect.y;
             mouseLocationX = graphic.x;
@@ -385,6 +391,31 @@
             mouseLocationX = event.stageX - this.pointOffsetXInStage;
             mouseLocationY = event.stageY - this.pointOffsetYInStage;
         }
+    }
+
+    /**
+     * 检测矩形是否在房间内
+     * @param rect
+     * @param rightBootomX
+     * @param rightBottomY
+     * @return
+     */
+    private function checkRectPointIsInRoomScope(rightBootomX:Number, rightBottomY:Number):Boolean {
+        if(this.currentRect == null){
+            return false;
+        }
+        var temp:CustomRect = new CustomRect();
+        temp.setLetTopCoordinate(this.currentRect.xFrom, this.currentRect.yFrom);
+        temp.setRightBottomCoordinate(rightBootomX, rightBottomY);
+        var coordinates:ArrayList = CalculationUtils.generateRectCoordinates(temp);
+        for (var i:int = 0; i < coordinates.length; i++) {
+            var coor:Object = coordinates.getItemAt(i);
+            var b:Boolean = CalculationUtils.isPointInPolygonAdapter(coor.x, coor.y, this._roomValidCoordinates, this.minX, this.minY);
+            if (!b) {
+                return b;
+            }
+        }
+        return true;
     }
 
     /**
@@ -405,19 +436,55 @@
      }*/
 
     private function button1_clickHandler(event:MouseEvent, type:int):void {
-        if(type == 1){
-            var splitEvent:RoomSplitEvent = new RoomSplitEvent(RoomSplitEvent.EVENT_NAME, true, true,
-                    RoomSplitEvent.OP_TYPE_OK, CalculationUtils.convertRectToRooms(this.rectList, this.minX, this.minY), this.sourceRoom);
-            dispatchEvent(splitEvent);
-        }else{
+        if (type == 1) {
+            if (this.validateArea()) {
+                var newRooms:ArrayList = CalculationUtils.convertRectToRooms(this.rectList, this.minX, this.minY);
+                var splitEvent:RoomSplitEvent = new RoomSplitEvent(RoomSplitEvent.EVENT_NAME, true, true,
+                        RoomSplitEvent.OP_TYPE_OK, newRooms, this.sourceRoom);
+                dispatchEvent(splitEvent);
+            } else {
+                Alert.show("房间拆分不完整，请继续完成拆分！");
+            }
+        } else if (type == 0) {
             PopUpManager.removePopUp(this);
+        } else {
+            if (this.currentRect != null) {
+                gcGroup.removeElement(this.currentRect);
+                this.currentRect = null;
+            }
+            if (this.rectList != null) {
+                rectList.toArray().forEach(function (item:CustomRect, index:int, arr:Array):void {
+                    gcGroup.removeElement(item);
+                });
+                rectList.removeAll();
+            }
+            if (newCoordinatesWhileRect.length > 0) {
+                newCoordinatesWhileRect.removeAll();
+            }
+            if (newGraphicWhileRect.length > 0) {
+                newGraphicWhileRect.toArray().forEach(function (item:Graphic, index:int, arr:Array):void {
+                    gcGroup.removeElement(item);
+                });
+                newGraphicWhileRect.removeAll();
+            }
         }
     }
 
-    public function set sourceRoom(sr:RoomVo):void{
+    private function validateArea():Boolean {
+        var sourceRoomArea:Number = CalculationUtils.caculationArea(this._roomValidCoordinates);
+        var newRoomAreaSum:Number = 0;
+        this.rectList.toArray().forEach(function (item:CustomRect, index:int, arr:Array):void {
+            newRoomAreaSum += (CalculationUtils.caculationArea(CalculationUtils.generateRectCoordinates(item)));
+        });
+        Alert.show(sourceRoomArea + "：" + newRoomAreaSum);
+        return sourceRoomArea == newRoomAreaSum;
+    }
+
+    public function set sourceRoom(sr:RoomVo):void {
         this._sourceRoom = sr;
     }
-    public function get sourceRoom():RoomVo{
+
+    public function get sourceRoom():RoomVo {
         return this._sourceRoom;
     }
     ]]></fx:Script>
@@ -437,8 +504,9 @@
         </s:layout>
     </s:Group>
     <s:HGroup horizontalCenter="0">
-        <s:Button label="确认" click="button1_clickHandler(event, 1)"/>
+        <s:Button label="确认" click="button1_clickHandler(event, 1)" id="suButton"/>
         <s:Button label="取消" click="button1_clickHandler(event, 0)"/>
+        <s:Button label="重置" click="button1_clickHandler(event, 2)"/>
     </s:HGroup>
 <!--</s:VGroup>-->
     <!--<s:Panel title="预览"  width="{gcGroup.width + 100}" height="90%" right="3"/>-->
