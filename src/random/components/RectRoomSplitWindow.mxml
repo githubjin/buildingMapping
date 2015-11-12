@@ -74,29 +74,54 @@
           var firstC:CoordinateVo = toArray[0] as CoordinateVo;
           var lastC:CoordinateVo = toArray[toArray.length - 1] as CoordinateVo;
 
-          var xSpace:Number = Math.abs(firstC.x - lastC.x);
-          var ySpace:Number = Math.abs(firstC.y - lastC.y);
-          var everageXSpace:Number = xSpace / columnsNumber;
-          var everageYSpace:Number = ySpace / rowsNumber;
+          var xSpace:int = Math.abs(firstC.x - lastC.x);
+          var ySpace:int = Math.abs(firstC.y - lastC.y);
+          // 求余
+          var xY:int = xSpace % columnsNumber;
+          xY = (xY>0?(xY+1):xY);
+          var yY:int = ySpace % rowsNumber;
+          yY = (yY>0?(yY+1):yY);
+          // 求平均值
+          var everageXSpace:int = xSpace / columnsNumber;
+          var everageYSpace:int = ySpace / rowsNumber;
           var rowArr:Array = new Array();
           for (var i:int = 0; i < (rowsNumber + 1); i++) {
               var columnArr:Array = new Array();
               for (var j:int = 0; j < (columnsNumber + 1); j++) {
-                  if (j == columnsNumber) {
+                  if(i == 0 && j == 0){
+                      columnArr.push(firstC);
+                  }else if(i == rowsNumber && j == columnsNumber){
+                      columnArr.push(lastC);
+                  }else{
+                    if(columnArr.length == 0){
+                        columnArr.push(new CoordinateVo(firstC.x, (rowArr[i-1][0].y + everageYSpace + (yY > i?1:0))));
+                    }else{
+                        columnArr.push(new CoordinateVo((columnArr[j-1].x + everageXSpace + (xY > j?1:0)), columnArr[j-1].y));
+                    }
+                  }
+                  /*if (j == columnsNumber) {
                       if (i == rowsNumber) {
                           columnArr.push(lastC);
                       } else {
-                          columnArr.push(new CoordinateVo(lastC.x, (firstC.y + i * everageYSpace)));
+                          columnArr.push(new CoordinateVo(lastC.x, (firstC.y + i * everageYSpace + (yY>0?1:0))));
                       }
                   } else {
-                      if (i == rowsNumber) {
-                          columnArr.push(new CoordinateVo(firstC.x + j * everageXSpace, lastC.y));
-                      } else {
-                          columnArr.push(new CoordinateVo((firstC.x + j * everageXSpace), (firstC.y + i * everageYSpace)));
+                      if(i==0&&j==0){
+                          columnArr.push(firstC);
+                      }else{
+                          if (i == rowsNumber) {
+                              columnArr.push(new CoordinateVo((firstC.x + j * everageXSpace + (xY>0?1:0)), lastC.y));
+                          } else {
+                              columnArr.push(new CoordinateVo((firstC.x + j * everageXSpace + (xY>0?1:0)), (firstC.y + i * everageYSpace + (yY>0?1:0))));
+                          }
                       }
                   }
+                  if(i !=0 || j != 0){
+                      xY--;
+                  }*/
               }
               rowArr.push(columnArr);
+              yY--;
           }
 
           for (var m:int = 0; m < (rowArr.length - 1); m++) {

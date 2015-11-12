@@ -175,17 +175,34 @@ public class RoomReductionUtils {
             ax.push(item);
         });
         return ax.sort();*/
-        return this.fillGapBetweenCoordinates(ax.sort(sortFunction));
+
+        return this.fillGapBetweenCoordinates(ax.sort(sortFunction), new Array(), this.getMinGap(ax.sort(sortFunction)));
+//        return ax.sort(sortFunction);
     }
 
-    private function fillGapBetweenCoordinates(ax:Array):Array{
+    private function getMinGap(ax:Array):int{
         var minGap:int =10000;
+//        var preGap:int = 0;
         for(var k:int=0;k<(ax.length - 1);k++){
             var gap:int = Math.abs(ax[k+1] - ax[k]);
-            if(gap < minGap){
+            if(gap < minGap && gap != 1){
+//                preGap = minGap;
                 minGap = gap;
             }
         }
+        return minGap;
+    }
+
+    private function fillGapBetweenCoordinates(ax:Array, exceptArr:Array, minGap:int):Array{
+       /* var minGap:int =10000;
+//        var preGap:int = 0;
+        for(var k:int=0;k<(ax.length - 1);k++){
+            var gap:int = Math.abs(ax[k+1] - ax[k]);
+            if(gap < minGap && gap != 1){
+//                preGap = minGap;
+                minGap = gap;
+            }
+        }*/
         var tArr:Array = new Array();
         ax.forEach(function(item:int, index:int, arr:Array):void{
             var val:int = item as Number;
@@ -194,14 +211,37 @@ public class RoomReductionUtils {
                 tArr.push((val + minGap));
             }
         });
+        //删除无用的
+        exceptArr.forEach(function(item:int, index:int, arr:Array):void{
+            var i:int = tArr.indexOf(item);
+            tArr.splice(i,1);
+        });
         if(tArr.length == 0){
             return ax.sort(sortFunction);
         }else{
+            if(tArr.length == 1 && exceptArr.indexOf(tArr[0]) >= 0){
+                return ax.sort(sortFunction);
+            }
             tArr.forEach(function(item:int,index:int,arr:Array):void{
-                ax.push(item);
+//                if(ax.indexOf(item + 1) < 0 && ax.indexOf(item - 1) < 0){
+                if(isAppendable(minGap, ax, item)){
+                    ax.push(item);
+                }else{
+                    exceptArr.push(item);
+                }
             });
-            return this.fillGapBetweenCoordinates(ax.sort(sortFunction));
+            return this.fillGapBetweenCoordinates(ax.sort(sortFunction), exceptArr, minGap);
         }
+    }
+
+    private function isAppendable(minGap:int, ac:Array, item:int):Boolean{
+        for(var i:int=1;i<(minGap/Constants.FEN_MU * Constants.FEN_ZI);i++){
+            var i2:int = ac.indexOf((item + i));
+            if(i2 > 0){
+                return false;
+            }
+        }
+        return true;
     }
 
     private function sortFunction(a:int, b:int):int {

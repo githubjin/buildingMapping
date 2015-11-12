@@ -277,7 +277,7 @@
             }
         }
         this.newCoordinatesWhileRect.addAll(list);
-        this.addCoordinatesAndAddEventListener(this.newCoordinatesWhileRect);
+        this.addCoordinatesAndAddEventListener();
     }
 
     /**
@@ -289,9 +289,22 @@
      * @param b
      */
     private function listCoordinateBetweenSpacing(coordinateXorY:Number, start:Number, end:Number, field:String, b:Boolean):void {
-        var s:Number = (start < end ? start : end);
-        var e:Number = (start > end ? start : end);
-        var newC:Number = 0;
+
+        var startCoor:Number = (start < end ? start : end);
+        var endCoor:Number = (start > end ? start : end);
+        this.internalCoordinates.forEach(function(item:CoordinateVo, index:int, arr:Array):void{
+            if(field == "x"){
+                if(item.x > startCoor && item.x < endCoor){
+                    newCoordinatesWhileRect.addItem(new CoordinateVo(item.x, coordinateXorY));
+                }
+            }else{
+                if(endCoor > item.y && item.y > startCoor){
+                    newCoordinatesWhileRect.addItem(new CoordinateVo(coordinateXorY,item.y));
+                }
+            }
+        });
+
+        /*var newC:Number = 0;
         trace("s:" + s + " e:" + e + " :" + RoomReductionUtils.SPACING_X + " :" + RoomReductionUtils.SPACING_Y);
         if (field == "x") {
             if ((e - s) > RoomReductionUtils.SPACING_X) {
@@ -324,15 +337,15 @@
             }
         } else {
             return;
-        }
+        }*/
     }
 
     /**
      *  添加的新的提示坐标
      * @param coordinates
      */
-    private function addCoordinatesAndAddEventListener(coordinates:ArrayList):void {
-        coordinates.toArray().forEach(function (item:CoordinateVo, index:int, arr:Array):void {
+    private function addCoordinatesAndAddEventListener():void {
+        this.newCoordinatesWhileRect.toArray().forEach(function (item:CoordinateVo, index:int, arr:Array):void {
             var ellipseName:String = item.x + "_" + item.y;
             var childByName:DisplayObject = gcGroup.getChildByName(ellipseName);
             if (childByName == null) {
@@ -353,6 +366,27 @@
                 gcGroup.addElement(gra);
             }
         });
+    }
+
+    private function checkIsAppendable(item:CoordinateVo):Boolean{
+        var ellipseName:String = item.x + "_" + item.y;
+        var childByName:DisplayObject = gcGroup.getChildByName(ellipseName);
+        if (childByName != null){
+            return false;
+        }
+        var b:Boolean = true;
+        this._roomReductionCoordinates.toArray().forEach(function(coor:CoordinateVo, index:int, arr:Array):void{
+            if(item.x == coor.x){
+                if(Math.abs(item.y - coor.y) < RoomReductionUtils.SPACING_Y){
+                    b = false;
+                }
+            }else{
+                if(Math.abs(item.x - coor.x) < RoomReductionUtils.SPACING_X){
+                    b = false;
+                }
+            }
+        });
+        return b;
     }
 
     /**

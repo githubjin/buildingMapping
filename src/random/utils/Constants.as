@@ -37,5 +37,8 @@ public class Constants {
     // 坐标圆浮动大小
     public static var CUSTOM_RECT_OFFSET_XY:Number = 2;
 
+    public static var FEN_ZI:int = 1;
+    public static var FEN_MU:int = 1;
+
 }
 }
